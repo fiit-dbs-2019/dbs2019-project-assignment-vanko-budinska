@@ -65,8 +65,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HotelDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HotelDetail.Designer.cs">
+      <DependentUpon>HotelDetail.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bookme.resx">
       <DependentUpon>Bookme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotelDetail.resx">
+      <DependentUpon>HotelDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HotelPolozka.resx">
       <DependentUpon>HotelPolozka.cs</DependentUpon>

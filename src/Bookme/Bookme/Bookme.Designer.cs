@@ -45,6 +45,9 @@ namespace DesktopApp1
             this.btn_filter = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -62,7 +65,7 @@ namespace DesktopApp1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(819, 47);
+            this.button1.Location = new System.Drawing.Point(976, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 31);
             this.button1.TabIndex = 1;
@@ -131,24 +134,35 @@ namespace DesktopApp1
             // 
             // tbDestName
             // 
-            this.tbDestName.Location = new System.Drawing.Point(6, 36);
+            this.tbDestName.Location = new System.Drawing.Point(11, 49);
             this.tbDestName.Name = "tbDestName";
             this.tbDestName.Size = new System.Drawing.Size(236, 22);
             this.tbDestName.TabIndex = 8;
+            this.tbDestName.Text = "Destinacia";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(258, 37);
+            this.dateTimePicker1.Location = new System.Drawing.Point(286, 48);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(163, 22);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(643, 36);
+            this.numericUpDown1.Location = new System.Drawing.Point(741, 47);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(72, 22);
             this.numericUpDown1.TabIndex = 12;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // groupBox1
             // 
@@ -163,10 +177,12 @@ namespace DesktopApp1
             this.groupBox1.Size = new System.Drawing.Size(200, 272);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.btn_filter);
             this.groupBox2.Controls.Add(this.numericUpDown1);
@@ -174,21 +190,20 @@ namespace DesktopApp1
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Location = new System.Drawing.Point(229, 147);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(878, 102);
+            this.groupBox2.Size = new System.Drawing.Size(900, 102);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(446, 36);
+            this.dateTimePicker2.Location = new System.Drawing.Point(487, 49);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(163, 22);
             this.dateTimePicker2.TabIndex = 14;
             // 
             // btn_filter
             // 
-            this.btn_filter.Location = new System.Drawing.Point(733, 35);
+            this.btn_filter.Location = new System.Drawing.Point(819, 46);
             this.btn_filter.Name = "btn_filter";
             this.btn_filter.Size = new System.Drawing.Size(75, 23);
             this.btn_filter.TabIndex = 13;
@@ -202,10 +217,9 @@ namespace DesktopApp1
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1095, 129);
+            this.groupBox3.Size = new System.Drawing.Size(1117, 129);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
             // 
             // flowLayoutPanel1
             // 
@@ -213,15 +227,42 @@ namespace DesktopApp1
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(229, 255);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(878, 488);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(900, 500);
             this.flowLayoutPanel1.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(253, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Od";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(455, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 17);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Do";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(656, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 17);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Pocet osob";
             // 
             // Bookme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1119, 780);
+            this.ClientSize = new System.Drawing.Size(1152, 780);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -259,6 +300,9 @@ namespace DesktopApp1
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button btn_filter;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -13,9 +13,10 @@ namespace DesktopApp1
 {
     public partial class HotelPolozka : UserControl
     {
-        
-        public HotelPolozka()
+        private Bookme s;
+        public HotelPolozka(Bookme par)
         {
+            s = par;
             InitializeComponent();
         }
 
@@ -63,11 +64,14 @@ namespace DesktopApp1
             set { _img = value; picBox.Image = value; }
         }
 
+
         #endregion
 
         private void btnVybrat_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Polozka" + this.HotelNazov);
+            s.clearPanel();
+            s.addControl(new HotelDetail());
         }
     }
 }

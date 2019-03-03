@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HotelPolozka));
             this.lblNazov = new System.Windows.Forms.Label();
             this.btnVybrat = new System.Windows.Forms.Button();
             this.lblHviez = new System.Windows.Forms.Label();
@@ -73,6 +74,9 @@
             // 
             // picBox
             // 
+            this.picBox.Image = ((System.Drawing.Image)(resources.GetObject("picBox.Image")));
+            this.picBox.ImageLocation = "";
+            this.picBox.InitialImage = null;
             this.picBox.Location = new System.Drawing.Point(25, 25);
             this.picBox.Name = "picBox";
             this.picBox.Size = new System.Drawing.Size(150, 150);
@@ -153,7 +157,6 @@
 
         #endregion
         private System.Windows.Forms.Label lblNazov;
-        private System.Windows.Forms.Button btnVybrat;
         private System.Windows.Forms.Label lblHviez;
         private System.Windows.Forms.PictureBox picBox;
         private System.Windows.Forms.Label lblHodn;
@@ -161,5 +164,6 @@
         private System.Windows.Forms.RichTextBox rtbPopis;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        public System.Windows.Forms.Button btnVybrat;
     }
 }
