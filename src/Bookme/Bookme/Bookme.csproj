@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\PostgreSQL\Npgsql\bin\net45\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -57,6 +60,7 @@
     <Compile Include="Bookme.Designer.cs">
       <DependentUpon>Bookme.cs</DependentUpon>
     </Compile>
+    <Compile Include="psq_q.cs" />
     <Compile Include="HotelPolozka.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -22,3 +22,8 @@ C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.
 C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csproj.CoreCompileInputs.cache
 C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.exe
 C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.pdb
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\Npgsql.dll
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\Npgsql.pdb
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\Npgsql.xml
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csproj.CopyComplete

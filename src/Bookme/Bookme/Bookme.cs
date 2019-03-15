@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PgSql;
 // This is the code for your desktop app.
 // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
 
@@ -23,12 +24,8 @@ namespace DesktopApp1
         }
 
         HotelDetail hdet = new HotelDetail();
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Thanks!");
-        }
-
+        PostGreSQL db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
+        
         private void btn_filter_Click_1(object sender, EventArgs e)
         {
             /* Po kliknuti na tlacidlo je treba zistit zaznamy ktore vyhovuju vyhladavaniu
@@ -38,7 +35,12 @@ namespace DesktopApp1
              * 
              * */
             naplPonuku(int.Parse(tbDestName.Text));
-            
+            List<string> result = db_conn.Query("SELECT * FROM public.izby");
+            foreach (string res in result) {
+                Debug.Write(res);
+            }
+
+
         }
 
         public void clearPanel()
