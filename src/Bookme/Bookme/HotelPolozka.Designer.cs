@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HotelPolozka));
             this.lblNazov = new System.Windows.Forms.Label();
             this.btnVybrat = new System.Windows.Forms.Button();
             this.lblHviez = new System.Windows.Forms.Label();
@@ -74,7 +73,6 @@
             // 
             // picBox
             // 
-            this.picBox.Image = ((System.Drawing.Image)(resources.GetObject("picBox.Image")));
             this.picBox.ImageLocation = "";
             this.picBox.InitialImage = null;
             this.picBox.Location = new System.Drawing.Point(25, 25);

@@ -41,13 +41,13 @@ namespace DesktopApp1
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.btn_filter = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -57,7 +57,7 @@ namespace DesktopApp1
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(11, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(119, 97);
             this.pictureBox1.TabIndex = 0;
@@ -65,7 +65,7 @@ namespace DesktopApp1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(976, 47);
+            this.button1.Location = new System.Drawing.Point(980, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 31);
             this.button1.TabIndex = 1;
@@ -134,7 +134,7 @@ namespace DesktopApp1
             // 
             // tbDestName
             // 
-            this.tbDestName.Location = new System.Drawing.Point(11, 49);
+            this.tbDestName.Location = new System.Drawing.Point(6, 21);
             this.tbDestName.Name = "tbDestName";
             this.tbDestName.Size = new System.Drawing.Size(236, 22);
             this.tbDestName.TabIndex = 8;
@@ -142,14 +142,14 @@ namespace DesktopApp1
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(286, 48);
+            this.dateTimePicker1.Location = new System.Drawing.Point(281, 21);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(163, 22);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(741, 47);
+            this.numericUpDown1.Location = new System.Drawing.Point(736, 22);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -172,9 +172,9 @@ namespace DesktopApp1
             this.groupBox1.Controls.Add(this.checkBox5);
             this.groupBox1.Controls.Add(this.checkBox6);
             this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 139);
+            this.groupBox1.Location = new System.Drawing.Point(12, 123);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 272);
+            this.groupBox1.Size = new System.Drawing.Size(200, 288);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
@@ -188,22 +188,49 @@ namespace DesktopApp1
             this.groupBox2.Controls.Add(this.numericUpDown1);
             this.groupBox2.Controls.Add(this.tbDestName);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Location = new System.Drawing.Point(229, 147);
+            this.groupBox2.Location = new System.Drawing.Point(229, 126);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(900, 102);
+            this.groupBox2.Size = new System.Drawing.Size(900, 58);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(651, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 17);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Pocet osob";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(450, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 17);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Do";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(248, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Od";
+            // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(487, 49);
+            this.dateTimePicker2.Location = new System.Drawing.Point(482, 21);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(163, 22);
             this.dateTimePicker2.TabIndex = 14;
             // 
             // btn_filter
             // 
-            this.btn_filter.Location = new System.Drawing.Point(819, 46);
+            this.btn_filter.Location = new System.Drawing.Point(819, 22);
             this.btn_filter.Name = "btn_filter";
             this.btn_filter.Size = new System.Drawing.Size(75, 23);
             this.btn_filter.TabIndex = 13;
@@ -217,7 +244,7 @@ namespace DesktopApp1
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1117, 129);
+            this.groupBox3.Size = new System.Drawing.Size(1117, 108);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             // 
@@ -225,44 +252,17 @@ namespace DesktopApp1
             // 
             this.flowLayoutPanel1.AllowDrop = true;
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(229, 255);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(229, 190);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(900, 500);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(900, 760);
             this.flowLayoutPanel1.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(253, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Od";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(455, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 17);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Do";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(656, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 17);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Pocet osob";
             // 
             // Bookme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1152, 780);
+            this.ClientSize = new System.Drawing.Size(1152, 962);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

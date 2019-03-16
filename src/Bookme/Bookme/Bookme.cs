@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PgSql;
@@ -20,7 +22,6 @@ namespace DesktopApp1
         public Bookme()
         {
             InitializeComponent();
-            naplPonuku(10);
         }
 
         HotelDetail hdet = new HotelDetail();
@@ -34,12 +35,9 @@ namespace DesktopApp1
              * 
              * 
              * */
-            naplPonuku(int.Parse(tbDestName.Text));
+            
             List<string> result = db_conn.Query("SELECT * FROM public.izby");
-            foreach (string res in result) {
-                Debug.Write(res);
-            }
-
+            naplPonuku(result);
 
         }
 
@@ -53,15 +51,33 @@ namespace DesktopApp1
             flowLayoutPanel1.Controls.Add(item);
         }
 
-        public void naplPonuku(int pocet)
+        public void naplPonuku(List<string> data)
         {
+            /*
+             * Spravit vseobecne nejak na zaklade nazvu stlpca tahanie dat
+             * 
+             */
             clearPanel();
-            HotelPolozka[] polozky = new HotelPolozka[pocet];
-            for (int i = 0; i < polozky.Length; i++)
+            HotelPolozka[] polozky = new HotelPolozka[data.Count];
+            string[] r_data;
+            WebRequest request;
+            WebResponse response;
+            Stream str;
+            Debug.Write(data.Count);
+            for (int i = 0; i < data.Count; i++)
             {
                 polozky[i] = new HotelPolozka(this);
-                polozky[i].HotelNazov = "Nazov" + i;
+                r_data = data[i].Split(',');
+                request = WebRequest.Create(r_data[10]);
+                response = request.GetResponse();
+                str = response.GetResponseStream();
+                polozky[i].Img = Bitmap.FromStream(str);
+                
+                polozky[i].HotelNazov = r_data[9];
+                for (int j = 0; j < Int32.Parse(r_data[8]); j++)
+                    polozky[i].Hviezdicky += "*";
                 addControl(polozky[i]);
+                
             }
         }
     }
