@@ -22,6 +22,8 @@ namespace DesktopApp1
         public Bookme()
         {
             InitializeComponent();
+            List<string> result = db_conn.Query("SELECT * FROM public.izby");
+            naplPonuku(result);
         }
 
         HotelDetail hdet = new HotelDetail();
@@ -36,8 +38,8 @@ namespace DesktopApp1
              * 
              * */
             
-            List<string> result = db_conn.Query("SELECT * FROM public.izby");
-            naplPonuku(result);
+            //List<string> result = db_conn.Query("SELECT * FROM public.izby");
+            //naplPonuku(result);
 
         }
 
