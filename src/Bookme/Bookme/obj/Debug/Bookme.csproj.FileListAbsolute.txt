@@ -1,0 +1,29 @@
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\bin\Debug\DesktopApp1.exe.config
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\bin\Debug\DesktopApp1.exe
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\bin\Debug\DesktopApp1.pdb
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csprojAssemblyReference.cache
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.Bookme.resources
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.HotelPolozka.resources
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.Properties.Resources.resources
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csproj.GenerateResource.cache
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csproj.CoreCompileInputs.cache
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.exe
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.pdb
+C:\Users\Martin\Desktop\Skola\6 Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.HotelDetail.resources
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\DesktopApp1.exe.config
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\DesktopApp1.exe
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\DesktopApp1.pdb
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csprojAssemblyReference.cache
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.Bookme.resources
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.HotelDetail.resources
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.HotelPolozka.resources
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.Properties.Resources.resources
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csproj.GenerateResource.cache
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csproj.CoreCompileInputs.cache
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.exe
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.pdb
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\Npgsql.dll
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\Npgsql.pdb
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\Npgsql.xml
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csproj.CopyComplete
