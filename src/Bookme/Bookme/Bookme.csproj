@@ -60,13 +60,13 @@
     <Compile Include="Bookme.Designer.cs">
       <DependentUpon>Bookme.cs</DependentUpon>
     </Compile>
-    <Compile Include="psq_q.cs" />
     <Compile Include="HotelPolozka.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="HotelPolozka.Designer.cs">
       <DependentUpon>HotelPolozka.cs</DependentUpon>
     </Compile>
+    <Compile Include="PgSql.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HotelDetail.cs">

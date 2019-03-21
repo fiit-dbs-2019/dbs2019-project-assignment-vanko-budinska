@@ -70,13 +70,13 @@ namespace DesktopApp1
             {
                 polozky[i] = new HotelPolozka(this);
                 r_data = data[i].Split(',');
-                request = WebRequest.Create(r_data[10]);
+                request = WebRequest.Create(r_data[9]);
                 response = request.GetResponse();
                 str = response.GetResponseStream();
                 polozky[i].Img = Bitmap.FromStream(str);
                 
-                polozky[i].HotelNazov = r_data[9];
-                for (int j = 0; j < Int32.Parse(r_data[8]); j++)
+                polozky[i].HotelNazov = r_data[8];
+                for (int j = 0; j < Int32.Parse(r_data[7]); j++)
                     polozky[i].Hviezdicky += "*";
                 addControl(polozky[i]);
                 
