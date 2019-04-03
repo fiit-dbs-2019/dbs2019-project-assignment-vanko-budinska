@@ -145,7 +145,7 @@ namespace DesktopApp1
             // 
             // tbDestName
             // 
-            this.tbDestName.Location = new System.Drawing.Point(6, 25);
+            this.tbDestName.Location = new System.Drawing.Point(6, 21);
             this.tbDestName.Name = "tbDestName";
             this.tbDestName.Size = new System.Drawing.Size(188, 22);
             this.tbDestName.TabIndex = 8;

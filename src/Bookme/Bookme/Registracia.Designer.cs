@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_meno = new System.Windows.Forms.TextBox();
+            this.tb_priezvisko = new System.Windows.Forms.TextBox();
+            this.tb_email = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_heslo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_registracia = new System.Windows.Forms.Button();
@@ -42,26 +42,26 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tb_meno
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(137, 22);
-            this.textBox1.TabIndex = 0;
+            this.tb_meno.Location = new System.Drawing.Point(98, 24);
+            this.tb_meno.Name = "tb_meno";
+            this.tb_meno.Size = new System.Drawing.Size(137, 22);
+            this.tb_meno.TabIndex = 0;
             // 
-            // textBox2
+            // tb_priezvisko
             // 
-            this.textBox2.Location = new System.Drawing.Point(98, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(137, 22);
-            this.textBox2.TabIndex = 1;
+            this.tb_priezvisko.Location = new System.Drawing.Point(98, 55);
+            this.tb_priezvisko.Name = "tb_priezvisko";
+            this.tb_priezvisko.Size = new System.Drawing.Size(137, 22);
+            this.tb_priezvisko.TabIndex = 1;
             // 
-            // textBox3
+            // tb_email
             // 
-            this.textBox3.Location = new System.Drawing.Point(98, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(137, 22);
-            this.textBox3.TabIndex = 2;
+            this.tb_email.Location = new System.Drawing.Point(98, 83);
+            this.tb_email.Name = "tb_email";
+            this.tb_email.Size = new System.Drawing.Size(137, 22);
+            this.tb_email.TabIndex = 2;
             // 
             // label1
             // 
@@ -90,12 +90,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "E-mail";
             // 
-            // textBox4
+            // tb_heslo
             // 
-            this.textBox4.Location = new System.Drawing.Point(98, 111);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(137, 22);
-            this.textBox4.TabIndex = 6;
+            this.tb_heslo.Location = new System.Drawing.Point(98, 111);
+            this.tb_heslo.Name = "tb_heslo";
+            this.tb_heslo.Size = new System.Drawing.Size(137, 22);
+            this.tb_heslo.TabIndex = 6;
+            this.tb_heslo.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -109,13 +110,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btn_registracia);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tb_meno);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.tb_priezvisko);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.tb_heslo);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.tb_email);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(33, 53);
             this.groupBox1.Name = "groupBox1";
@@ -160,13 +161,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_meno;
+        private System.Windows.Forms.TextBox tb_priezvisko;
+        private System.Windows.Forms.TextBox tb_email;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tb_heslo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_registracia;
