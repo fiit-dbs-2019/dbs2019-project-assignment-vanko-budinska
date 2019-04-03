@@ -21,15 +21,16 @@ namespace DesktopApp1
 {
     public partial class Bookme : Form
     {
+        private PostGreSQL db_conn;
         public Bookme()
         {
             InitializeComponent();
+            db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
             //List<string> result = db_conn.Query("SELECT * FROM public.izby");
             //naplPonuku(result);
         }
 
         HotelDetail hdet = new HotelDetail();
-        PostGreSQL db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
         
         private void btn_filter_Click_1(object sender, EventArgs e)
         {
@@ -113,6 +114,40 @@ namespace DesktopApp1
             Registracia reg_Control = new Registracia();
             Reg_Form reg_form = new Reg_Form(reg_Control);
             reg_form.ShowDialog();
+        }
+
+        private void btn_prihlas_Click(object sender, EventArgs e)
+        {
+            string q = String.Format("SELECT meno, priezvisko, email, passwd FROM public.pouzivatel WHERE email = '{0}'", tb_email.Text);
+            string passwd = tb_heslo.Text;         
+            List<string> response = db_conn.Query(q);
+            /*
+             * response list[0] : meno
+             *          list[1] : priezvisko
+             *          list[2] : email
+             *          list[3] : passwd
+             */
+            if(response[3] != passwd)
+            {
+                
+            }
+                
+            foreach (var str in response)
+                MessageBox.Show(str);
+            //najst v DB, porovnat heslo, ak sedi tak zmenit hlavicku a ulozit udaje
+            Prihlaseny_hlavicka phlav_Control = new Prihlaseny_hlavicka();
+        }
+
+        private void print_message(string message)
+        {
+            string caption = "Chyba prihlasenia";
+            MessageBoxButton button = MessageBoxButton.OK;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, button);
+            if(result == System.Windows.Forms.DialogResult.OK)
+            {
+                this.Close();
+            }
         }
     }
 }

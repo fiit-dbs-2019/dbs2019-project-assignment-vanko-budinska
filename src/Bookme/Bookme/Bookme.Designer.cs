@@ -29,7 +29,7 @@ namespace DesktopApp1
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_prihlas = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -57,6 +57,10 @@ namespace DesktopApp1
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.tb_heslo = new System.Windows.Forms.TextBox();
+            this.tb_email = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -74,14 +78,15 @@ namespace DesktopApp1
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btn_prihlas
             // 
-            this.button1.Location = new System.Drawing.Point(994, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 31);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Prihlasit sa";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_prihlas.Location = new System.Drawing.Point(998, 14);
+            this.btn_prihlas.Name = "btn_prihlas";
+            this.btn_prihlas.Size = new System.Drawing.Size(113, 27);
+            this.btn_prihlas.TabIndex = 1;
+            this.btn_prihlas.Text = "Prihlasit sa";
+            this.btn_prihlas.UseVisualStyleBackColor = true;
+            this.btn_prihlas.Click += new System.EventHandler(this.btn_prihlas_Click);
             // 
             // checkBox1
             // 
@@ -245,9 +250,13 @@ namespace DesktopApp1
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.tb_email);
+            this.groupBox3.Controls.Add(this.tb_heslo);
             this.groupBox3.Controls.Add(this.btn_registracia);
             this.groupBox3.Controls.Add(this.pictureBox1);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.btn_prihlas);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1117, 108);
@@ -256,9 +265,9 @@ namespace DesktopApp1
             // 
             // btn_registracia
             // 
-            this.btn_registracia.Location = new System.Drawing.Point(871, 21);
+            this.btn_registracia.Location = new System.Drawing.Point(998, 75);
             this.btn_registracia.Name = "btn_registracia";
-            this.btn_registracia.Size = new System.Drawing.Size(113, 31);
+            this.btn_registracia.Size = new System.Drawing.Size(113, 27);
             this.btn_registracia.TabIndex = 2;
             this.btn_registracia.Text = "Registrujte sa";
             this.btn_registracia.UseVisualStyleBackColor = true;
@@ -370,6 +379,39 @@ namespace DesktopApp1
             this.button3.Text = "Vybrat";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // tb_heslo
+            // 
+            this.tb_heslo.Location = new System.Drawing.Point(892, 16);
+            this.tb_heslo.Name = "tb_heslo";
+            this.tb_heslo.Size = new System.Drawing.Size(100, 22);
+            this.tb_heslo.TabIndex = 3;
+            this.tb_heslo.UseSystemPasswordChar = true;
+            // 
+            // tb_email
+            // 
+            this.tb_email.Location = new System.Drawing.Point(736, 16);
+            this.tb_email.Name = "tb_email";
+            this.tb_email.Size = new System.Drawing.Size(100, 22);
+            this.tb_email.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(683, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 17);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "E-mail";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(842, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 17);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Heslo";
+            // 
             // Bookme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -391,6 +433,7 @@ namespace DesktopApp1
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
@@ -402,7 +445,7 @@ namespace DesktopApp1
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_prihlas;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
@@ -430,6 +473,10 @@ namespace DesktopApp1
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tb_email;
+        private System.Windows.Forms.TextBox tb_heslo;
     }
 }
 

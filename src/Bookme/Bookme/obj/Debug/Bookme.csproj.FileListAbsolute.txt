@@ -28,3 +28,4 @@ C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\bin\Debug\Npgsql.
 C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\Bookme.csproj.CopyComplete
 C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.Registracia.resources
 C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.Bookme.resources
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.Prihlaseny_hlavicka.resources
