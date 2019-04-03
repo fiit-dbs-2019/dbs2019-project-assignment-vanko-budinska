@@ -75,6 +75,15 @@
     <Compile Include="HotelDetail.Designer.cs">
       <DependentUpon>HotelDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registracia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Registracia.Designer.cs">
+      <DependentUpon>Registracia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reg_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="Bookme.resx">
       <DependentUpon>Bookme.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +102,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Registracia.resx">
+      <DependentUpon>Registracia.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

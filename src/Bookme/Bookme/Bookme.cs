@@ -9,7 +9,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using PgSql;
 // This is the code for your desktop app.
@@ -22,8 +24,8 @@ namespace DesktopApp1
         public Bookme()
         {
             InitializeComponent();
-            List<string> result = db_conn.Query("SELECT * FROM public.izby");
-            naplPonuku(result);
+            //List<string> result = db_conn.Query("SELECT * FROM public.izby");
+            //naplPonuku(result);
         }
 
         HotelDetail hdet = new HotelDetail();
@@ -37,9 +39,14 @@ namespace DesktopApp1
              * 
              * 
              * */
-            
+
             //List<string> result = db_conn.Query("SELECT * FROM public.izby");
             //naplPonuku(result);
+            /*
+             * select column_name,data_type 
+                from information_schema.columns 
+                where table_name = 'table_name';
+            */
 
         }
 
@@ -81,6 +88,31 @@ namespace DesktopApp1
                 addControl(polozky[i]);
                 
             }
+        }
+        
+        private void btn_filter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reg_form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_registracia_Click_1(object sender, EventArgs e)
+        {
+            Thread th_reg = new Thread(new ThreadStart(Start_Reg));
+            th_reg.Start();
+            th_reg.Join();
+            //this.Hide();
+        }
+
+        private void Start_Reg()
+        {
+            Registracia reg_Control = new Registracia();
+            Reg_Form reg_form = new Reg_Form(reg_Control);
+            reg_form.ShowDialog();
         }
     }
 }

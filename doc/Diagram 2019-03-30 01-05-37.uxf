@@ -1,0 +1,82 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>786</x><y>460</y><w>160</w><h>180</h></coordinates><panel_attributes>Izba
+--
+&lt;&lt;PK&gt;&gt; id: int
+rozloha: int
+typ_lozka: text
+kapacita: int
+wifi: bool
+tv: bool
+parkovisko: bool
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>76</x><y>210</y><w>160</w><h>170</h></coordinates><panel_attributes>Rezervacia
+--
+&lt;&lt;PK&gt;&gt; id: int
+od: DATE
+do: DATE
+&lt;&lt;FK&gt;&gt; id_pouzivatel: int
+&lt;&lt;FK&gt;&gt; id_ubytovanie: int
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>76</x><y>460</y><w>160</w><h>110</h></coordinates><panel_attributes>Pouzivatel
+--
+&lt;&lt;PK&gt;&gt; id: int
+meno: text
+priezvisko: text
+email: text
+passwd: text
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>596</x><y>460</y><w>160</w><h>180</h></coordinates><panel_attributes>Cena
+--
+&lt;&lt;PK&gt;&gt; id: int
+od: DATE
+cena_od: double
+do: DATE
+cena_do: double
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>460</y><w>160</w><h>80</h></coordinates><panel_attributes>Destinacia
+--
+&lt;&lt;PK&gt;&gt; id: int
+nazov: text
+&lt;&lt;FK&gt;&gt; id_stat: int
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>610</y><w>160</w><h>70</h></coordinates><panel_attributes>Stat
+--
+&lt;&lt;PK&gt;&gt; id: int
+nazov: text
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>396</x><y>530</y><w>50</w><h>100</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>396</x><y>390</y><w>50</w><h>90</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>226</x><y>240</y><w>130</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>146</x><y>370</y><w>50</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>486</x><y>290</y><w>220</w><h>190</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;180;10;180;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>210</y><w>160</w><h>190</h></coordinates><panel_attributes>Ubytovanie
+--
+&lt;&lt;PK&gt;&gt; id: int
+nazov: text
+pocet_hviezdiciek: int
+hodnotenie: float
+adresa: text
+popis: text
+obr_url: text
+&lt;&lt;FK&gt;&gt; id_destinacia: int
+&lt;&lt;FK&gt;&gt; id_cena: int
+&lt;&lt;FK&gt;&gt; id_izba: int
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>486</x><y>240</y><w>420</w><h>240</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;380;10;380;220</additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>50</y><w>160</w><h>90</h></coordinates><panel_attributes>Typ_ubytovania
+--
+&lt;&lt;PK&gt;&gt; id: int
+nazov: text
+&lt;&lt;FK&gt;&gt; id_ubytovanie: int
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>406</x><y>130</y><w>50</w><h>100</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element></diagram>
