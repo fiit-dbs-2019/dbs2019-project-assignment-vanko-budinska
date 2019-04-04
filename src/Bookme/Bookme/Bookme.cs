@@ -11,7 +11,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
 using PgSql;
 // This is the code for your desktop app.
@@ -26,6 +25,7 @@ namespace DesktopApp1
         {
             InitializeComponent();
             db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
+            naplPonuku();
             //List<string> result = db_conn.Query("SELECT * FROM public.izby");
             //naplPonuku(result);
         }
@@ -61,32 +61,54 @@ namespace DesktopApp1
             panel.Controls.Add(item);
         }
 
-        public void naplPonuku(List<string> data)
+        public void naplPonuku()
         {
-            /*
-             * Spravit vseobecne nejak na zaklade nazvu stlpca tahanie dat
+            /* Do ponuky po 15 poloziek
+             * 
+             * 
              * 
              */
+            List<string> data = db_conn.Query("SELECT * FROM public.ubytovanie LIMIT 10;");
+            List<string[]> data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie LIMIT 10;"));
+            List<string> riadok;
             clearPanel(flowLayoutPanel1);
-            HotelPolozka[] polozky = new HotelPolozka[data.Count];
+            HotelPolozka[] polozky_control = new HotelPolozka[data.Count];
+            Ubytovanie[] polozky_ubytovania = new Ubytovanie[data.Count];
             string[] r_data;
+            string[] r_data_arr;
             WebRequest request;
             WebResponse response;
             Stream str;
             Debug.Write(data.Count);
+
             for (int i = 0; i < data.Count; i++)
             {
-                polozky[i] = new HotelPolozka(this);
-                r_data = data[i].Split(',');
-                request = WebRequest.Create(r_data[9]);
+                /*
+                 * Riadok:  [0] - id
+                 *          [1] - nazov
+                 *          [2] - pocet_hviezdiciek
+                 *          [3] - hodnorenie
+                 *          [4] - adresa
+                 *          [5] - popis
+                 *          [6] - obr_urls[]
+                 *          [7] - id_destinacia
+                 *          [8] - id_typ_ubytovania
+                 */
+                riadok = parse_response(data[i]);
+                //System.Windows.MessageBox.Show(riadok[6]);
+                polozky_ubytovania[i] = new Ubytovanie(Int32.Parse(riadok[0]), riadok[1], Int32.Parse(riadok[2]), float.Parse(riadok[3]), riadok[4], riadok[5], data_arr[i], Int32.Parse(riadok[7]), Int32.Parse(riadok[8]));
+                //System.Windows.MessageBox.Show(polozky_ubytovania[]);
+                
+                polozky_control[i] = new HotelPolozka(this);
+                request = WebRequest.Create(polozky_ubytovania[i].main_url);
                 response = request.GetResponse();
                 str = response.GetResponseStream();
-                polozky[i].Img = Bitmap.FromStream(str);
-                
-                polozky[i].HotelNazov = r_data[8];
-                for (int j = 0; j < Int32.Parse(r_data[7]); j++)
-                    polozky[i].Hviezdicky += "*";
-                addControl(flowLayoutPanel1, polozky[i]);
+                polozky_control[i].Img = Bitmap.FromStream(str);
+
+                polozky_control[i].HotelNazov = polozky_ubytovania[i].nazov;
+                for (int j = 0; j < polozky_ubytovania[i].pocet_hviezdiciek; j++)
+                    polozky_control[i].Hviezdicky += "*";
+                addControl(flowLayoutPanel1, polozky_control[i]);
                 
             }
         }
@@ -168,9 +190,12 @@ namespace DesktopApp1
         private List<string> parse_response(string response)
         {
             List<string> str = new List<string>();
-            string[] parsed = response.Split(',');
-            foreach (var s in parsed)
+            string[] parsed = response.Split(';');
+            MessageBox.Show(response);
+            foreach (string s in parsed)
+            {
                 str.Add(s);
+            }
             return str;
         }
     }
