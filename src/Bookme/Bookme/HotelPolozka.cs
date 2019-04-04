@@ -26,6 +26,7 @@ namespace DesktopApp1
         private string _popis;
         private string _hviezdicky;
         private float _hodnotenie;
+        private string _destinacia;
         private float _cena; 
         private Image _img;
 
@@ -35,6 +36,13 @@ namespace DesktopApp1
         {
             get { return _hotelNazov; }
             set { _hotelNazov = value; lblNazov.Text = value; }
+        }
+
+        [Category("Custom props")]
+        public string Destinacia
+        {
+            get { return _destinacia; }
+            set { _destinacia = value; lbl_destinacia.Text = value; }
         }
 
         [Category("Custom props")]

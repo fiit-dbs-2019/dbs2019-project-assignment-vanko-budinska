@@ -71,6 +71,8 @@ namespace DesktopApp1
             List<string> data = db_conn.Query("SELECT * FROM public.ubytovanie LIMIT 10;");
             List<string[]> data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie LIMIT 10;"));
             List<string> riadok;
+            List<string> dst;
+            string destinacia;
             clearPanel(flowLayoutPanel1);
             HotelPolozka[] polozky_control = new HotelPolozka[data.Count];
             Ubytovanie[] polozky_ubytovania = new Ubytovanie[data.Count];
@@ -95,6 +97,10 @@ namespace DesktopApp1
                  *          [8] - id_typ_ubytovania
                  */
                 riadok = parse_response(data[i]);
+                dst = db_conn.Query(String.Format("SELECT * FROM public.destinacia d INNER JOIN public.stat s ON d.id_stat = s.id WHERE d.id = '{0}';", Int32.Parse(riadok[7])));
+                dst = parse_response(dst[0]);
+
+                destinacia = dst[0] + " " + dst[1] + " " + dst[2] + ", " + dst[4];
                 //System.Windows.MessageBox.Show(riadok[6]);
                 polozky_ubytovania[i] = new Ubytovanie(Int32.Parse(riadok[0]), riadok[1], Int32.Parse(riadok[2]), float.Parse(riadok[3]), riadok[4], riadok[5], data_arr[i], Int32.Parse(riadok[7]), Int32.Parse(riadok[8]));
                 //System.Windows.MessageBox.Show(polozky_ubytovania[]);
@@ -108,6 +114,7 @@ namespace DesktopApp1
                 polozky_control[i].HotelNazov = polozky_ubytovania[i].nazov;
                 polozky_control[i].Hodnotenie = polozky_ubytovania[i].hodnotenie;
                 polozky_control[i].Popis = polozky_ubytovania[i].popis;
+                polozky_control[i].Destinacia = destinacia;
                 for (int j = 0; j < polozky_ubytovania[i].pocet_hviezdiciek; j++)
                     polozky_control[i].Hviezdicky += "*";
                 addControl(flowLayoutPanel1, polozky_control[i]);
@@ -193,7 +200,6 @@ namespace DesktopApp1
         {
             List<string> str = new List<string>();
             string[] parsed = response.Split(';');
-            MessageBox.Show(response);
             foreach (string s in parsed)
             {
                 str.Add(s);

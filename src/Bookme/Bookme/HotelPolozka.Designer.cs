@@ -39,6 +39,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbl_destinacia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +68,7 @@
             // 
             this.lblHviez.AutoSize = true;
             this.lblHviez.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblHviez.Location = new System.Drawing.Point(81, 0);
+            this.lblHviez.Location = new System.Drawing.Point(83, 0);
             this.lblHviez.Name = "lblHviez";
             this.lblHviez.Size = new System.Drawing.Size(71, 18);
             this.lblHviez.TabIndex = 3;
@@ -127,10 +128,12 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.lblNazov);
+            this.flowLayoutPanel1.Controls.Add(this.lbl_destinacia);
             this.flowLayoutPanel1.Controls.Add(this.lblHviez);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(215, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(423, 53);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(622, 53);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // label1
@@ -154,6 +157,15 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Cena";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_destinacia
+            // 
+            this.lbl_destinacia.AutoSize = true;
+            this.lbl_destinacia.Location = new System.Drawing.Point(3, 29);
+            this.lbl_destinacia.Name = "lbl_destinacia";
+            this.lbl_destinacia.Size = new System.Drawing.Size(74, 17);
+            this.lbl_destinacia.TabIndex = 4;
+            this.lbl_destinacia.Text = "Destinacia";
             // 
             // HotelPolozka
             // 
@@ -191,5 +203,6 @@
         public System.Windows.Forms.Button btnVybrat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_destinacia;
     }
 }
