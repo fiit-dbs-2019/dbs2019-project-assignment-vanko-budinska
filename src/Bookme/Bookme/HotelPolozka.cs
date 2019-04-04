@@ -70,8 +70,8 @@ namespace DesktopApp1
         private void btnVybrat_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Polozka" + this.HotelNazov);
-            s.clearPanel();
-            s.addControl(new HotelDetail());
+            s.clearPanel(flowLayoutPanel1);
+            s.addControl(flowLayoutPanel1 ,new HotelDetail());
         }
     }
 }

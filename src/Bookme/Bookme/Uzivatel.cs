@@ -6,17 +6,21 @@ using System.Threading.Tasks;
 
 namespace DesktopApp1
 {
-    class Uzivatel
+    public class Uzivatel
     {
-        private string meno;
-        private string priezvisko;
-        private string mail;
+        public string meno { get; private set; }
+        public string priezvisko { get; private set; }
+        public string mail { get; private set; }
 
-        Uzivatel(string meno, string priezvisko, string mail)
+       
+
+        public Uzivatel(string meno, string priezvisko, string mail)
         {
             this.meno = meno;
             this.priezvisko = priezvisko;
             this.mail = mail;
         }
+
+
     }
 }

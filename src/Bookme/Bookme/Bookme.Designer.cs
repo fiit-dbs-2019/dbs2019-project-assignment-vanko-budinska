@@ -47,6 +47,10 @@ namespace DesktopApp1
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.btn_filter = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_email = new System.Windows.Forms.TextBox();
+            this.tb_heslo = new System.Windows.Forms.TextBox();
             this.btn_registracia = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dalej = new System.Windows.Forms.Button();
@@ -57,10 +61,7 @@ namespace DesktopApp1
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.tb_heslo = new System.Windows.Forms.TextBox();
-            this.tb_email = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.flp_prihlaseny = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -257,11 +258,44 @@ namespace DesktopApp1
             this.groupBox3.Controls.Add(this.btn_registracia);
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Controls.Add(this.btn_prihlas);
-            this.groupBox3.Location = new System.Drawing.Point(12, 12);
+            this.groupBox3.Location = new System.Drawing.Point(12, 20);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1117, 108);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(816, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 17);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Heslo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(617, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 17);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "E-mail";
+            // 
+            // tb_email
+            // 
+            this.tb_email.Location = new System.Drawing.Point(670, 16);
+            this.tb_email.Name = "tb_email";
+            this.tb_email.Size = new System.Drawing.Size(140, 22);
+            this.tb_email.TabIndex = 4;
+            // 
+            // tb_heslo
+            // 
+            this.tb_heslo.Location = new System.Drawing.Point(866, 16);
+            this.tb_heslo.Name = "tb_heslo";
+            this.tb_heslo.Size = new System.Drawing.Size(126, 22);
+            this.tb_heslo.TabIndex = 3;
+            this.tb_heslo.UseSystemPasswordChar = true;
             // 
             // btn_registracia
             // 
@@ -379,38 +413,12 @@ namespace DesktopApp1
             this.button3.Text = "Vybrat";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // tb_heslo
+            // flp_prihlaseny
             // 
-            this.tb_heslo.Location = new System.Drawing.Point(892, 16);
-            this.tb_heslo.Name = "tb_heslo";
-            this.tb_heslo.Size = new System.Drawing.Size(100, 22);
-            this.tb_heslo.TabIndex = 3;
-            this.tb_heslo.UseSystemPasswordChar = true;
-            // 
-            // tb_email
-            // 
-            this.tb_email.Location = new System.Drawing.Point(736, 16);
-            this.tb_email.Name = "tb_email";
-            this.tb_email.Size = new System.Drawing.Size(100, 22);
-            this.tb_email.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(683, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 17);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "E-mail";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(842, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 17);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Heslo";
+            this.flp_prihlaseny.Location = new System.Drawing.Point(12, 20);
+            this.flp_prihlaseny.Name = "flp_prihlaseny";
+            this.flp_prihlaseny.Size = new System.Drawing.Size(1117, 108);
+            this.flp_prihlaseny.TabIndex = 0;
             // 
             // Bookme
             // 
@@ -418,13 +426,14 @@ namespace DesktopApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1152, 1017);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.spat);
             this.Controls.Add(this.dalej);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.flp_prihlaseny);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Bookme";
             this.Text = "Bookme";
@@ -477,6 +486,7 @@ namespace DesktopApp1
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_email;
         private System.Windows.Forms.TextBox tb_heslo;
+        private System.Windows.Forms.FlowLayoutPanel flp_prihlaseny;
     }
 }
 

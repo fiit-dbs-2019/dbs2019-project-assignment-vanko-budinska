@@ -17,9 +17,9 @@ namespace DesktopApp1
             InitializeComponent();
         }
 
-        private void Load_data()
+        public void Load_data(Uzivatel u)
         {
-
+            lbl_meno.Text = u.meno;
         }
     }
 }

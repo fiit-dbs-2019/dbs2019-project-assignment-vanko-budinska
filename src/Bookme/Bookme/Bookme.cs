@@ -51,14 +51,14 @@ namespace DesktopApp1
 
         }
 
-        public void clearPanel()
+        public void clearPanel(FlowLayoutPanel panel)
         {
-            flowLayoutPanel1.Controls.Clear();
+            panel.Controls.Clear();
         }
 
-        public void addControl(Control item)
+        public void addControl(FlowLayoutPanel panel, Control item)
         {
-            flowLayoutPanel1.Controls.Add(item);
+            panel.Controls.Add(item);
         }
 
         public void naplPonuku(List<string> data)
@@ -67,7 +67,7 @@ namespace DesktopApp1
              * Spravit vseobecne nejak na zaklade nazvu stlpca tahanie dat
              * 
              */
-            clearPanel();
+            clearPanel(flowLayoutPanel1);
             HotelPolozka[] polozky = new HotelPolozka[data.Count];
             string[] r_data;
             WebRequest request;
@@ -86,7 +86,7 @@ namespace DesktopApp1
                 polozky[i].HotelNazov = r_data[8];
                 for (int j = 0; j < Int32.Parse(r_data[7]); j++)
                     polozky[i].Hviezdicky += "*";
-                addControl(polozky[i]);
+                addControl(flowLayoutPanel1, polozky[i]);
                 
             }
         }
@@ -119,35 +119,59 @@ namespace DesktopApp1
         private void btn_prihlas_Click(object sender, EventArgs e)
         {
             string q = String.Format("SELECT meno, priezvisko, email, passwd FROM public.pouzivatel WHERE email = '{0}'", tb_email.Text);
-            string passwd = tb_heslo.Text;         
+            string passwd = tb_heslo.Text + "\r\n";
+            
             List<string> response = db_conn.Query(q);
             /*
+             * pred parse list[0]: meno,priezvisko,email,passwd
+             * po parse:
              * response list[0] : meno
              *          list[1] : priezvisko
              *          list[2] : email
              *          list[3] : passwd
              */
-            if(response[3] != passwd)
+
+            //osetrenie prihlasovania
+            if (response.Count == 0)
             {
-                
+                print_message("Nespravny e-mail!");
+                return;
             }
-                
-            foreach (var str in response)
-                MessageBox.Show(str);
+            response = parse_response(response[0]);
+            if (!response[3].Equals(passwd))
+            {
+                print_message("Zle zadane heslo!" + response[3]);
+                return;
+            }
+
+            Uzivatel uzivatel = new Uzivatel(response[0], response[1], response[2]);
             //najst v DB, porovnat heslo, ak sedi tak zmenit hlavicku a ulozit udaje
             Prihlaseny_hlavicka phlav_Control = new Prihlaseny_hlavicka();
+            groupBox3.Hide();
+            phlav_Control.Load_data(uzivatel);
+            clearPanel(flp_prihlaseny);
+            addControl(flp_prihlaseny, phlav_Control);
         }
 
         private void print_message(string message)
         {
             string caption = "Chyba prihlasenia";
-            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxButtons button = MessageBoxButtons.OK;
             DialogResult result;
-            result = MessageBox.Show(message, caption, button);
+            result = System.Windows.Forms.MessageBox.Show(message, caption, button);
             if(result == System.Windows.Forms.DialogResult.OK)
             {
                 this.Close();
             }
+        }
+
+        private List<string> parse_response(string response)
+        {
+            List<string> str = new List<string>();
+            string[] parsed = response.Split(',');
+            foreach (var s in parsed)
+                str.Add(s);
+            return str;
         }
     }
 }
