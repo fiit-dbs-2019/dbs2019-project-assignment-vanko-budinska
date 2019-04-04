@@ -25,6 +25,7 @@ namespace DesktopApp1
         {
             this.id = id;
             this.nazov = nazov;
+            this.pocet_hviezdiciek = pocet_hviezdiciek;
             this.hodnotenie = hodnotenie;
             this.adresa = adresa;
             this.popis = popis;

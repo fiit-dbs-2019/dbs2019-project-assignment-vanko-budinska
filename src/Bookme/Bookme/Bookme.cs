@@ -106,6 +106,8 @@ namespace DesktopApp1
                 polozky_control[i].Img = Bitmap.FromStream(str);
 
                 polozky_control[i].HotelNazov = polozky_ubytovania[i].nazov;
+                polozky_control[i].Hodnotenie = polozky_ubytovania[i].hodnotenie;
+                polozky_control[i].Popis = polozky_ubytovania[i].popis;
                 for (int j = 0; j < polozky_ubytovania[i].pocet_hviezdiciek; j++)
                     polozky_control[i].Hviezdicky += "*";
                 addControl(flowLayoutPanel1, polozky_control[i]);

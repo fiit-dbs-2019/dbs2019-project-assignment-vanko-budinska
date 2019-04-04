@@ -23,6 +23,7 @@ namespace DesktopApp1
         #region Properties
 
         private string _hotelNazov;
+        private string _popis;
         private string _hviezdicky;
         private float _hodnotenie;
         private float _cena; 
@@ -34,6 +35,13 @@ namespace DesktopApp1
         {
             get { return _hotelNazov; }
             set { _hotelNazov = value; lblNazov.Text = value; }
+        }
+
+        [Category("Custom props")]
+        public string Popis
+        {
+            get { return _popis; }
+            set { _popis = value; rtbPopis.Text = value.ToString(); }
         }
 
         [Category("Custom props")]
@@ -69,7 +77,6 @@ namespace DesktopApp1
 
         private void btnVybrat_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Polozka" + this.HotelNazov);
             s.clearPanel(flowLayoutPanel1);
             s.addControl(flowLayoutPanel1 ,new HotelDetail());
         }

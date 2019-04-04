@@ -37,6 +37,8 @@
             this.rtbPopis = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +88,7 @@
             // 
             this.lblHodn.AutoSize = true;
             this.lblHodn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblHodn.Location = new System.Drawing.Point(713, 63);
+            this.lblHodn.Location = new System.Drawing.Point(743, 63);
             this.lblHodn.Name = "lblHodn";
             this.lblHodn.Size = new System.Drawing.Size(94, 20);
             this.lblHodn.TabIndex = 6;
@@ -97,7 +99,7 @@
             // 
             this.lblCena.AutoSize = true;
             this.lblCena.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblCena.Location = new System.Drawing.Point(713, 108);
+            this.lblCena.Location = new System.Drawing.Point(743, 109);
             this.lblCena.Name = "lblCena";
             this.lblCena.Size = new System.Drawing.Size(48, 20);
             this.lblCena.TabIndex = 7;
@@ -131,11 +133,35 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(423, 53);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(644, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Hodnotenie";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(644, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Cena";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // HotelPolozka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblCena);
             this.Controls.Add(this.lblHodn);
@@ -163,5 +189,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.Button btnVybrat;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
