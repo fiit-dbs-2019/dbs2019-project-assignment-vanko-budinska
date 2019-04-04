@@ -23,19 +23,24 @@ namespace DesktopApp1
         {
             InitializeComponent();
             hotel = p;
-            lblHodn.Text = p.Hodnotenie.ToString();
-            lblHviez.Text = p.Hviezdicky;
-            lblCena.Text = p.Cena.ToString();
-            lblNazov.Text = p.HotelNazov;
-            lbl_destinacia.Text = p.Destinacia;
-            rtbPopis.Text = p.Popis;
-            vykresli_obr(p.ObrUrls);
-            //ProcessDirectory("..\\..\\img");
+            NaplnPolozky(p.u);
         }
         
-        //https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.getfiles?view=netframework-4.7.2
+        private void NaplnPolozky(Ubytovanie u)
+        {
+            string hv = "";
+            lblNazov.Text = u.nazov;
+            for (int j = 0; j < u.pocet_hviezdiciek; j++)
+                hv += "*";
+            lblHviez.Text = hv;
+            lblHodn.Text = u.hodnotenie.ToString();
+            lblCena.Text = u.cena.ToString();
+            lblDestinacia.Text = u.adresa;
+            rtbPopis.Text = u.popis;
+            vykresli_obr(u.obr_urls);
+        }
 
-        public void vykresli_obr(string[] obr_urls)
+        private void vykresli_obr(string[] obr_urls)
         {
             int x = 20, y = 20;
             obrazky = new PictureBox[obr_urls.Length];
@@ -59,26 +64,6 @@ namespace DesktopApp1
             picBoxMainView.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         
-
-        /*public void ProcessDirectory(string targetDirectory)
-        {
-            string[] subory = Directory.GetFiles(targetDirectory);
-            int x = 20, y = 20;
-            obrazky = new PictureBox[subory.Length];
-            for (int i = 0; i < subory.Length; i++)
-            {
-                string nazov = subory[i];
-                Debug.WriteLine("Processed file '{0}'.", nazov);
-                obrazky[i] = new PictureBox();
-                obrazky[i].Image = Image.FromFile(nazov);
-                obrazky[i].Location = new Point(x, y);
-                obrazky[i].SizeMode = PictureBoxSizeMode.StretchImage;
-                x += obrazky[i].Width + 10;
-                obrazky[i].Click += new EventHandler(obrazky_Click);
-                flowLayoutPanel1.Controls.Add(obrazky[i]);
-            }
-        }*/
-
         private void obrazky_Click(object sender, EventArgs e)
         {
             picBoxMainView.Image = ((PictureBox)sender).Image;

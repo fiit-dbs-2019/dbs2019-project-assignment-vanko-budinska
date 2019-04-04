@@ -74,7 +74,6 @@ namespace PgSql
                 connection.Open();
                 NpgsqlCommand command = new NpgsqlCommand(q_command, connection);
                 NpgsqlDataReader dataReader = command.ExecuteReader();
-                Debug.Write("Reader: ");
                 
                 for (int i = 0; dataReader.Read(); i++)
                 {
@@ -91,7 +90,6 @@ namespace PgSql
                     }
                         
                     dataItems.Add(itm + "\r\n");
-                    Debug.Write(dataItems[i]);
                 }
                 connection.Close();
                 return dataItems;
@@ -114,13 +112,11 @@ namespace PgSql
                 connection.Open();
                 NpgsqlCommand command = new NpgsqlCommand(q_command, connection);
                 NpgsqlDataReader dataReader = command.ExecuteReader();
-                Debug.Write("Reader: ");
 
                 for (int i = 0; dataReader.Read(); i++)
                 {
                     string[] itm = (string[])dataReader.GetValue(0);
                     dataItems.Add(itm);
-                    Debug.Write(dataItems[i]);
                 }
                 connection.Close();
                 return dataItems;

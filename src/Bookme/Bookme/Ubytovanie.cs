@@ -13,12 +13,13 @@ namespace DesktopApp1
         public string nazov { get; private set; }
         public int pocet_hviezdiciek { get; private set; }
         public float hodnotenie { get; private set; }
-        public string adresa { get; private set; }
+        public string adresa { get; set; }
         public string popis { get; private set; }
         public string[] obr_urls { get; private set; }
         public string main_url { get; set; }
         public int id_destinacia { get; private set; }
         public int id_typ_ubytovania { get; private set; }
+        public float cena { get; private set; }
                
         public Ubytovanie(int id, string nazov, int pocet_hviezdiciek, float hodnotenie, string adresa, string popis, string[] obr_urls, int id_destinacia, int id_typ_ubytovania)
         {

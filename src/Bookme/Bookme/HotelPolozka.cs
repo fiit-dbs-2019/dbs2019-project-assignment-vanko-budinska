@@ -8,23 +8,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Net;
+using System.IO;
 
 namespace DesktopApp1
 {
     public partial class HotelPolozka : UserControl
     {
-        private Bookme s;
-        public HotelPolozka(Bookme par)
+        private Bookme b;
+        public Ubytovanie u { get; private set; }
+        public HotelPolozka(Bookme b, Ubytovanie u)
         {
-            s = par;
             InitializeComponent();
+            this.b = b;
+            this.u = u;
+            NaplnPolozky(u);
+        }
+
+        private void NaplnPolozky(Ubytovanie u)
+        {
+            string hv = "";
+            lblNazov.Text = u.nazov;
+            for (int j = 0; j < u.pocet_hviezdiciek; j++)
+                hv += "*";
+            lblHviez.Text = hv;
+            lblHodn.Text = u.hodnotenie.ToString();
+            lblCena.Text = u.cena.ToString();
+            lblDestinacia.Text = u.adresa;
+
+            rtbPopis.Text = u.popis;
+
+            //pictureBox set img
+            WebRequest request;
+            WebResponse response;
+            Stream str;
+            request = WebRequest.Create(u.main_url);
+            response = request.GetResponse();
+            str = response.GetResponseStream();
+            picBox.Image = Bitmap.FromStream(str);
+
         }
 
         public HotelPolozka()
         {
 
         }
-
+        /*
         #region Properties
 
         private string _hotelNazov;
@@ -88,12 +117,12 @@ namespace DesktopApp1
             set { _img = value; picBox.Image = value; }
         }
         #endregion
-
+        */
         private void btnVybrat_Click(object sender, EventArgs e)
         {
-            s.clearPanel(s.flpanel1);
-            s.clearPanel(s.PagingPanel1);
-            s.addPanel(s.flpanel1, new HotelDetail(this));
+            b.clearPanel(b.flpanel1);
+            b.clearPanel(b.PagingPanel1);
+            b.addPanel(b.flpanel1, new HotelDetail(this));
 
         }
     }

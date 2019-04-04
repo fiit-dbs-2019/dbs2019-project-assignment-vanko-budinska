@@ -32,7 +32,7 @@
             this.lblNazov = new System.Windows.Forms.Label();
             this.lblHviez = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_destinacia = new System.Windows.Forms.Label();
+            this.lblDestinacia = new System.Windows.Forms.Label();
             this.lblCena = new System.Windows.Forms.Label();
             this.btnRezervuj = new System.Windows.Forms.Button();
             this.picBoxMainView = new System.Windows.Forms.PictureBox();
@@ -83,21 +83,21 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.flowLayoutPanel3);
-            this.panel1.Controls.Add(this.lbl_destinacia);
+            this.panel1.Controls.Add(this.lblDestinacia);
             this.panel1.Controls.Add(this.flowLayoutPanel2);
             this.panel1.Location = new System.Drawing.Point(30, 22);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(347, 81);
             this.panel1.TabIndex = 3;
             // 
-            // lbl_destinacia
+            // lblDestinacia
             // 
-            this.lbl_destinacia.AutoSize = true;
-            this.lbl_destinacia.Location = new System.Drawing.Point(9, 63);
-            this.lbl_destinacia.Name = "lbl_destinacia";
-            this.lbl_destinacia.Size = new System.Drawing.Size(52, 17);
-            this.lbl_destinacia.TabIndex = 10;
-            this.lbl_destinacia.Text = "Poloha";
+            this.lblDestinacia.AutoSize = true;
+            this.lblDestinacia.Location = new System.Drawing.Point(9, 63);
+            this.lblDestinacia.Name = "lblDestinacia";
+            this.lblDestinacia.Size = new System.Drawing.Size(52, 17);
+            this.lblDestinacia.TabIndex = 10;
+            this.lblDestinacia.Text = "Poloha";
             // 
             // lblCena
             // 
@@ -244,7 +244,7 @@
         private System.Windows.Forms.PictureBox picBoxMainView;
         private System.Windows.Forms.RichTextBox rtbPopis;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label lbl_destinacia;
+        private System.Windows.Forms.Label lblDestinacia;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label label1;

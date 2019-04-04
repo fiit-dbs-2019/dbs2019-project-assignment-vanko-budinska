@@ -38,7 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblNazov = new System.Windows.Forms.Label();
-            this.lbl_destinacia = new System.Windows.Forms.Label();
+            this.lblDestinacia = new System.Windows.Forms.Label();
             this.lblHviez = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
@@ -132,7 +132,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.flowLayoutPanel1);
-            this.panel2.Controls.Add(this.lbl_destinacia);
+            this.panel2.Controls.Add(this.lblDestinacia);
             this.panel2.Location = new System.Drawing.Point(215, 7);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(622, 50);
@@ -148,14 +148,14 @@
             this.lblNazov.TabIndex = 1;
             this.lblNazov.Text = "Hotel";
             // 
-            // lbl_destinacia
+            // lblDestinacia
             // 
-            this.lbl_destinacia.AutoSize = true;
-            this.lbl_destinacia.Location = new System.Drawing.Point(13, 31);
-            this.lbl_destinacia.Name = "lbl_destinacia";
-            this.lbl_destinacia.Size = new System.Drawing.Size(74, 17);
-            this.lbl_destinacia.TabIndex = 4;
-            this.lbl_destinacia.Text = "Destinacia";
+            this.lblDestinacia.AutoSize = true;
+            this.lblDestinacia.Location = new System.Drawing.Point(13, 31);
+            this.lblDestinacia.Name = "lblDestinacia";
+            this.lblDestinacia.Size = new System.Drawing.Size(74, 17);
+            this.lblDestinacia.TabIndex = 4;
+            this.lblDestinacia.Text = "Destinacia";
             // 
             // lblHviez
             // 
@@ -213,7 +213,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblHviez;
-        private System.Windows.Forms.Label lbl_destinacia;
+        private System.Windows.Forms.Label lblDestinacia;
         private System.Windows.Forms.Label lblNazov;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }

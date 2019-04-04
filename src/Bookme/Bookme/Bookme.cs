@@ -116,23 +116,12 @@ namespace DesktopApp1
                 dst = db_conn.Query(String.Format("SELECT * FROM public.destinacia d INNER JOIN public.stat s ON d.id_stat = s.id WHERE d.id = '{0}';", Int32.Parse(riadok[7])));
                 dst = parse_response(dst[0]);
 
-                destinacia = dst[0] + " " + dst[1] + " " + dst[2] + ", " + dst[4];
                 polozky_ubytovania[i] = new Ubytovanie(Int32.Parse(riadok[0]), riadok[1], Int32.Parse(riadok[2]), float.Parse(riadok[3]), riadok[4], riadok[5], data_arr[i], Int32.Parse(riadok[7]), Int32.Parse(riadok[8]));
+                polozky_ubytovania[i].adresa = dst[0] + " " + dst[1] + " " + dst[2] + ", " + dst[4];
                 
-                polozky_control[i] = new HotelPolozka(this);
-                polozky_control[i].Id = polozky_ubytovania[i].id;
-                polozky_control[i].ObrUrls = polozky_ubytovania[i].obr_urls;
-                request = WebRequest.Create(polozky_ubytovania[i].main_url);
-                response = request.GetResponse();
-                str = response.GetResponseStream();
-                polozky_control[i].Img = Bitmap.FromStream(str);
-
-                polozky_control[i].HotelNazov = polozky_ubytovania[i].nazov;
-                polozky_control[i].Hodnotenie = polozky_ubytovania[i].hodnotenie;
-                polozky_control[i].Popis = polozky_ubytovania[i].popis;
-                polozky_control[i].Destinacia = destinacia;
-                for (int j = 0; j < polozky_ubytovania[i].pocet_hviezdiciek; j++)
-                    polozky_control[i].Hviezdicky += "*";
+                
+                polozky_control[i] = new HotelPolozka(this, polozky_ubytovania[i]);
+                
                 addflPanel(flowLayoutPanel1, polozky_control[i]);
                 
             }
