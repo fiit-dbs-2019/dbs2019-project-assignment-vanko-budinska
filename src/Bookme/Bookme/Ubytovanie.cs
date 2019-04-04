@@ -19,8 +19,7 @@ namespace DesktopApp1
         public string main_url { get; set; }
         public int id_destinacia { get; private set; }
         public int id_typ_ubytovania { get; private set; }
-
-
+               
         public Ubytovanie(int id, string nazov, int pocet_hviezdiciek, float hodnotenie, string adresa, string popis, string[] obr_urls, int id_destinacia, int id_typ_ubytovania)
         {
             this.id = id;

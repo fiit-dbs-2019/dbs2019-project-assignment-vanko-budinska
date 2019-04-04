@@ -30,8 +30,16 @@ namespace DesktopApp1
             //naplPonuku(result);
         }
 
-        HotelDetail hdet = new HotelDetail();
-        
+        public FlowLayoutPanel flpanel1
+        {
+            get { return flowLayoutPanel1; }
+        }
+
+        public Panel PagingPanel1
+        {
+            get { return panelPaging; }
+        }
+                
         private void btn_filter_Click_1(object sender, EventArgs e)
         {
             /* Po kliknuti na tlacidlo je treba zistit zaznamy ktore vyhovuju vyhladavaniu
@@ -51,12 +59,22 @@ namespace DesktopApp1
 
         }
 
-        public void clearPanel(FlowLayoutPanel panel)
+        public void clearflPanel(FlowLayoutPanel panel)
         {
             panel.Controls.Clear();
         }
 
-        public void addControl(FlowLayoutPanel panel, Control item)
+        public void clearPanel(Panel panel)
+        {
+            panel.Controls.Clear();
+        }
+
+        public void addflPanel(FlowLayoutPanel flpanel, Control item)
+        {
+            flpanel.Controls.Add(item);
+        }
+
+        public void addPanel(Panel panel, Control item)
         {
             panel.Controls.Add(item);
         }
@@ -73,11 +91,9 @@ namespace DesktopApp1
             List<string> riadok;
             List<string> dst;
             string destinacia;
-            clearPanel(flowLayoutPanel1);
+            clearflPanel(flowLayoutPanel1);
             HotelPolozka[] polozky_control = new HotelPolozka[data.Count];
             Ubytovanie[] polozky_ubytovania = new Ubytovanie[data.Count];
-            string[] r_data;
-            string[] r_data_arr;
             WebRequest request;
             WebResponse response;
             Stream str;
@@ -85,7 +101,7 @@ namespace DesktopApp1
 
             for (int i = 0; i < data.Count; i++)
             {
-                /*
+                /* Prerobit aby polozky control obsahovila triedu ubytovania a nebolo potrebne pridelovat atributy
                  * Riadok:  [0] - id
                  *          [1] - nazov
                  *          [2] - pocet_hviezdiciek
@@ -101,11 +117,11 @@ namespace DesktopApp1
                 dst = parse_response(dst[0]);
 
                 destinacia = dst[0] + " " + dst[1] + " " + dst[2] + ", " + dst[4];
-                //System.Windows.MessageBox.Show(riadok[6]);
                 polozky_ubytovania[i] = new Ubytovanie(Int32.Parse(riadok[0]), riadok[1], Int32.Parse(riadok[2]), float.Parse(riadok[3]), riadok[4], riadok[5], data_arr[i], Int32.Parse(riadok[7]), Int32.Parse(riadok[8]));
-                //System.Windows.MessageBox.Show(polozky_ubytovania[]);
                 
                 polozky_control[i] = new HotelPolozka(this);
+                polozky_control[i].Id = polozky_ubytovania[i].id;
+                polozky_control[i].ObrUrls = polozky_ubytovania[i].obr_urls;
                 request = WebRequest.Create(polozky_ubytovania[i].main_url);
                 response = request.GetResponse();
                 str = response.GetResponseStream();
@@ -117,7 +133,7 @@ namespace DesktopApp1
                 polozky_control[i].Destinacia = destinacia;
                 for (int j = 0; j < polozky_ubytovania[i].pocet_hviezdiciek; j++)
                     polozky_control[i].Hviezdicky += "*";
-                addControl(flowLayoutPanel1, polozky_control[i]);
+                addflPanel(flowLayoutPanel1, polozky_control[i]);
                 
             }
         }
@@ -180,8 +196,8 @@ namespace DesktopApp1
             Prihlaseny_hlavicka phlav_Control = new Prihlaseny_hlavicka();
             groupBox3.Hide();
             phlav_Control.Load_data(uzivatel);
-            clearPanel(flp_prihlaseny);
-            addControl(flp_prihlaseny, phlav_Control);
+            clearflPanel(flp_prihlaseny);
+            addflPanel(flp_prihlaseny, phlav_Control);
         }
 
         private void print_message(string message)

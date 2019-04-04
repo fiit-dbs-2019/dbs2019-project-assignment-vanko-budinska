@@ -8,9 +8,6 @@ namespace PgSql
 {
     public class PostGreSQL
     {
-        
-        
-
         private string _server;
         private string _port;
         private string _user_id;
@@ -64,10 +61,7 @@ namespace PgSql
             _password = passwd;
             _db_name = db_name;
             _schema_name = sch_name;
-        }
-
-
-        
+        }        
         
         public List<string> Query(string q_command)
         {
@@ -138,30 +132,6 @@ namespace PgSql
             }
         }
     }
-
-    /*public List<string> PostgreSQLtest2()
-    {
-        try
-        {
-            string connstring = "Server=127.0.0.1; Port=5432; User Id=martin; Password=271996; Database=test;";
-            NpgsqlConnection connection = new NpgsqlConnection(connstring);
-            connection.Open();
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.test_table WHERE pocet_lozok > 1", connection);
-            NpgsqlDataReader dataReader = command.ExecuteReader();
-            for (int i = 0; dataReader.Read(); i++)
-            {
-                dataItems.Add(dataReader[0].ToString() + "," + dataReader[1].ToString() + "\r\n");
-            }
-            connection.Close();
-            return dataItems;
-        }
-        catch (Exception msg)
-        {
-            MessageBox.Show(msg.ToString());
-            throw;
-        }
-     }*/
-
 }
 
     

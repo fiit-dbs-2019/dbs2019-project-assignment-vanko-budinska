@@ -62,6 +62,7 @@ namespace DesktopApp1
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.flp_prihlaseny = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelPaging = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -69,6 +70,7 @@ namespace DesktopApp1
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.panelPaging.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -318,7 +320,7 @@ namespace DesktopApp1
             // 
             // dalej
             // 
-            this.dalej.Location = new System.Drawing.Point(1006, 967);
+            this.dalej.Location = new System.Drawing.Point(774, 3);
             this.dalej.Name = "dalej";
             this.dalej.Size = new System.Drawing.Size(123, 26);
             this.dalej.TabIndex = 17;
@@ -327,7 +329,7 @@ namespace DesktopApp1
             // 
             // spat
             // 
-            this.spat.Location = new System.Drawing.Point(229, 967);
+            this.spat.Location = new System.Drawing.Point(3, 3);
             this.spat.Name = "spat";
             this.spat.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.spat.Size = new System.Drawing.Size(123, 26);
@@ -420,16 +422,24 @@ namespace DesktopApp1
             this.flp_prihlaseny.Size = new System.Drawing.Size(1117, 108);
             this.flp_prihlaseny.TabIndex = 0;
             // 
+            // panelPaging
+            // 
+            this.panelPaging.Controls.Add(this.spat);
+            this.panelPaging.Controls.Add(this.dalej);
+            this.panelPaging.Location = new System.Drawing.Point(229, 956);
+            this.panelPaging.Name = "panelPaging";
+            this.panelPaging.Size = new System.Drawing.Size(900, 34);
+            this.panelPaging.TabIndex = 20;
+            // 
             // Bookme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1152, 1017);
+            this.Controls.Add(this.panelPaging);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.spat);
-            this.Controls.Add(this.dalej);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -447,6 +457,7 @@ namespace DesktopApp1
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.panelPaging.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -487,6 +498,7 @@ namespace DesktopApp1
         private System.Windows.Forms.TextBox tb_email;
         private System.Windows.Forms.TextBox tb_heslo;
         private System.Windows.Forms.FlowLayoutPanel flp_prihlaseny;
+        private System.Windows.Forms.Panel panelPaging;
     }
 }
 

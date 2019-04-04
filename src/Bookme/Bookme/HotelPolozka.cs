@@ -20,6 +20,11 @@ namespace DesktopApp1
             InitializeComponent();
         }
 
+        public HotelPolozka()
+        {
+
+        }
+
         #region Properties
 
         private string _hotelNazov;
@@ -27,9 +32,12 @@ namespace DesktopApp1
         private string _hviezdicky;
         private float _hodnotenie;
         private string _destinacia;
-        private float _cena; 
+        private float _cena;
         private Image _img;
+        public string[] ObrUrls { get; set; }
+        public int Id { get; set; }
 
+        
 
         [Category("Custom props")]
         public string HotelNazov
@@ -79,14 +87,14 @@ namespace DesktopApp1
             get { return _img; }
             set { _img = value; picBox.Image = value; }
         }
-
-
         #endregion
 
         private void btnVybrat_Click(object sender, EventArgs e)
         {
-            s.clearPanel(flowLayoutPanel1);
-            s.addControl(flowLayoutPanel1 ,new HotelDetail());
+            s.clearPanel(s.flpanel1);
+            s.clearPanel(s.PagingPanel1);
+            s.addPanel(s.flpanel1, new HotelDetail(this));
+
         }
     }
 }

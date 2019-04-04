@@ -28,31 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblNazov = new System.Windows.Forms.Label();
             this.btnVybrat = new System.Windows.Forms.Button();
-            this.lblHviez = new System.Windows.Forms.Label();
             this.picBox = new System.Windows.Forms.PictureBox();
             this.lblHodn = new System.Windows.Forms.Label();
             this.lblCena = new System.Windows.Forms.Label();
             this.rtbPopis = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblNazov = new System.Windows.Forms.Label();
             this.lbl_destinacia = new System.Windows.Forms.Label();
+            this.lblHviez = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
+            this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblNazov
-            // 
-            this.lblNazov.AutoSize = true;
-            this.lblNazov.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNazov.Location = new System.Drawing.Point(3, 0);
-            this.lblNazov.Name = "lblNazov";
-            this.lblNazov.Size = new System.Drawing.Size(72, 29);
-            this.lblNazov.TabIndex = 1;
-            this.lblNazov.Text = "Hotel";
             // 
             // btnVybrat
             // 
@@ -63,16 +55,6 @@
             this.btnVybrat.Text = "Vybrat";
             this.btnVybrat.UseVisualStyleBackColor = true;
             this.btnVybrat.Click += new System.EventHandler(this.btnVybrat_Click);
-            // 
-            // lblHviez
-            // 
-            this.lblHviez.AutoSize = true;
-            this.lblHviez.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblHviez.Location = new System.Drawing.Point(83, 0);
-            this.lblHviez.Name = "lblHviez";
-            this.lblHviez.Size = new System.Drawing.Size(71, 18);
-            this.lblHviez.TabIndex = 3;
-            this.lblHviez.Text = "Hviezdiky";
             // 
             // picBox
             // 
@@ -125,17 +107,6 @@
             this.panel1.Size = new System.Drawing.Size(192, 192);
             this.panel1.TabIndex = 8;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.lblNazov);
-            this.flowLayoutPanel1.Controls.Add(this.lbl_destinacia);
-            this.flowLayoutPanel1.Controls.Add(this.lblHviez);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(215, 4);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(622, 53);
-            this.flowLayoutPanel1.TabIndex = 9;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -158,23 +129,61 @@
             this.label2.Text = "Cena";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Controls.Add(this.lbl_destinacia);
+            this.panel2.Location = new System.Drawing.Point(215, 7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(622, 50);
+            this.panel2.TabIndex = 12;
+            // 
+            // lblNazov
+            // 
+            this.lblNazov.AutoSize = true;
+            this.lblNazov.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNazov.Location = new System.Drawing.Point(3, 0);
+            this.lblNazov.Name = "lblNazov";
+            this.lblNazov.Size = new System.Drawing.Size(72, 29);
+            this.lblNazov.TabIndex = 1;
+            this.lblNazov.Text = "Hotel";
+            // 
             // lbl_destinacia
             // 
             this.lbl_destinacia.AutoSize = true;
-            this.lbl_destinacia.Location = new System.Drawing.Point(3, 29);
+            this.lbl_destinacia.Location = new System.Drawing.Point(13, 31);
             this.lbl_destinacia.Name = "lbl_destinacia";
             this.lbl_destinacia.Size = new System.Drawing.Size(74, 17);
             this.lbl_destinacia.TabIndex = 4;
             this.lbl_destinacia.Text = "Destinacia";
+            // 
+            // lblHviez
+            // 
+            this.lblHviez.AutoSize = true;
+            this.lblHviez.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblHviez.Location = new System.Drawing.Point(81, 0);
+            this.lblHviez.Name = "lblHviez";
+            this.lblHviez.Size = new System.Drawing.Size(71, 18);
+            this.lblHviez.TabIndex = 3;
+            this.lblHviez.Text = "Hviezdiky";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.lblNazov);
+            this.flowLayoutPanel1.Controls.Add(this.lblHviez);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(611, 25);
+            this.flowLayoutPanel1.TabIndex = 13;
             // 
             // HotelPolozka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblCena);
             this.Controls.Add(this.lblHodn);
             this.Controls.Add(this.rtbPopis);
@@ -184,6 +193,8 @@
             this.Name = "HotelPolozka";
             this.Size = new System.Drawing.Size(840, 200);
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -192,17 +203,18 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblNazov;
-        private System.Windows.Forms.Label lblHviez;
         private System.Windows.Forms.PictureBox picBox;
         private System.Windows.Forms.Label lblHodn;
         private System.Windows.Forms.Label lblCena;
         private System.Windows.Forms.RichTextBox rtbPopis;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.Button btnVybrat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblHviez;
         private System.Windows.Forms.Label lbl_destinacia;
+        private System.Windows.Forms.Label lblNazov;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
