@@ -15,7 +15,7 @@ namespace DesktopApp1
 {
     public partial class HotelPolozka : UserControl
     {
-        private Bookme b;
+        public Bookme b { get; private set; }
         public Ubytovanie u { get; private set; }
         public HotelPolozka(Bookme b, Ubytovanie u)
         {

@@ -16,13 +16,15 @@ namespace DesktopApp1
 {
     public partial class HotelDetail : UserControl
     {
-        HotelPolozka hotel;
+        private HotelPolozka p;
+        private Bookme b;
         private PictureBox[] obrazky;
 
         public HotelDetail(HotelPolozka p)
         {
             InitializeComponent();
-            hotel = p;
+            this.p = p;
+            this.b = p.b;
             NaplnPolozky(p.u);
         }
         
@@ -73,6 +75,13 @@ namespace DesktopApp1
         private void btnRezervuj_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            b.clearPanel(b.flpanel1);
+            foreach(var polozka in b.polozky_control)
+                b.addflPanel(b.flpanel1, polozka);
         }
     }
 

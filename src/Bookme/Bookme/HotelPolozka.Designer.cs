@@ -37,10 +37,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblNazov = new System.Windows.Forms.Label();
-            this.lblDestinacia = new System.Windows.Forms.Label();
-            this.lblHviez = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblNazov = new System.Windows.Forms.Label();
+            this.lblHviez = new System.Windows.Forms.Label();
+            this.lblDestinacia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -71,7 +71,7 @@
             // 
             this.lblHodn.AutoSize = true;
             this.lblHodn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblHodn.Location = new System.Drawing.Point(743, 63);
+            this.lblHodn.Location = new System.Drawing.Point(740, 84);
             this.lblHodn.Name = "lblHodn";
             this.lblHodn.Size = new System.Drawing.Size(94, 20);
             this.lblHodn.TabIndex = 6;
@@ -92,7 +92,7 @@
             // rtbPopis
             // 
             this.rtbPopis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rtbPopis.Location = new System.Drawing.Point(215, 63);
+            this.rtbPopis.Location = new System.Drawing.Point(215, 84);
             this.rtbPopis.Name = "rtbPopis";
             this.rtbPopis.ReadOnly = true;
             this.rtbPopis.Size = new System.Drawing.Size(423, 112);
@@ -111,7 +111,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(644, 63);
+            this.label1.Location = new System.Drawing.Point(643, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 10;
@@ -135,8 +135,17 @@
             this.panel2.Controls.Add(this.lblDestinacia);
             this.panel2.Location = new System.Drawing.Point(215, 7);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(622, 50);
+            this.panel2.Size = new System.Drawing.Size(622, 71);
             this.panel2.TabIndex = 12;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.lblNazov);
+            this.flowLayoutPanel1.Controls.Add(this.lblHviez);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(611, 39);
+            this.flowLayoutPanel1.TabIndex = 13;
             // 
             // lblNazov
             // 
@@ -148,15 +157,6 @@
             this.lblNazov.TabIndex = 1;
             this.lblNazov.Text = "Hotel";
             // 
-            // lblDestinacia
-            // 
-            this.lblDestinacia.AutoSize = true;
-            this.lblDestinacia.Location = new System.Drawing.Point(13, 31);
-            this.lblDestinacia.Name = "lblDestinacia";
-            this.lblDestinacia.Size = new System.Drawing.Size(74, 17);
-            this.lblDestinacia.TabIndex = 4;
-            this.lblDestinacia.Text = "Destinacia";
-            // 
             // lblHviez
             // 
             this.lblHviez.AutoSize = true;
@@ -167,14 +167,14 @@
             this.lblHviez.TabIndex = 3;
             this.lblHviez.Text = "Hviezdiky";
             // 
-            // flowLayoutPanel1
+            // lblDestinacia
             // 
-            this.flowLayoutPanel1.Controls.Add(this.lblNazov);
-            this.flowLayoutPanel1.Controls.Add(this.lblHviez);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(611, 25);
-            this.flowLayoutPanel1.TabIndex = 13;
+            this.lblDestinacia.AutoSize = true;
+            this.lblDestinacia.Location = new System.Drawing.Point(9, 42);
+            this.lblDestinacia.Name = "lblDestinacia";
+            this.lblDestinacia.Size = new System.Drawing.Size(74, 17);
+            this.lblDestinacia.TabIndex = 4;
+            this.lblDestinacia.Text = "Destinacia";
             // 
             // HotelPolozka
             // 

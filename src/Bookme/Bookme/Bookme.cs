@@ -21,6 +21,8 @@ namespace DesktopApp1
     public partial class Bookme : Form
     {
         private PostGreSQL db_conn;
+        public HotelPolozka[] polozky_control { get; private set; }
+
         public Bookme()
         {
             InitializeComponent();
@@ -90,18 +92,15 @@ namespace DesktopApp1
             List<string[]> data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie LIMIT 10;"));
             List<string> riadok;
             List<string> dst;
-            string destinacia;
             clearflPanel(flowLayoutPanel1);
-            HotelPolozka[] polozky_control = new HotelPolozka[data.Count];
+            polozky_control = new HotelPolozka[data.Count];
             Ubytovanie[] polozky_ubytovania = new Ubytovanie[data.Count];
-            WebRequest request;
-            WebResponse response;
-            Stream str;
             Debug.Write(data.Count);
 
             for (int i = 0; i < data.Count; i++)
             {
-                /* Prerobit aby polozky control obsahovila triedu ubytovania a nebolo potrebne pridelovat atributy
+                /* 
+                 * 
                  * Riadok:  [0] - id
                  *          [1] - nazov
                  *          [2] - pocet_hviezdiciek
@@ -118,8 +117,7 @@ namespace DesktopApp1
 
                 polozky_ubytovania[i] = new Ubytovanie(Int32.Parse(riadok[0]), riadok[1], Int32.Parse(riadok[2]), float.Parse(riadok[3]), riadok[4], riadok[5], data_arr[i], Int32.Parse(riadok[7]), Int32.Parse(riadok[8]));
                 polozky_ubytovania[i].adresa = dst[0] + " " + dst[1] + " " + dst[2] + ", " + dst[4];
-                
-                
+                                
                 polozky_control[i] = new HotelPolozka(this, polozky_ubytovania[i]);
                 
                 addflPanel(flowLayoutPanel1, polozky_control[i]);
