@@ -15,13 +15,14 @@ jednoduché a rıchle ubytovanie.
 ![model](diagram-3.png "Aktualny datovy model")
 ### Opis modelu:
 #### Ubytovanie
-Ubytovanie by sme mohli oznaèi ako hlavnú entitu. Za ubytovanie povaujeme miesto, na ktorom je moné prespa a v reálnom svete ho mono povaova èi u za samostatnú izbu v súkromí, alebo "izbu" (s kúpe¾òou alebo viacerími miestnosami) v hoteli èi apartmán.
+Za ubytovanie povaujeme miesto, na ktorom je moné prespa a v reálnom svete ho mono povaova èi u za samostatnú izbu v súkromí, alebo "izbu" (s kúpe¾òou alebo viacerími miestnosami) v hoteli èi apartmán.
 Pozostáva z názvu ubytovania, poètu hviezdièiek daného ubytovania, hodnotenia, adresy, popisu, po¾a url vykreslovanıch obrázkov, poètu izieb a moností pre filtrovanie.
 Kadé ubytovanie sa nachádza v destnácií, prislúcha mu typ ubytovania - èi sa jedná o hotel, apartmán, izbu v súkromí, chatu atï.
 Kadé ubytovanie musí ma aspoò jednu izbu, v tomto prípade sa jedná o miestnos v ktorej sa nachádza lôko.
 Kadému ubytovaniu prislúcha v èase práve jedna cena.
 #### Zostava rezervácie
 Jedná sa o väzobnú entitu. Cez túto entitu priraïujeme k práve jednej rezervácií 1...n ubytovaní pre práve jedného pouívate¾a.
+
 ## Scenáre
 
 ### Scenár 1 - hlavná obrazovka

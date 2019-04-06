@@ -55,6 +55,7 @@ CREATE TABLE public.ubytovanie
 	parkovisko boolean,
 	ranajky boolean,
 	bazen boolean,
+	klimatizacia boolean,
 	id_destinacia integer,	
 	FOREIGN KEY (id_destinacia) REFERENCES public.destinacia(id),
 	id_typ_ubytovania integer,
