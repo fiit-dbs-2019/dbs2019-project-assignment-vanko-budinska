@@ -21,6 +21,12 @@ namespace DesktopApp1
     public partial class Bookme : Form
     {
         private PostGreSQL db_conn;
+
+        private List<string> data;      //List s odpovedou z DB pre naplnenie ponuky SELECT * FROM public.ubytovanie 
+        private List<string[]> data_arr; //List s odpovedou z DB pre url SELECT obr_urls FROM public.ubytovanie
+        private string hladat_Querry = "";
+        private string hladat_Querry_urls = "";
+
         public HotelPolozka[] polozky_control { get; private set; }
         private int offset;
         private int limit;
@@ -31,7 +37,9 @@ namespace DesktopApp1
             db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
             limit = 10;
             offset = 0;
-            naplPonuku("");
+            data = db_conn.Query(String.Format("SELECT * FROM public.ubytovanie LIMIT {0} OFFSET {1};", limit, offset));
+            data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie LIMIT {0} OFFSET {1};", limit, offset));
+            naplPonuku();
             //List<string> result = db_conn.Query("SELECT * FROM public.izby");
             //naplPonuku(result);
         }
@@ -85,10 +93,10 @@ namespace DesktopApp1
             panel.Controls.Add(item);
         }
 
-        public void naplPonuku(string podmienka_sel)
+        public void naplPonuku()
         {
-            List<string> data = db_conn.Query(String.Format("SELECT * FROM public.ubytovanie " + podmienka_sel + " LIMIT {0} OFFSET {1};", limit, offset));
-            List<string[]> data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie " + podmienka_sel + "LIMIT {0} OFFSET {1};", limit, offset));
+            
+
             List<string> riadok;
             List<string> dst;
             clearflPanel(flowLayoutPanel1);
@@ -220,56 +228,76 @@ namespace DesktopApp1
             string q = "";
             if(chbWifi.Checked)
             {
-                if(q.Length == 0)
+                if(q.Length == 0 && hladat_Querry.Length == 0)
                     q += " WHERE wifi = 'true' ";
                 else
                     q += " AND wifi = 'true' ";
             }
             if (chbTv.Checked)
             {
-                if (q.Length == 0)
+                if (q.Length == 0 && hladat_Querry.Length == 0)
                     q += " WHERE tv = 'true' ";
                 else
                     q += " AND tv = 'true' ";
             }
-            if (chbParkovanie.Checked)
+            if (chbParkovanie.Checked && hladat_Querry.Length == 0)
             {
                 if (q.Length == 0)
                     q += " WHERE parkovisko = 'true' ";
                 else
                     q += " AND parkovisko = 'true' ";
             }
-            if (chbRanajky.Checked)
+            if (chbRanajky.Checked && hladat_Querry.Length == 0)
             {
                 if (q.Length == 0)
                     q += " WHERE ranajky = 'true' ";
                 else
                     q += " AND ranajky = 'true' ";
             }
-            if (chbBazen.Checked)
+            if (chbBazen.Checked && hladat_Querry.Length == 0)
             {
                 if (q.Length == 0)
                     q += " WHERE bazen = 'true' ";
                 else
                     q += " AND bazen = 'true' ";
             }
-            if (chbKlimatizacia.Checked)
+            if (chbKlimatizacia.Checked && hladat_Querry.Length == 0)
             {
                 if (q.Length == 0)
                     q += " WHERE klimatizacia = 'true' ";
                 else
                     q += " AND klimatizacia = 'true' ";
             }
-            naplPonuku(q);
+            if (hladat_Querry.Length == 0)
+            {
+                data = db_conn.Query(String.Format("SELECT * FROM public.ubytovanie " + q + " LIMIT {0} OFFSET {1};", limit, offset));
+                data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie " + q + "LIMIT {0} OFFSET {1};", limit, offset));
+            }
+            else
+            {
+                data = db_conn.Query(String.Format(hladat_Querry + q + " LIMIT {0} OFFSET {1};", limit, offset));
+                data_arr = db_conn.Query_Array(String.Format(hladat_Querry_urls + q + "LIMIT {0} OFFSET {1};", limit, offset));
+            }
+            naplPonuku();
         }
 
         private void btnHladat_Click(object sender, EventArgs e)
         {
-            string q = "";
+            hladat_Querry = "SELECT u.* FROM public.ubytovanie u " +
+                        "INNER JOIN public.destinacia d ON u.id_destinacia = d.id " +
+                        "INNER JOIN public.stat s ON d.id_stat = s.id ";
+            hladat_Querry += "WHERE (s.nazov LIKE '%" + tbDestinacia.Text + "%' OR d.nazov LIKE '%" + tbDestinacia.Text + "%' OR u.adresa LIKE '%" + tbDestinacia.Text + "%' )";
+            //hladat_Querry += String.Format("LIMIT {0} OFFSET {1};", limit, offset);
+            db_conn.Query(String.Format(hladat_Querry + "LIMIT {0} OFFSET {1};", limit, offset));
 
-            q = "WHERE adresa LIKE '%" + tbDestinacia.Text + "%'";
-
-            naplPonuku(q);
+            data = db_conn.Query(String.Format(hladat_Querry + "LIMIT {0} OFFSET {1};", limit, offset));
+            hladat_Querry_urls = "SELECT u.obr_urls FROM public.ubytovanie u " +
+                        "INNER JOIN public.destinacia d ON u.id_destinacia = d.id " +
+                        "INNER JOIN public.stat s ON d.id_stat = s.id ";
+            hladat_Querry_urls += "WHERE (s.nazov LIKE '%" + tbDestinacia.Text + "%' OR d.nazov LIKE '%" + tbDestinacia.Text + "%' OR u.adresa LIKE '%" + tbDestinacia.Text + "%' )";
+            //hladat_Querry_urls += String.Format("LIMIT {0} OFFSET {1};", limit, offset);
+            data_arr = db_conn.Query_Array(String.Format(hladat_Querry_urls + "LIMIT {0} OFFSET {1};", limit, offset));
+            naplPonuku();
         }
     }
 }

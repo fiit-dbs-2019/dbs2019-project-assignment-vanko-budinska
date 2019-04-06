@@ -97,6 +97,7 @@ namespace PgSql
             catch (Exception msg)
             {
                 MessageBox.Show(msg.ToString());
+                MessageBox.Show(q_command);
                 throw;
             }
         }
@@ -124,6 +125,7 @@ namespace PgSql
             catch (Exception msg)
             {
                 MessageBox.Show(msg.ToString());
+                MessageBox.Show(q_command);
                 throw;
             }
         }
