@@ -262,5 +262,14 @@ namespace DesktopApp1
             }
             naplPonuku(q);
         }
+
+        private void btnHladat_Click(object sender, EventArgs e)
+        {
+            string q = "";
+
+            q = "WHERE adresa LIKE '%" + tbDestinacia.Text + "%'";
+
+            naplPonuku(q);
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace DesktopApp1
             this.chbRanajky = new System.Windows.Forms.CheckBox();
             this.chbKlimatizacia = new System.Windows.Forms.CheckBox();
             this.chbBazen = new System.Windows.Forms.CheckBox();
-            this.tbDestName = new System.Windows.Forms.TextBox();
+            this.tbDestinacia = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -151,13 +151,13 @@ namespace DesktopApp1
             this.chbBazen.Text = "Bazen";
             this.chbBazen.UseVisualStyleBackColor = true;
             // 
-            // tbDestName
+            // tbDestinacia
             // 
-            this.tbDestName.Location = new System.Drawing.Point(6, 21);
-            this.tbDestName.Name = "tbDestName";
-            this.tbDestName.Size = new System.Drawing.Size(188, 22);
-            this.tbDestName.TabIndex = 8;
-            this.tbDestName.Text = "Destinacia";
+            this.tbDestinacia.Location = new System.Drawing.Point(6, 21);
+            this.tbDestinacia.Name = "tbDestinacia";
+            this.tbDestinacia.Size = new System.Drawing.Size(188, 22);
+            this.tbDestinacia.TabIndex = 8;
+            this.tbDestinacia.Text = "Destinacia";
             // 
             // dateTimePicker1
             // 
@@ -251,6 +251,7 @@ namespace DesktopApp1
             this.btnHladat.TabIndex = 13;
             this.btnHladat.Text = "Hladat";
             this.btnHladat.UseVisualStyleBackColor = true;
+            this.btnHladat.Click += new System.EventHandler(this.btnHladat_Click);
             // 
             // groupBox3
             // 
@@ -345,7 +346,7 @@ namespace DesktopApp1
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.numericUpDown1);
-            this.groupBox4.Controls.Add(this.tbDestName);
+            this.groupBox4.Controls.Add(this.tbDestinacia);
             this.groupBox4.Controls.Add(this.dateTimePicker2);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label2);
@@ -473,7 +474,7 @@ namespace DesktopApp1
         private System.Windows.Forms.CheckBox chbRanajky;
         private System.Windows.Forms.CheckBox chbKlimatizacia;
         private System.Windows.Forms.CheckBox chbBazen;
-        private System.Windows.Forms.TextBox tbDestName;
+        private System.Windows.Forms.TextBox tbDestinacia;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.GroupBox groupBox1;
