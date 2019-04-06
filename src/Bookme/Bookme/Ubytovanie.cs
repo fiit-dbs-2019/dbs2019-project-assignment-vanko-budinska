@@ -17,11 +17,19 @@ namespace DesktopApp1
         public string popis { get; private set; }
         public string[] obr_urls { get; private set; }
         public string main_url { get; set; }
+
+        public bool wifi { get; private set; }
+        public bool tv { get; private set; }
+        public bool parkovanie { get; private set; }
+        public bool ranajky { get; private set; }
+        public bool bazen { get; private set; }
+        public bool klimatizacia { get; private set; }
+
         public int id_destinacia { get; private set; }
         public int id_typ_ubytovania { get; private set; }
-        public float cena { get; private set; }
+
                
-        public Ubytovanie(int id, string nazov, int pocet_hviezdiciek, float hodnotenie, string adresa, string popis, string[] obr_urls, int id_destinacia, int id_typ_ubytovania)
+        public Ubytovanie(int id, string nazov, int pocet_hviezdiciek, float hodnotenie, string adresa, string popis, string[] obr_urls, bool wifi, bool tv, bool parkovanie, bool ranajky, bool bazen, int id_destinacia, int id_typ_ubytovania, bool klimatizacia)
         {
             this.id = id;
             this.nazov = nazov;
@@ -31,6 +39,14 @@ namespace DesktopApp1
             this.popis = popis;
             this.obr_urls = obr_urls;
             this.main_url = obr_urls[0];
+
+            this.wifi = wifi;
+            this.tv = tv;
+            this.parkovanie = parkovanie;
+            this.ranajky = ranajky;
+            this.bazen = bazen;
+            this.klimatizacia = klimatizacia;
+
             this.id_destinacia = id_destinacia;
             this.id_typ_ubytovania = id_typ_ubytovania;
         }

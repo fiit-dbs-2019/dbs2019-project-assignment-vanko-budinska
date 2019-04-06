@@ -22,12 +22,16 @@ namespace DesktopApp1
     {
         private PostGreSQL db_conn;
         public HotelPolozka[] polozky_control { get; private set; }
+        private int offset;
+        private int limit;
 
         public Bookme()
         {
             InitializeComponent();
             db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
-            naplPonuku();
+            limit = 10;
+            offset = 0;
+            naplPonuku("");
             //List<string> result = db_conn.Query("SELECT * FROM public.izby");
             //naplPonuku(result);
         }
@@ -81,15 +85,10 @@ namespace DesktopApp1
             panel.Controls.Add(item);
         }
 
-        public void naplPonuku()
+        public void naplPonuku(string podmienka_sel)
         {
-            /* Do ponuky po 15 poloziek
-             * 
-             * 
-             * 
-             */
-            List<string> data = db_conn.Query("SELECT * FROM public.ubytovanie LIMIT 10;");
-            List<string[]> data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie LIMIT 10;"));
+            List<string> data = db_conn.Query(String.Format("SELECT * FROM public.ubytovanie " + podmienka_sel + " LIMIT {0} OFFSET {1};", limit, offset));
+            List<string[]> data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie " + podmienka_sel + "LIMIT {0} OFFSET {1};", limit, offset));
             List<string> riadok;
             List<string> dst;
             clearflPanel(flowLayoutPanel1);
@@ -108,14 +107,20 @@ namespace DesktopApp1
                  *          [4] - adresa
                  *          [5] - popis
                  *          [6] - obr_urls[]
-                 *          [7] - id_destinacia
-                 *          [8] - id_typ_ubytovania
+                 *          [7] - wifi
+                 *          [8] - tv
+                 *          [9] - parkovisko
+                 *          [10] - ranajky
+                 *          [11] - bazen
+                 *          [12] - id_destinacia
+                 *          [13] - id_typ_ubytovania
+                 *          [14] - klimatizacia
                  */
                 riadok = parse_response(data[i]);
-                dst = db_conn.Query(String.Format("SELECT * FROM public.destinacia d INNER JOIN public.stat s ON d.id_stat = s.id WHERE d.id = '{0}';", Int32.Parse(riadok[7])));
+                dst = db_conn.Query(String.Format("SELECT * FROM public.destinacia d INNER JOIN public.stat s ON d.id_stat = s.id WHERE d.id = '{0}';", Int32.Parse(riadok[12])));
                 dst = parse_response(dst[0]);
 
-                polozky_ubytovania[i] = new Ubytovanie(Int32.Parse(riadok[0]), riadok[1], Int32.Parse(riadok[2]), float.Parse(riadok[3]), riadok[4], riadok[5], data_arr[i], Int32.Parse(riadok[7]), Int32.Parse(riadok[8]));
+                polozky_ubytovania[i] = new Ubytovanie(Int32.Parse(riadok[0]), riadok[1], Int32.Parse(riadok[2]), float.Parse(riadok[3]), riadok[4], riadok[5], data_arr[i], Boolean.Parse(riadok[7]), Boolean.Parse(riadok[8]), Boolean.Parse(riadok[9]), Boolean.Parse(riadok[10]), Boolean.Parse(riadok[11]), Int32.Parse(riadok[12]), Int32.Parse(riadok[13]), Boolean.Parse(riadok[14]));
                 polozky_ubytovania[i].adresa = dst[0] + " " + dst[1] + " " + dst[2] + ", " + dst[4];
                                 
                 polozky_control[i] = new HotelPolozka(this, polozky_ubytovania[i]);
@@ -208,6 +213,54 @@ namespace DesktopApp1
                 str.Add(s);
             }
             return str;
+        }
+
+        private void btnFiltruj_Click(object sender, EventArgs e)
+        {
+            string q = "";
+            if(chbWifi.Checked)
+            {
+                if(q.Length == 0)
+                    q += " WHERE wifi = 'true' ";
+                else
+                    q += " AND wifi = 'true' ";
+            }
+            if (chbTv.Checked)
+            {
+                if (q.Length == 0)
+                    q += " WHERE tv = 'true' ";
+                else
+                    q += " AND tv = 'true' ";
+            }
+            if (chbParkovanie.Checked)
+            {
+                if (q.Length == 0)
+                    q += " WHERE parkovisko = 'true' ";
+                else
+                    q += " AND parkovisko = 'true' ";
+            }
+            if (chbRanajky.Checked)
+            {
+                if (q.Length == 0)
+                    q += " WHERE ranajky = 'true' ";
+                else
+                    q += " AND ranajky = 'true' ";
+            }
+            if (chbBazen.Checked)
+            {
+                if (q.Length == 0)
+                    q += " WHERE bazen = 'true' ";
+                else
+                    q += " AND bazen = 'true' ";
+            }
+            if (chbKlimatizacia.Checked)
+            {
+                if (q.Length == 0)
+                    q += " WHERE klimatizacia = 'true' ";
+                else
+                    q += " AND klimatizacia = 'true' ";
+            }
+            naplPonuku(q);
         }
     }
 }

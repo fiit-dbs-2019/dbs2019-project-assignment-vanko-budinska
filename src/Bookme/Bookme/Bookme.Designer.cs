@@ -30,22 +30,22 @@ namespace DesktopApp1
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_prihlas = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.chbWifi = new System.Windows.Forms.CheckBox();
+            this.chbParkovanie = new System.Windows.Forms.CheckBox();
+            this.chbTv = new System.Windows.Forms.CheckBox();
+            this.chbRanajky = new System.Windows.Forms.CheckBox();
+            this.chbKlimatizacia = new System.Windows.Forms.CheckBox();
+            this.chbBazen = new System.Windows.Forms.CheckBox();
             this.tbDestName = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnFiltruj = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.btn_filter = new System.Windows.Forms.Button();
+            this.btnHladat = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@ namespace DesktopApp1
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnVybrat = new System.Windows.Forms.Button();
             this.flp_prihlaseny = new System.Windows.Forms.FlowLayoutPanel();
             this.panelPaging = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -91,65 +91,65 @@ namespace DesktopApp1
             this.btn_prihlas.UseVisualStyleBackColor = true;
             this.btn_prihlas.Click += new System.EventHandler(this.btn_prihlas_Click);
             // 
-            // checkBox1
+            // chbWifi
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(11, 30);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(57, 21);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "WiFi";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chbWifi.AutoSize = true;
+            this.chbWifi.Location = new System.Drawing.Point(11, 30);
+            this.chbWifi.Name = "chbWifi";
+            this.chbWifi.Size = new System.Drawing.Size(57, 21);
+            this.chbWifi.TabIndex = 2;
+            this.chbWifi.Text = "WiFi";
+            this.chbWifi.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chbParkovanie
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(11, 57);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(147, 21);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Parkovanie v cene";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chbParkovanie.AutoSize = true;
+            this.chbParkovanie.Location = new System.Drawing.Point(11, 57);
+            this.chbParkovanie.Name = "chbParkovanie";
+            this.chbParkovanie.Size = new System.Drawing.Size(147, 21);
+            this.chbParkovanie.TabIndex = 3;
+            this.chbParkovanie.Text = "Parkovanie v cene";
+            this.chbParkovanie.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chbTv
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(11, 84);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(48, 21);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "TV";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chbTv.AutoSize = true;
+            this.chbTv.Location = new System.Drawing.Point(11, 84);
+            this.chbTv.Name = "chbTv";
+            this.chbTv.Size = new System.Drawing.Size(48, 21);
+            this.chbTv.TabIndex = 4;
+            this.chbTv.Text = "TV";
+            this.chbTv.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // chbRanajky
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(11, 111);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(127, 21);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Ranajky v cene";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chbRanajky.AutoSize = true;
+            this.chbRanajky.Location = new System.Drawing.Point(11, 111);
+            this.chbRanajky.Name = "chbRanajky";
+            this.chbRanajky.Size = new System.Drawing.Size(127, 21);
+            this.chbRanajky.TabIndex = 5;
+            this.chbRanajky.Text = "Ranajky v cene";
+            this.chbRanajky.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // chbKlimatizacia
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(11, 138);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(104, 21);
-            this.checkBox5.TabIndex = 6;
-            this.checkBox5.Text = "Klimatizacia";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chbKlimatizacia.AutoSize = true;
+            this.chbKlimatizacia.Location = new System.Drawing.Point(11, 138);
+            this.chbKlimatizacia.Name = "chbKlimatizacia";
+            this.chbKlimatizacia.Size = new System.Drawing.Size(104, 21);
+            this.chbKlimatizacia.TabIndex = 6;
+            this.chbKlimatizacia.Text = "Klimatizacia";
+            this.chbKlimatizacia.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // chbBazen
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(11, 165);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(70, 21);
-            this.checkBox6.TabIndex = 7;
-            this.checkBox6.Text = "Bazen";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.chbBazen.AutoSize = true;
+            this.chbBazen.Location = new System.Drawing.Point(11, 165);
+            this.chbBazen.Name = "chbBazen";
+            this.chbBazen.Size = new System.Drawing.Size(70, 21);
+            this.chbBazen.TabIndex = 7;
+            this.chbBazen.Text = "Bazen";
+            this.chbBazen.UseVisualStyleBackColor = true;
             // 
             // tbDestName
             // 
@@ -185,13 +185,13 @@ namespace DesktopApp1
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox6);
-            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.btnFiltruj);
+            this.groupBox1.Controls.Add(this.chbWifi);
+            this.groupBox1.Controls.Add(this.chbTv);
+            this.groupBox1.Controls.Add(this.chbRanajky);
+            this.groupBox1.Controls.Add(this.chbKlimatizacia);
+            this.groupBox1.Controls.Add(this.chbBazen);
+            this.groupBox1.Controls.Add(this.chbParkovanie);
             this.groupBox1.Location = new System.Drawing.Point(23, 399);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 233);
@@ -199,14 +199,15 @@ namespace DesktopApp1
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtrovat podla";
             // 
-            // button4
+            // btnFiltruj
             // 
-            this.button4.Location = new System.Drawing.Point(52, 204);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Filtruj";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnFiltruj.Location = new System.Drawing.Point(52, 204);
+            this.btnFiltruj.Name = "btnFiltruj";
+            this.btnFiltruj.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltruj.TabIndex = 21;
+            this.btnFiltruj.Text = "Filtruj";
+            this.btnFiltruj.UseVisualStyleBackColor = true;
+            this.btnFiltruj.Click += new System.EventHandler(this.btnFiltruj_Click);
             // 
             // label4
             // 
@@ -242,14 +243,14 @@ namespace DesktopApp1
             this.dateTimePicker2.Size = new System.Drawing.Size(163, 22);
             this.dateTimePicker2.TabIndex = 14;
             // 
-            // btn_filter
+            // btnHladat
             // 
-            this.btn_filter.Location = new System.Drawing.Point(52, 227);
-            this.btn_filter.Name = "btn_filter";
-            this.btn_filter.Size = new System.Drawing.Size(75, 23);
-            this.btn_filter.TabIndex = 13;
-            this.btn_filter.Text = "Hladat";
-            this.btn_filter.UseVisualStyleBackColor = true;
+            this.btnHladat.Location = new System.Drawing.Point(52, 227);
+            this.btnHladat.Name = "btnHladat";
+            this.btnHladat.Size = new System.Drawing.Size(75, 23);
+            this.btnHladat.TabIndex = 13;
+            this.btnHladat.Text = "Hladat";
+            this.btnHladat.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -339,7 +340,7 @@ namespace DesktopApp1
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.btn_filter);
+            this.groupBox4.Controls.Add(this.btnHladat);
             this.groupBox4.Controls.Add(this.numericUpDown2);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.label4);
@@ -385,7 +386,7 @@ namespace DesktopApp1
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnVybrat);
             this.groupBox2.Location = new System.Drawing.Point(229, 126);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(900, 58);
@@ -406,14 +407,14 @@ namespace DesktopApp1
             this.comboBox1.Size = new System.Drawing.Size(165, 24);
             this.comboBox1.TabIndex = 22;
             // 
-            // button3
+            // btnVybrat
             // 
-            this.button3.Location = new System.Drawing.Point(177, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Vybrat";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnVybrat.Location = new System.Drawing.Point(177, 20);
+            this.btnVybrat.Name = "btnVybrat";
+            this.btnVybrat.Size = new System.Drawing.Size(75, 23);
+            this.btnVybrat.TabIndex = 21;
+            this.btnVybrat.Text = "Vybrat";
+            this.btnVybrat.UseVisualStyleBackColor = true;
             // 
             // flp_prihlaseny
             // 
@@ -466,19 +467,19 @@ namespace DesktopApp1
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_prihlas;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox chbWifi;
+        private System.Windows.Forms.CheckBox chbParkovanie;
+        private System.Windows.Forms.CheckBox chbTv;
+        private System.Windows.Forms.CheckBox chbRanajky;
+        private System.Windows.Forms.CheckBox chbKlimatizacia;
+        private System.Windows.Forms.CheckBox chbBazen;
         private System.Windows.Forms.TextBox tbDestName;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button btn_filter;
+        private System.Windows.Forms.Button btnHladat;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -491,8 +492,8 @@ namespace DesktopApp1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnVybrat;
+        private System.Windows.Forms.Button btnFiltruj;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_email;
