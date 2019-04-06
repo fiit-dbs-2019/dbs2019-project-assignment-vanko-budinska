@@ -53,12 +53,12 @@ namespace PgSql
 
         #endregion Properties
         */
-        public PostGreSQL(string server, string port, string user_id, string passwd, string db_name, string sch_name)
+        public PostGreSQL(string server, string port, string user_id, string heslo, string db_name, string sch_name)
         {
             _server = server;
             _port = port;
             _user_id = user_id;
-            _password = passwd;
+            _password = heslo;
             _db_name = db_name;
             _schema_name = sch_name;
         }        

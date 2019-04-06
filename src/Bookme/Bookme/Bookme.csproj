@@ -116,6 +116,9 @@
     <EmbeddedResource Include="Registracia.resx">
       <DependentUpon>Registracia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reg_Form.resx">
+      <DependentUpon>Reg_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -118,7 +118,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tb_email);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(33, 53);
+            this.groupBox1.Location = new System.Drawing.Point(3, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(246, 175);
             this.groupBox1.TabIndex = 8;
@@ -138,7 +138,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(98, 26);
+            this.label5.Location = new System.Drawing.Point(47, 26);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 24);
             this.label5.TabIndex = 9;
@@ -151,7 +151,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Name = "Registracia";
-            this.Size = new System.Drawing.Size(323, 231);
+            this.Size = new System.Drawing.Size(268, 231);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

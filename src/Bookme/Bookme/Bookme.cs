@@ -27,9 +27,11 @@ namespace DesktopApp1
         private string hladat_Querry = "";
         private string hladat_Querry_urls = "";
 
-        public HotelPolozka[] polozky_control { get; private set; }
         private int offset;
         private int limit;
+
+        public HotelPolozka[] polozky_control { get; private set; }
+        Uzivatel uzivatel;
 
         public Bookme()
         {
@@ -95,8 +97,6 @@ namespace DesktopApp1
 
         public void naplPonuku()
         {
-            
-
             List<string> riadok;
             List<string> dst;
             clearflPanel(flowLayoutPanel1);
@@ -158,24 +158,24 @@ namespace DesktopApp1
 
         private void Start_Reg()
         {
-            Registracia reg_Control = new Registracia();
+            Registracia reg_Control = new Registracia(this);
             Reg_Form reg_form = new Reg_Form(reg_Control);
             reg_form.ShowDialog();
         }
 
         private void btn_prihlas_Click(object sender, EventArgs e)
         {
-            string q = String.Format("SELECT meno, priezvisko, email, passwd FROM public.pouzivatel WHERE email = '{0}'", tb_email.Text);
-            string passwd = tb_heslo.Text + "\r\n";
+            string q = String.Format("SELECT meno, priezvisko, email, heslo FROM public.pouzivatel WHERE email = '{0}'", tb_email.Text);
+            string heslo = tb_heslo.Text + "\r\n";
             
             List<string> response = db_conn.Query(q);
             /*
-             * pred parse list[0]: meno,priezvisko,email,passwd
+             * pred parse list[0]: meno,priezvisko,email,heslo
              * po parse:
              * response list[0] : meno
              *          list[1] : priezvisko
              *          list[2] : email
-             *          list[3] : passwd
+             *          list[3] : heslo
              */
 
             //osetrenie prihlasovania
@@ -185,13 +185,19 @@ namespace DesktopApp1
                 return;
             }
             response = parse_response(response[0]);
-            if (!response[3].Equals(passwd))
+            if (!response[3].Equals(heslo))
             {
                 print_message("Zle zadane heslo!" + response[3]);
                 return;
             }
 
-            Uzivatel uzivatel = new Uzivatel(response[0], response[1], response[2]);
+            prihlasenie(response[0], response[1], response[2]);
+            
+        }
+
+        public void prihlasenie(string meno, string priezvisko, string email)
+        {
+            this.uzivatel = new Uzivatel(meno, priezvisko, email);
             //najst v DB, porovnat heslo, ak sedi tak zmenit hlavicku a ulozit udaje
             Prihlaseny_hlavicka phlav_Control = new Prihlaseny_hlavicka();
             groupBox3.Hide();
@@ -205,11 +211,7 @@ namespace DesktopApp1
             string caption = "Chyba prihlasenia";
             MessageBoxButtons button = MessageBoxButtons.OK;
             DialogResult result;
-            result = System.Windows.Forms.MessageBox.Show(message, caption, button);
-            if(result == System.Windows.Forms.DialogResult.OK)
-            {
-                this.Close();
-            }
+            result = MessageBox.Show(message, caption, button);
         }
 
         private List<string> parse_response(string response)
