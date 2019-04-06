@@ -12,7 +12,7 @@ stav svojich rezervácii alebo platieb. V tomto zozname ubytovaní nájde pouívate
 rezerváciu (pokia¾ nezmeškal monı termín na zrušenie rezervácie), komunikova s poskytovate¾om ubytovania alebo sa preukáza rezervaènım èíslom pre
 jednoduché a rıchle ubytovanie.
 ## Dátovı model 
-![alt text](model-3.png "Aktualny datovy model")
+![model](diagram-3.png "Aktualny datovy model")
 ### Opis modelu:
 #### Ubytovanie
 Ubytovanie by sme mohli oznaèi ako hlavnú entitu. Za ubytovanie povaujeme miesto, na ktorom je moné prespa a v reálnom svete ho mono povaova èi u za samostatnú izbu v súkromí, alebo "izbu" (s kúpe¾òou alebo viacerími miestnosami) v hoteli èi apartmán.
