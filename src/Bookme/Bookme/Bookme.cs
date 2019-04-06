@@ -27,9 +27,7 @@ namespace DesktopApp1
         {
             InitializeComponent();
             db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
-            naplPonuku();
-            //List<string> result = db_conn.Query("SELECT * FROM public.izby");
-            //naplPonuku(result);
+            naplPonuku("SELECT * FROM public.ubytovanie LIMIT 10;", String.Format("SELECT obr_urls FROM public.ubytovanie LIMIT 10;"));
         }
 
         public FlowLayoutPanel flpanel1
@@ -81,15 +79,15 @@ namespace DesktopApp1
             panel.Controls.Add(item);
         }
 
-        public void naplPonuku()
+        public void naplPonuku(string q, string q_arr)
         {
             /* Do ponuky po 15 poloziek
              * 
              * 
              * 
              */
-            List<string> data = db_conn.Query("SELECT * FROM public.ubytovanie LIMIT 10;");
-            List<string[]> data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie LIMIT 10;"));
+            List<string> data = db_conn.Query(q);
+            List<string[]> data_arr = db_conn.Query_Array(q_arr);
             List<string> riadok;
             List<string> dst;
             clearflPanel(flowLayoutPanel1);
@@ -113,6 +111,7 @@ namespace DesktopApp1
                  */
                 riadok = parse_response(data[i]);
                 dst = db_conn.Query(String.Format("SELECT * FROM public.destinacia d INNER JOIN public.stat s ON d.id_stat = s.id WHERE d.id = '{0}';", Int32.Parse(riadok[7])));
+                //skontrolovat ci je to spravne
                 dst = parse_response(dst[0]);
 
                 polozky_ubytovania[i] = new Ubytovanie(Int32.Parse(riadok[0]), riadok[1], Int32.Parse(riadok[2]), float.Parse(riadok[3]), riadok[4], riadok[5], data_arr[i], Int32.Parse(riadok[7]), Int32.Parse(riadok[8]));
@@ -135,7 +134,7 @@ namespace DesktopApp1
             this.Close();
         }
 
-        private void btn_registracia_Click_1(object sender, EventArgs e)
+        private void btnRegistracia_Click(object sender, EventArgs e)
         {
             Thread th_reg = new Thread(new ThreadStart(Start_Reg));
             th_reg.Start();
@@ -150,7 +149,7 @@ namespace DesktopApp1
             reg_form.ShowDialog();
         }
 
-        private void btn_prihlas_Click(object sender, EventArgs e)
+        private void btnPrihlas_Click(object sender, EventArgs e)
         {
             string q = String.Format("SELECT meno, priezvisko, email, passwd FROM public.pouzivatel WHERE email = '{0}'", tb_email.Text);
             string passwd = tb_heslo.Text + "\r\n";
@@ -208,6 +207,20 @@ namespace DesktopApp1
                 str.Add(s);
             }
             return str;
+        }
+
+        private void btnHladat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiltruj_Click(object sender, EventArgs e)
+        {
+            /*string q = "SELECT * FROM public.ubytovanie LIMIT 10 WHERE ";
+            string p = "";
+            if(chbWifi.Checked)
+                p += ""
+                */
         }
     }
 }

@@ -66,6 +66,13 @@
     <Compile Include="HotelPolozka.Designer.cs">
       <DependentUpon>HotelPolozka.cs</DependentUpon>
     </Compile>
+    <Compile Include="Izba.cs" />
+    <Compile Include="IzbaDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IzbaDetail.Designer.cs">
+      <DependentUpon>IzbaDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="PgSql.cs" />
     <Compile Include="Prihlaseny_hlavicka.cs">
       <SubType>UserControl</SubType>
@@ -100,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HotelPolozka.resx">
       <DependentUpon>HotelPolozka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IzbaDetail.resx">
+      <DependentUpon>IzbaDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prihlaseny_hlavicka.resx">
       <DependentUpon>Prihlaseny_hlavicka.cs</DependentUpon>

@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -199,7 +200,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(767, 475);
+            this.button1.Location = new System.Drawing.Point(767, 725);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 15;
@@ -207,10 +208,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(30, 476);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(812, 243);
+            this.flowLayoutPanel5.TabIndex = 16;
+            // 
             // HotelDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.flowLayoutPanel5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.panel2);
@@ -219,7 +228,7 @@
             this.Controls.Add(this.picBoxMainView);
             this.Controls.Add(this.panel1);
             this.Name = "HotelDetail";
-            this.Size = new System.Drawing.Size(880, 506);
+            this.Size = new System.Drawing.Size(873, 753);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -253,5 +262,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
     }
 }
