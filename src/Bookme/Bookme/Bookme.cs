@@ -36,6 +36,7 @@ namespace DesktopApp1
         public Bookme()
         {
             InitializeComponent();
+            pictureBox1.Image = new Bitmap("..\\..\\img\\logo-bookme.png");
             db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
             limit = 10;
             offset = 0;
@@ -202,8 +203,8 @@ namespace DesktopApp1
             Prihlaseny_hlavicka phlav_Control = new Prihlaseny_hlavicka();
             groupBox3.Hide();
             phlav_Control.Load_data(uzivatel);
-            clearflPanel(flp_prihlaseny);
-            addflPanel(flp_prihlaseny, phlav_Control);
+            clearPanel(flp_prihlaseny);
+            addPanel(flp_prihlaseny, phlav_Control);
         }
 
         private void print_message(string message)
