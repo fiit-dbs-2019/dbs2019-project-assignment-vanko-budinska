@@ -35,32 +35,54 @@ Informácie ktoré sa získavajú z databázy:
 * Obrázok ubytovania (cez URL)
 * Názov destinácie, adresa 
 * Popis
+* Hodnotenie, Cena
+
 #### Podscenár 1.1 - Stránkovanie
 Tlaèidlami < a > v spodnej èasti hlavného okna je moné posúva sa po stránkach - predvolene 10 ponúk.
-
-### Scenár 2 - detail hotela
-Wireframe pre scenár è. 2 - wireframe-2.png
-#### Opis scenára 2
-Náh¾ad na detail hotela v ktorom sa vypíše viacero detailov ktoré neboli vidite¾né v scenári 1.
-Stlaèením tlaèidla spä sa dostane nazad medzi prezerané hotely v predchádzajúcom kroku.
-#### Podscenár 2.1 - Základné vyh¾adávanie
+#### Podscenár 1.2 - Základné vyh¾adávanie
 Pri základnom vyh¾adávaní sa oèakáva zadanie destinácie, dátumov zaèiatku a konca rezervácie, poètu osôb a poètu izieb.
 Po stlaèení tlaèidla h¾ada systém naplní ponuku s vyhovujúcimi ubytovaniami.
-#### Podscenár 2.2 - Filter
-Po stlaèení tlaèidla filtruj sa filter aplikuje na práve vypísané ponuky, teda pri základnom scenári na predvolenú ponuku, po podscenári 2.1 na vyh¾adané ponuky.
-#### Podscenár 2.3 - Usporiadanie
+#### Podscenár 1.3 - Filter
+Po stlaèení tlaèidla filtruj sa filter aplikuje na práve vypísané ponuky, teda pri základnom scenári na predvolenú ponuku, po podscenári 1.2 na vyh¾adané ponuky.
+#### Podscenár 1.4 - Usporiadanie
 Po vybratí z ponuky pre usporiadanie (Zoradit pod¾a) sa usporiadajú práve zobrazované ponuky.
 
+### Scenár 2 - detail ubytovania
+![Detail_ubytovania](wireframe-2.png "Detail ubytovania")
+#### Opis scenára 2
+Náh¾ad na detail ubytovania v ktorom sa vypíše viacero detailov ktoré neboli vidite¾né v scenári 1.
+Stlaèením tlaèidla spä sa dostane nazad medzi prezerané hotely v predchádzajúcom kroku.
+
 ### Scenár 3 - rezervácia
+![Rezervacia](wireframe-3.png "Rezervacia")
 #### Opis scenára è.3
-V detaile hotela po kliknutí na tlaèidlo Rezervova sa zobrazí okno s detailami o rezervacií (dátum, poèet osôb, celková cena). Po potvrdení rezervácie sa daná izba pre zvolenı dátum vyradí z ponuky a pridá medzi rezervácie pouívate¾a.
+Po kliknutí na tlaèidlo rezervova sa zobrazí (zatia¾) dialógové okno s informáciou "Rezervácia Od DD.MM.YYYY do DD.MM.YYYY bola vytvorena".\
+Táto rezervácia sa pridá do príslušnıch tabuliek - Rezervacia, Zostava rezervácie.\
+Pre vytvorenie rezervácie musí by pouívate¾ prihlásenı, inak mu systém nedovolí vytvori rezerváciu.\
+
 #### Podscenár 3.1 Registrácia
 Pre rezerváciu je potrebné by zaregistrovanı a prihlásenı. Po kliknutí na tlaèidlo Registruj sa, sa otvorí okno pre vyplnenie údajov potrebnıch pre registráciu.
-Po dokonèení rezervácie systém automaticky prihlási pouívate¾a. Systém vytiahne z db meno pouívate¾a a v hlavnom okne je "Vitaj meno_pouívate¾a".
+Systém vytiahne z db meno pouívate¾a a v hlavnom okne je "Vitaj meno_pouívate¾a".
+
 #### Podscenár 3.2 Prihlásenie
 Po správnom vyplnení emailu a hesla pre prihlásenie a stlaèení tlaèidla prihlási sa, systém vytiahne z db meno pouívate¾a a v hlavnom okne je "Vitaj meno_pouívate¾a".
 Ak nie je správny email (nebol zaregistrovanı èi je zle vyplnenı) alebo heslo je nesprávne, ale email správny, tak systém vypíše chybovú hlášku.
 Tieto údaje sa nachádzajú v tabu¾ke Pouívate¾.
+
+### Scenár 4 - Preh¾ad rezervácií
+Po kliknutí na tlaèidlo Moje Rezervacie sa otvorí (zatia¾) tabu¾ka s informáciami o rezerváciach pre práve prihláseného pouívate¾a.\
+Inormácie zobrazované v preh¾ade rezervácií:
+* Èíslo rezervácie
+* Poèet izieb za danú rezerváciu
+* Dátum od kedy je rezervácia platná
+* Dátum do kedy je rezervácia platná
+* Názov ubytovania
+* Adresa ubytovania
+* Destinácia
+* Štát
+
+Tlaèidlom spä sa pouívate¾ vráti na preh¾ad ubytovaní
+
 ## Opis návrhu a implementácie
 ### Programové prostredie
 Aplikácia je desktopová urèená pre OS Windows, implementovaná v programovacom jazyku C#, v prostredí Visual Studio. Vyuíva postgres DB.
@@ -69,6 +91,51 @@ K DB sa pristupuje pomocou Npgsql, pripojenie k DB prebieha cez NpgsqlConnection
 Na poiadavky na vıber z DB je implementovaná vlastná trieda PostGreSQL, kde do jej konštruktora vstupujú údaje na pripojenie do DB. Táto trieda ma vlastnú metódu Query do ktorej vstupuje string pre poiadavku, vracia List<string> kde string má formát "stlpec1,stlpec2,stlpec3...stlpecN". 
 ### Opis implementácie 
 Z grafického h¾adiska pouité prvky poskytovná cez Toolbox.
-#### Scenár 1
-Hlavné okno - vyuíva User Control HotelPolozka. Jednotlivé poloky sú dynamicky generované pod¾a poètu v DB pri spustení aplikácie v metóde napln_ponuku do ktorej vstupuje List<string> s odpoveïou z DB. Zatia¾ v DB nie sú ve¾ké generované poèty záznamov take zatia¾ neriešim poèet poèet prvkov ktoré sa súèasne zobrazia, teda prechádzanie po stránkach. Implementovaná je iba tabu¾ka izby z dátového modelu v diag-2.png
 
+#### Scenár 1 - hlavná obrazovka
+Hlavné okno - vyuíva User Control HotelPolozka. Jednotlivé poloky sú dynamicky generované pri spustení aplikácie v metóde napln_ponuku. Poèet záznamov na stránku je 10.
+
+#### Podscenár 1.2 - Základné vyh¾adávanie
+V Bookme.cs btnHladat_Click - Vıber z tabuliek destinacia, stat - kde sa adresa, nazov statu alebo nazov destinacie zhoduje so zadanım textom a naplnenie ponuky pod¾a odpovede z DB.
+Nie je doimplementoavné vyh¾adávanie pod¾a dátumu, poètu osôb a izieb
+
+#### Podscenár 1.3 - Filter
+V Bookme.cs btnFiltruj_Click - vıber z tabu¾ky ubytovaní pod¾a checkboxov.
+
+
+#### Scenár 2 - detail ubytovania
+UserControl HotelDetail(HotelPolozka hotelPolozka). Dáta sú èerpané z poloky hotela, ubytovania.\
+V Bookme.cs tlaèidlo rezervuj - pripojenie do DB, insert do tabu¾ky rezervácií a zostavy rezervácií.
+Metoda NaplnPolozky() - naplnenie obrazovky detailu hotela,
+Metoda VykresliObr() - vykreslenie náhladu fotiek hotela, max to¾ko, ko¾ko je v ubytovanie obr_urls[]
+Metoda Obrazky_Click() - zobrazenie vybraného obrázku z náh¾adu
+
+#### Scenár 3 - rezervácia
+V triede HotelDetail btnRezervuj_Click\
+Insert do tabuliek rezervacia a zostava rezervacie
+
+#### Podscenár 3.1 - Registrácia
+V Bookme.cs btnRegistracia_Click - V novom threade sa vytvorí okno s UserControl Registracia.cs kde pouívate¾ vyplní údaje.
+Ak sú všetky údaje vyplnené, tak v Registracia.btnRegistruj_Click sa spravi insert do tabu¾ky pouívate¾ov.
+Ak nie, vypíše sa chybová hláška. Email na platnos nekontrolujem, heslo je uloené ako plain text, nehashujem ho.
+
+#### Podscenár 3.2 Prihlásenie
+V Bookme.cs btnPrihlas_Click - overenie hesla k prislúchajúcemu emailu v tabu¾ke pouívate¾ov.
+Po prihlásení zmena pre prihlásenie na UserControl PrihlasenyHlavicka.
+
+### Scenár 4 - Preh¾ad rezervácií
+UserControl MojeRezervacie - naplnenie dataGridView pod¾a selektu z DB.
+
+## TODO
+- [ ] Scenár 3 - Detail a potvrdenie rezervácie
+- [ ] Scenár 2 - Izby pre dané ubytovanie
+- [ ] Scenár 2 - Detail hotela - ïalšie informácie
+- [ ] Model - Tabu¾ka so monımi stavmi rezervácií
+- [ ] Scenár 4 - Jednotlivé vytvorené rezervácie v samostatnom UserControl s monosou zmeny stavu
+- [ ] Naplni DB zmysluplnımi cenami
+- [ ] Stránkovanie
+- [ ] Usporiadanie pod¾a kritérií
+- [ ] Všetky Queries cez cmd.Parameters
+- [ ] Kompletnı podscenár 1.2 (datum, izby, osoby)
+- [ ] Dorobenie lepšieho vyskladnávanie Query
+- [ ] Automatické prihlásenie po registrácií
