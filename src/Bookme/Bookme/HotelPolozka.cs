@@ -33,7 +33,7 @@ namespace DesktopApp1
                 hv += "*";
             lblHviez.Text = hv;
             lblHodn.Text = u.hodnotenie.ToString();
-            lblCena.Text = u.cena.ToString();
+            //lblCena.Text = u.cena.ToString();
             lblDestinacia.Text = u.adresa;
 
             rtbPopis.Text = u.popis;

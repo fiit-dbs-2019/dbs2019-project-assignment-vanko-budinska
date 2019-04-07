@@ -1,0 +1,15 @@
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\Json_into_sqltable.exe.config
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\Json_into_sqltable.exe
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\Json_into_sqltable.pdb
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\Newtonsoft.Json.dll
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\Npgsql.dll
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\Newtonsoft.Json.pdb
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\Newtonsoft.Json.xml
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\Npgsql.pdb
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\bin\Release\Npgsql.xml
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\obj\Release\Json_into_sqltable.csproj.CoreCompileInputs.cache
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\obj\Release\Json_into_sqltable.csproj.CopyComplete
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\obj\Release\Json_into_sqltable.exe
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\obj\Release\Json_into_sqltable.pdb
+C:\Users\Martin\source\repos\Json_into_sqltable\Json_into_sqltable\obj\Release\Json_into_sqltable.csprojAssemblyReference.cache
