@@ -28,12 +28,13 @@ Jedná sa o väzobnú entitu. Cez túto entitu priraïujeme k práve jednej rezervácií
 ### Scenár 1 - hlavná obrazovka
 ![Hlavna_Obrazovka](wireframe-1.png "Hlavna obrazovka")
 #### Opis scenára 1
-Po spustení aplikácie sa otvorí hlavné okno s ponukami ubytovaní ktoré sa nachádzajú v databáze. 
+Po spustení aplikácie sa otvorí hlavné okno s ponukami ubytovaní ktoré sa nachádzajú v databáze. <Enter>
 Informácie ktoré sa získavajú z databázy:
-Názov hotela
-Poèet hviezdièiek ktoré má danı hotel
-Obrázok hotela (cez URL)
-Filter, dátumy od a do, názov destinácie/hotela a poèet ¾udí / lôok zatia¾ nie sú funkèné. Implementované budú v druhom scenári.
+* Názov ubytovania
+* Poèet hviezdièiek ktoré má danı hotel
+* Obrázok ubytovania (cez URL)
+* Názov destinácie, adresa 
+* Popis
 #### Podscenár 1.1 - Stránkovanie
 Tlaèidlami < a > v spodnej èasti hlavného okna je moné posúva sa po stránkach - predvolene 10 ponúk.
 
