@@ -16,33 +16,33 @@ namespace DesktopApp1
     public partial class HotelPolozka : UserControl
     {
         public Bookme b { get; private set; }
-        public Ubytovanie u { get; private set; }
-        public HotelPolozka(Bookme b, Ubytovanie u)
+        public Ubytovanie ubytovanie { get; private set; }
+        public HotelPolozka(Bookme b, Ubytovanie ubytovanie)
         {
             InitializeComponent();
             this.b = b;
-            this.u = u;
-            NaplnPolozky(u);
+            this.ubytovanie = ubytovanie;
+            NaplnPolozky(ubytovanie);
         }
 
-        private void NaplnPolozky(Ubytovanie u)
+        private void NaplnPolozky(Ubytovanie ubytovanie)
         {
             string hv = "";
-            lblNazov.Text = u.nazov;
-            for (int j = 0; j < u.pocet_hviezdiciek; j++)
+            lblNazov.Text = ubytovanie.nazov;
+            for (int j = 0; j < ubytovanie.pocet_hviezdiciek; j++)
                 hv += "*";
             lblHviez.Text = hv;
-            lblHodn.Text = u.hodnotenie.ToString();
-            //lblCena.Text = u.cena.ToString();
-            lblDestinacia.Text = u.adresa;
+            lblHodn.Text = ubytovanie.hodnotenie.ToString();
+            //lblCena.Text = ubytovanie.cena.ToString();
+            lblDestinacia.Text = ubytovanie.adresa;
 
-            rtbPopis.Text = u.popis;
+            rtbPopis.Text = ubytovanie.popis;
 
             //pictureBox set img
             WebRequest request;
             WebResponse response;
             Stream str;
-            request = WebRequest.Create(u.main_url);
+            request = WebRequest.Create(ubytovanie.main_url);
             response = request.GetResponse();
             str = response.GetResponseStream();
             picBox.Image = Bitmap.FromStream(str);
@@ -123,7 +123,6 @@ namespace DesktopApp1
             b.clearPanel(b.flpanel1);
             b.clearPanel(b.PagingPanel1);
             b.addPanel(b.flpanel1, new HotelDetail(this));
-
         }
     }
 }

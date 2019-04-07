@@ -18,33 +18,34 @@ namespace DesktopApp1
 {
     public partial class HotelDetail : UserControl
     {
-        private HotelPolozka p;
+        private HotelPolozka hotelPolozka;
         private Bookme b;
-        private Uzivatel u;
+        private Uzivatel uzivatel;
+        private Ubytovanie ubytovanie;
         private PictureBox[] obrazky;
         private PostGreSQL db_conn;
 
-        public HotelDetail(HotelPolozka p)
+        public HotelDetail(HotelPolozka hotelPolozka)
         {
             InitializeComponent();
-            this.p = p;
-            this.b = p.b;
-            this.u = b.uzivatel;
-            NaplnPolozky(p.u);
+            this.hotelPolozka = hotelPolozka;
+            this.b = hotelPolozka.b;
+            this.ubytovanie = hotelPolozka.ubytovanie;
+            NaplnPolozky();
         }
         
-        private void NaplnPolozky(Ubytovanie u)
+        private void NaplnPolozky()
         {
             string hv = "";
-            lblNazov.Text = u.nazov;
-            for (int j = 0; j < u.pocet_hviezdiciek; j++)
+            lblNazov.Text = ubytovanie.nazov;
+            for (int j = 0; j < ubytovanie.pocet_hviezdiciek; j++)
                 hv += "*";
             lblHviez.Text = hv;
-            lblHodn.Text = u.hodnotenie.ToString();
-            //lblCena.Text = u.cena.ToString();
-            lblDestinacia.Text = u.adresa;
-            rtbPopis.Text = u.popis;
-            vykresli_obr(u.obr_urls);
+            lblHodn.Text = ubytovanie.hodnotenie.ToString();
+            //lblCena.Text = ubytovanie.cena.ToString();
+            lblDestinacia.Text = ubytovanie.adresa;
+            rtbPopis.Text = ubytovanie.popis;
+            vykresli_obr(ubytovanie.obr_urls);
         }
 
         private void vykresli_obr(string[] obr_urls)
@@ -79,8 +80,10 @@ namespace DesktopApp1
 
         private void btnRezervuj_Click(object sender, EventArgs e)
         {
+            this.uzivatel = b.uzivatel;
             db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
             string q = "INSERT INTO public.rezervacia (od_dat, do_dat) VALUES (:datum_od, :datum_do) RETURNING id;";
+
             NpgsqlConnection connection = db_conn.conn;
             NpgsqlCommand cmd = new NpgsqlCommand(q, connection);
             cmd.Parameters.AddWithValue("datum_od", NpgsqlTypes.NpgsqlDbType.Date).Value = b.DatumOd;
@@ -88,9 +91,27 @@ namespace DesktopApp1
             db_conn.command = cmd;
 
             List<string> rep = db_conn.Query();
-
             Rezervacia r = new Rezervacia(b.DatumOd, b.DatumDo, Int32.Parse(rep[0]));
-            
+            //!!!! zmenit pocet, pridat moznost zadania poctu
+            if (uzivatel == null)
+            {
+                string caption = "Chyba rezervacie";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                DialogResult result;
+                result = MessageBox.Show("Pre vytvorenie rezervacie je potreba sa prihlasit", caption, button);
+                return;
+            }
+            ZostavaRezervacie z = new ZostavaRezervacie(1, r.id, ubytovanie.id, uzivatel.id);
+
+            q = "INSERT INTO public.zostava_rezervacie (pocet, id_rezervacia, id_ubytovanie, id_pouzivatel) VALUES (:pocet, :id_rez, :id_ubyt, :id_pouz) RETURNING id;";
+            cmd = new NpgsqlCommand(q, connection);
+            cmd.Parameters.AddWithValue("pocet", NpgsqlTypes.NpgsqlDbType.Integer).Value = z.pocet;
+            cmd.Parameters.AddWithValue("id_rez", NpgsqlTypes.NpgsqlDbType.Integer).Value = z.id_rezervacia;
+            cmd.Parameters.AddWithValue("id_ubyt", NpgsqlTypes.NpgsqlDbType.Integer).Value = z.id_ubytovanie;
+            cmd.Parameters.AddWithValue("id_pouz", NpgsqlTypes.NpgsqlDbType.Integer).Value = z.id_uzivatel;
+            db_conn.command = cmd;
+            rep = db_conn.Query();
+
             MessageBox.Show("Rezervacia od: " + b.DatumOd.ToString() + " do: " + b.DatumOd.ToString() + " bola vytvorena");
         }
 

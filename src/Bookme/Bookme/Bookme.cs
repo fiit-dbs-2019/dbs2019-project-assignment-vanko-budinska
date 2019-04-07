@@ -74,8 +74,7 @@ namespace DesktopApp1
         {
             panel.Controls.Clear();
         }
-
-        
+              
         
         public void clearPanel(Panel panel)
         {
@@ -163,8 +162,8 @@ namespace DesktopApp1
 
         private void btnPrihlas_Click(object sender, EventArgs e)
         {
-            string q = String.Format("SELECT meno, priezvisko, email, heslo FROM public.pouzivatel WHERE email = '{0}'", tb_email.Text);
-            string heslo = tb_heslo.Text + "\r\n";
+            string q = String.Format("SELECT meno, priezvisko, email, heslo, id FROM public.pouzivatel WHERE email = '{0}'", tb_email.Text);
+            string heslo = tb_heslo.Text;
             
             List<string> response = db_conn.Query(q);
             /*
@@ -174,6 +173,7 @@ namespace DesktopApp1
              *          list[1] : priezvisko
              *          list[2] : email
              *          list[3] : heslo
+             *          list[4] : id
              */
 
             //osetrenie prihlasovania
@@ -189,13 +189,13 @@ namespace DesktopApp1
                 return;
             }
 
-            prihlasenie(response[0], response[1], response[2]);
+            prihlasenie(response[0], response[1], response[2], Int32.Parse(response[4]));
             
         }
 
-        public void prihlasenie(string meno, string priezvisko, string email)
+        public void prihlasenie(string meno, string priezvisko, string email, int id)
         {
-            this.uzivatel = new Uzivatel(meno, priezvisko, email);
+            this.uzivatel = new Uzivatel(meno, priezvisko, email, id);
             //najst v DB, porovnat heslo, ak sedi tak zmenit hlavicku a ulozit udaje
             Prihlaseny_hlavicka phlav_Control = new Prihlaseny_hlavicka();
             phlav_Control.Load_data(uzivatel);
@@ -221,6 +221,7 @@ namespace DesktopApp1
             }
             return str;
         }
+
         private void btnFiltruj_Click(object sender, EventArgs e)
         {
             string q = "";
