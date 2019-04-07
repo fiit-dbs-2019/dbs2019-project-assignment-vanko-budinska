@@ -28,7 +28,6 @@ namespace DesktopApp1
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPrihlas = new System.Windows.Forms.Button();
             this.chbWifi = new System.Windows.Forms.CheckBox();
             this.chbParkovanie = new System.Windows.Forms.CheckBox();
@@ -52,7 +51,7 @@ namespace DesktopApp1
             this.tb_email = new System.Windows.Forms.TextBox();
             this.tb_heslo = new System.Windows.Forms.TextBox();
             this.btnRegistracia = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dalej = new System.Windows.Forms.Button();
             this.spat = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -63,7 +62,7 @@ namespace DesktopApp1
             this.btnVybrat = new System.Windows.Forms.Button();
             this.panelPaging = new System.Windows.Forms.Panel();
             this.flp_prihlaseny = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -72,17 +71,8 @@ namespace DesktopApp1
             this.groupBox2.SuspendLayout();
             this.panelPaging.SuspendLayout();
             this.flp_prihlaseny.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.InitialImage = global::DesktopApp1.Properties.Resources.logo_bookme;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(444, 119);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.WaitOnLoad = true;
             // 
             // btnPrihlas
             // 
@@ -313,14 +303,14 @@ namespace DesktopApp1
             this.btnRegistracia.UseVisualStyleBackColor = true;
             this.btnRegistracia.Click += new System.EventHandler(this.btnRegistracia_Click);
             // 
-            // flowLayoutPanel1
+            // flpPanel1
             // 
-            this.flowLayoutPanel1.AllowDrop = true;
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(229, 190);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(900, 760);
-            this.flowLayoutPanel1.TabIndex = 16;
+            this.flpPanel1.AllowDrop = true;
+            this.flpPanel1.AutoScroll = true;
+            this.flpPanel1.Location = new System.Drawing.Point(229, 190);
+            this.flpPanel1.Name = "flpPanel1";
+            this.flpPanel1.Size = new System.Drawing.Size(900, 760);
+            this.flpPanel1.TabIndex = 16;
             // 
             // dalej
             // 
@@ -436,6 +426,16 @@ namespace DesktopApp1
             this.flp_prihlaseny.Size = new System.Drawing.Size(561, 119);
             this.flp_prihlaseny.TabIndex = 21;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.InitialImage = global::DesktopApp1.Properties.Resources.logo_bookme;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(444, 119);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.WaitOnLoad = true;
+            // 
             // Bookme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -446,13 +446,12 @@ namespace DesktopApp1
             this.Controls.Add(this.flp_prihlaseny);
             this.Controls.Add(this.panelPaging);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flpPanel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Bookme";
             this.Text = "Bookme";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -464,6 +463,7 @@ namespace DesktopApp1
             this.groupBox2.ResumeLayout(false);
             this.panelPaging.ResumeLayout(false);
             this.flp_prihlaseny.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -485,7 +485,7 @@ namespace DesktopApp1
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker dtpicDo;
         private System.Windows.Forms.Button btnHladat;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpPanel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

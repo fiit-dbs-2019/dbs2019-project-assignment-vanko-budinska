@@ -48,7 +48,7 @@ namespace DesktopApp1
 
         public FlowLayoutPanel flpanel1
         {
-            get { return flowLayoutPanel1; }
+            get { return flpPanel1; }
         }
 
         public Panel PagingPanel1
@@ -95,7 +95,7 @@ namespace DesktopApp1
         {
             List<string> riadok;
             List<string> dst;
-            clearflPanel(flowLayoutPanel1);
+            clearflPanel(flpPanel1);
             polozky_control = new HotelPolozka[data.Count];
             Ubytovanie[] polozky_ubytovania = new Ubytovanie[data.Count];
             Debug.Write(data.Count);
@@ -129,7 +129,7 @@ namespace DesktopApp1
                                 
                 polozky_control[i] = new HotelPolozka(this, polozky_ubytovania[i]);
                 
-                addflPanel(flowLayoutPanel1, polozky_control[i]);
+                addflPanel(flpPanel1, polozky_control[i]);
                 
             }
         }
@@ -197,8 +197,8 @@ namespace DesktopApp1
         {
             this.uzivatel = new Uzivatel(meno, priezvisko, email, id);
             //najst v DB, porovnat heslo, ak sedi tak zmenit hlavicku a ulozit udaje
-            Prihlaseny_hlavicka phlav_Control = new Prihlaseny_hlavicka();
-            phlav_Control.Load_data(uzivatel);
+            Prihlaseny_hlavicka phlav_Control = new Prihlaseny_hlavicka(uzivatel, this);
+            phlav_Control.Load_data();
             clearPanel(flp_prihlaseny);
             addPanel(flp_prihlaseny, phlav_Control);
         }

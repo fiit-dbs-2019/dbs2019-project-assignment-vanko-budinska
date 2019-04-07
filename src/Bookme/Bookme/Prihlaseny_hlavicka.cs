@@ -12,14 +12,27 @@ namespace DesktopApp1
 {
     public partial class Prihlaseny_hlavicka : UserControl
     {
-        public Prihlaseny_hlavicka()
-        {
+        public Uzivatel uzivatel { get; private set; }
+        private Bookme b;
+        public Prihlaseny_hlavicka(Uzivatel u, Bookme b)
+        {    
             InitializeComponent();
+            this.uzivatel = u;
+            this.b = b;
         }
 
-        public void Load_data(Uzivatel u)
+        public void Load_data()
         {
-            lbl_meno.Text = u.meno;
+            lbl_meno.Text = uzivatel.meno;
+        }
+
+        private void btnMojeRez_Click(object sender, EventArgs e)
+        {
+            MojeRezervacie mojeRezervacie = new MojeRezervacie(uzivatel);
+            b.clearPanel(b.flpanel1);
+            b.clearPanel(b.PagingPanel1);
+            b.addflPanel(b.flpanel1, mojeRezervacie);
+            mojeRezervacie.fill_dataGrid();
         }
     }
 }

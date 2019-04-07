@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_meno = new System.Windows.Forms.Label();
+            this.btnMojeRez = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -51,10 +52,21 @@
             this.lbl_meno.Size = new System.Drawing.Size(0, 24);
             this.lbl_meno.TabIndex = 1;
             // 
+            // btnMojeRez
+            // 
+            this.btnMojeRez.Location = new System.Drawing.Point(414, 33);
+            this.btnMojeRez.Name = "btnMojeRez";
+            this.btnMojeRez.Size = new System.Drawing.Size(109, 42);
+            this.btnMojeRez.TabIndex = 2;
+            this.btnMojeRez.Text = "Moje Rezervacie";
+            this.btnMojeRez.UseVisualStyleBackColor = true;
+            this.btnMojeRez.Click += new System.EventHandler(this.btnMojeRez_Click);
+            // 
             // Prihlaseny_hlavicka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnMojeRez);
             this.Controls.Add(this.lbl_meno);
             this.Controls.Add(this.label1);
             this.Name = "Prihlaseny_hlavicka";
@@ -68,5 +80,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_meno;
+        private System.Windows.Forms.Button btnMojeRez;
     }
 }
