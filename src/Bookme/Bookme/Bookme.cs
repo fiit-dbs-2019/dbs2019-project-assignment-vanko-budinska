@@ -201,7 +201,6 @@ namespace DesktopApp1
             this.uzivatel = new Uzivatel(meno, priezvisko, email);
             //najst v DB, porovnat heslo, ak sedi tak zmenit hlavicku a ulozit udaje
             Prihlaseny_hlavicka phlav_Control = new Prihlaseny_hlavicka();
-            groupBox3.Hide();
             phlav_Control.Load_data(uzivatel);
             clearPanel(flp_prihlaseny);
             addPanel(flp_prihlaseny, phlav_Control);

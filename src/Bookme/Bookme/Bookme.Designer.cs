@@ -388,7 +388,6 @@ namespace DesktopApp1
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.btnVybrat);
             this.groupBox2.Location = new System.Drawing.Point(229, 126);
@@ -428,15 +427,6 @@ namespace DesktopApp1
             this.panelPaging.Name = "panelPaging";
             this.panelPaging.Size = new System.Drawing.Size(900, 34);
             this.panelPaging.TabIndex = 20;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 17);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Zoradit podla";
             // flp_prihlaseny
             // 
             this.flp_prihlaseny.Controls.Add(this.groupBox3);
@@ -509,7 +499,6 @@ namespace DesktopApp1
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnVybrat;
         private System.Windows.Forms.Button btnFiltruj;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_email;
