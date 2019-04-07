@@ -15,10 +15,12 @@ namespace DesktopApp1
     public partial class MojeRezervacie : UserControl
     {
         private Uzivatel uzivatel;
+        private Bookme b;
         private PostGreSQL db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
-        public MojeRezervacie(Uzivatel uzivatel)
+        public MojeRezervacie(Bookme b, Uzivatel uzivatel)
         {
             this.uzivatel = uzivatel;
+            this.b = b;
             InitializeComponent();
         }
 
@@ -49,6 +51,13 @@ namespace DesktopApp1
             {
                 dataGridRezervacie.Rows.Add(line.Split(';'));
             }
+        }
+
+        private void btnSpat_Click(object sender, EventArgs e)
+        {
+            b.clearPanel(b.flpanel1);
+            foreach (var polozka in b.polozky_control)
+                b.addflPanel(b.flpanel1, polozka);
         }
     }
 }

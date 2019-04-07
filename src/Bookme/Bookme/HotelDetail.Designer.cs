@@ -44,7 +44,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSpatHotelDetail = new System.Windows.Forms.Button();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -198,15 +198,15 @@
             this.flowLayoutPanel4.Size = new System.Drawing.Size(90, 46);
             this.flowLayoutPanel4.TabIndex = 14;
             // 
-            // button1
+            // btnSpatHotelDetail
             // 
-            this.button1.Location = new System.Drawing.Point(767, 725);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Spat";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSpatHotelDetail.Location = new System.Drawing.Point(767, 725);
+            this.btnSpatHotelDetail.Name = "btnSpatHotelDetail";
+            this.btnSpatHotelDetail.Size = new System.Drawing.Size(75, 23);
+            this.btnSpatHotelDetail.TabIndex = 15;
+            this.btnSpatHotelDetail.Text = "Spat";
+            this.btnSpatHotelDetail.UseVisualStyleBackColor = true;
+            this.btnSpatHotelDetail.Click += new System.EventHandler(this.btnSpatHotelDetail_Click);
             // 
             // flowLayoutPanel5
             // 
@@ -220,7 +220,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flowLayoutPanel5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSpatHotelDetail);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -261,7 +261,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSpatHotelDetail;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
     }
 }

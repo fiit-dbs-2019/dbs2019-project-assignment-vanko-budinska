@@ -12,10 +12,10 @@ stav svojich rezervácii alebo platieb. V tomto zozname ubytovaní nájde pouívate
 rezerváciu (pokia¾ nezmeškal monı termín na zrušenie rezervácie), komunikova s poskytovate¾om ubytovania alebo sa preukáza rezervaènım èíslom pre
 jednoduché a rıchle ubytovanie.
 ## Dátovı model 
-![model](diagram-3.png "Aktualny datovy model")
+![model](model3.png "Aktualny datovy model")
 ### Opis modelu:
 #### Ubytovanie
-Za ubytovanie povaujeme miesto, na ktorom je moné prespa a v reálnom svete ho mono povaova èi u za samostatnú izbu v súkromí, alebo "izbu" (s kúpe¾òou alebo viacerími miestnosami) v hoteli èi apartmán.
+Za ubytovanie povaujeme miesto, na ktorom je moné prespa a v reálnom svete ho mono povaova èi u za samostatnú izbu v súkromí, alebo "izbu" (s kúpe¾òou alebo viacerími miestnosami) v hoteli, èi apartmán.
 Pozostáva z názvu ubytovania, poètu hviezdièiek daného ubytovania, hodnotenia, adresy, popisu, po¾a url vykreslovanıch obrázkov, poètu izieb a moností pre filtrovanie.
 Kadé ubytovanie sa nachádza v destnácií, prislúcha mu typ ubytovania - èi sa jedná o hotel, apartmán, izbu v súkromí, chatu atï.
 Kadé ubytovanie musí ma aspoò jednu izbu, v tomto prípade sa jedná o miestnos v ktorej sa nachádza lôko.
@@ -26,7 +26,7 @@ Jedná sa o väzobnú entitu. Cez túto entitu priraïujeme k práve jednej rezervácií
 ## Scenáre
 
 ### Scenár 1 - hlavná obrazovka
-Wireframe pre scenár è. 1 - wireframe-1.png
+![Hlavna_Obrazovka](wireframe-1.png "Hlavna obrazovka")
 #### Opis scenára 1
 Po spustení aplikácie sa otvorí hlavné okno s ponukami ubytovaní ktoré sa nachádzajú v databáze. 
 Informácie ktoré sa získavajú z databázy:

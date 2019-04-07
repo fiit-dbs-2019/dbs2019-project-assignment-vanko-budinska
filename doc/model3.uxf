@@ -6,7 +6,7 @@ typ_lozka: text
 kapacita: int
 &lt;&lt;FK&gt;&gt; id_typ_izby: int
 &lt;&lt;FK&gt;&gt; id_ubytovanie: int
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>332</y><w>160</w><h>110</h></coordinates><panel_attributes>Rezervacia
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>332</y><w>160</w><h>110</h></coordinates><panel_attributes>Rezervacia
 --
 &lt;&lt;PK&gt;&gt; id: int
 od: DATE
@@ -59,14 +59,14 @@ hodnotenie: float
 adresa: text
 popis: text
 obr_urls[]: text
---
+
 //pocet_izieb: int
 wifi: bool
 tv: bool
 parkovisko: bool
 ranajky: bool
 bazen:bool
---
+
 &lt;&lt;FK&gt;&gt; id_destinacia: int
 &lt;&lt;FK&gt;&gt; id_typ_ubytovania: int
 
@@ -100,6 +100,7 @@ pocet: int
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>432</y><w>40</w><h>110</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=*
-</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>382</y><w>90</w><h>40</h></coordinates><panel_attributes>lt=-
-m1=1
-m2=1</panel_attributes><additional_attributes>70;10;10;10</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>372</y><w>110</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1...*
+m2=1
+</panel_attributes><additional_attributes>90;20;10;20</additional_attributes></element></diagram>

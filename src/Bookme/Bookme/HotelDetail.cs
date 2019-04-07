@@ -115,7 +115,7 @@ namespace DesktopApp1
             MessageBox.Show("Rezervacia od: " + b.DatumOd.ToString() + " do: " + b.DatumOd.ToString() + " bola vytvorena");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSpatHotelDetail_Click(object sender, EventArgs e)
         {
             b.clearPanel(b.flpanel1);
             foreach(var polozka in b.polozky_control)

@@ -28,7 +28,7 @@ namespace DesktopApp1
 
         private void btnMojeRez_Click(object sender, EventArgs e)
         {
-            MojeRezervacie mojeRezervacie = new MojeRezervacie(uzivatel);
+            MojeRezervacie mojeRezervacie = new MojeRezervacie(b, uzivatel);
             b.clearPanel(b.flpanel1);
             b.clearPanel(b.PagingPanel1);
             b.addflPanel(b.flpanel1, mojeRezervacie);
