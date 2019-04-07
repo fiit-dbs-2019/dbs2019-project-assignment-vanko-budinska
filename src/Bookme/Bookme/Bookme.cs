@@ -18,6 +18,7 @@ using PgSql;
 
 namespace DesktopApp1
 {
+
     public partial class Bookme : Form
     {
         private PostGreSQL db_conn;
@@ -43,8 +44,6 @@ namespace DesktopApp1
             data = db_conn.Query(String.Format("SELECT * FROM public.ubytovanie LIMIT {0} OFFSET {1};", limit, offset));
             data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie LIMIT {0} OFFSET {1};", limit, offset));
             naplPonuku();
-            //List<string> result = db_conn.Query("SELECT * FROM public.izby");
-            //naplPonuku(result);
         }
 
         public FlowLayoutPanel flpanel1
@@ -56,24 +55,9 @@ namespace DesktopApp1
         {
             get { return panelPaging; }
         }
-                
+
         private void btn_filter_Click_1(object sender, EventArgs e)
         {
-            /* Po kliknuti na tlacidlo je treba zistit zaznamy ktore vyhovuju vyhladavaniu
-             * osetrit stavy ked nevyhovuje nic, ked je zadany zly format atd.
-             * Nasledne zobrazit tolko zaznamov, kolko ich vyhovovalo vyhladaniu.
-             * 
-             * 
-             * */
-
-            //List<string> result = db_conn.Query("SELECT * FROM public.izby");
-            //naplPonuku(result);
-            /*
-             * select column_name,data_type 
-                from information_schema.columns 
-                where table_name = 'table_name';
-            */
-
         }
 
         public void clearflPanel(FlowLayoutPanel panel)
@@ -81,9 +65,11 @@ namespace DesktopApp1
             panel.Controls.Clear();
         }
 
+        
+        
         public void clearPanel(Panel panel)
         {
-            panel.Controls.Clear();
+           panel.Controls.Clear();
         }
 
         public void addflPanel(FlowLayoutPanel flpanel, Control item)
@@ -159,9 +145,10 @@ namespace DesktopApp1
 
         private void Start_Reg()
         {
-            Registracia reg_Control = new Registracia(this);
+            Registracia reg_Control = new Registracia();
             Reg_Form reg_form = new Reg_Form(reg_Control);
-            reg_form.ShowDialog();
+            //reg_form.ShowDialog();
+            Application.Run(reg_form);
         }
 
         private void btnPrihlas_Click(object sender, EventArgs e)

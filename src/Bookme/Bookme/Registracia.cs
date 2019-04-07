@@ -14,12 +14,9 @@ namespace DesktopApp1
 {
     public partial class Registracia : UserControl
     {
-        Bookme b;
-
-        public Registracia(Bookme b)
+        public Registracia()
         {
             InitializeComponent();
-            this.b = b;
         }
 
         private void btnRegistracia_Click(object sender, EventArgs e)
@@ -32,7 +29,7 @@ namespace DesktopApp1
             else
             {
                 List<string> s = db_conn.Query(String.Format("INSERT INTO public.pouzivatel(meno, priezvisko, email, heslo) VALUES('{0}', '{1}', '{2}', '{3}')", tb_meno.Text, tb_priezvisko.Text, tb_email.Text, tb_heslo.Text));
-                //b.prihlasenie(tb_meno.Text, tb_priezvisko.Text, tb_email.Text);
+          
                 this.ParentForm.Close();
             }
         }

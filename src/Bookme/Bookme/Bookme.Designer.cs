@@ -103,7 +103,7 @@ namespace DesktopApp1
             this.chbWifi.TabIndex = 2;
             this.chbWifi.Text = "WiFi";
             this.chbWifi.UseVisualStyleBackColor = true;
-            
+            // 
             // chbParkovanie
             // 
             this.chbParkovanie.AutoSize = true;
@@ -153,7 +153,7 @@ namespace DesktopApp1
             this.chbBazen.TabIndex = 7;
             this.chbBazen.Text = "Bazen";
             this.chbBazen.UseVisualStyleBackColor = true;
-         
+            // 
             // tbDestinacia
             // 
             this.tbDestinacia.Location = new System.Drawing.Point(6, 21);
@@ -427,6 +427,7 @@ namespace DesktopApp1
             this.panelPaging.Name = "panelPaging";
             this.panelPaging.Size = new System.Drawing.Size(900, 34);
             this.panelPaging.TabIndex = 20;
+            // 
             // flp_prihlaseny
             // 
             this.flp_prihlaseny.Controls.Add(this.groupBox3);
@@ -461,7 +462,6 @@ namespace DesktopApp1
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.panelPaging.ResumeLayout(false);
             this.flp_prihlaseny.ResumeLayout(false);
             this.ResumeLayout(false);
