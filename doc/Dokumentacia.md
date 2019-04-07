@@ -123,8 +123,37 @@ Ak nie, vypíše sa chybová hláška. Email na platnos nekontrolujem, heslo je ulo
 V Bookme.cs btnPrihlas_Click - overenie hesla k prislúchajúcemu emailu v tabu¾ke pouívate¾ov.
 Po prihlásení zmena pre prihlásenie na UserControl PrihlasenyHlavicka.
 
-### Scenár 4 - Preh¾ad rezervácií
+#### Scenár 4 - Preh¾ad rezervácií
 UserControl MojeRezervacie - naplnenie dataGridView pod¾a selektu z DB.
+
+### Generovanie dát
+Dáta do tabuliek sa generujú cez skript v adresári data/ 
+Dáta je treba generova postupne, pod¾a prepojenia tabuliek.
+Skript pre vytvorenie tabuliek v schema/ create_tables.sql
+#### Sahovanie URL pre obrázky
+Spustenie s: -u conn_info.txt V conn_info su informácie pre pripojenie k DB.
+Sahovanie prebieha tak, e sa odošle web request, ak nieje error, url sa uloí do súboru. Následne èakám 10ms (aby ma náhodou nevypli). 
+Defaultne sa ahá z url s prefixom https://r-ak.bstatic.com/images/hotel/max500/150/150 za ktorım nasleduje 6-èíslie od 0 po 999999.
+URL sa ukladajú do urls.txt, ktorı sa spracováva pri generovaní ubytovaní.
+#### Vkladanie Štátov
+Spustenie s: -s staty.json conn_info.txt
+Do tabu¾ky štátov povkladná názvy a kódy štátov v subore staty.json.
+#### Vkladanie Destinácií
+Spustenie s: -d destinations.json 
+Do tabu¾ky destnácií povkladá destinácie na základe kódu štátu v súbore destinations.json a pridá FK.
+
+#### Generovanie ubytovaní
+Spustenie s: -a adresses.json N, kde N je poèet generovanıch záznamov.\
+Vyuíva names.csv, urls.txt\
+Skladanie názvu: random z typu ubytovania + meno z meno.csv\
+Ukldanie adries obrázkov z urls.txt\
+Ukladanie adreis ubytovaní z adresses.json, popis ubytovanie: natvrdo danı jeden odstavec lorem ipsum\
+random: ostatné paramentre
+
+#### Generovanie izieb
+Spustenie s: -r conn_info.txt\
+Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa vyberie typ lôka a pod¾a toho sa urèí kapacita, ve¾kos izby - random.
+
 
 ## TODO
 - [ ] Scenár 3 - Detail a potvrdenie rezervácie
@@ -139,3 +168,4 @@ UserControl MojeRezervacie - naplnenie dataGridView pod¾a selektu z DB.
 - [ ] Kompletnı podscenár 1.2 (datum, izby, osoby)
 - [ ] Dorobenie lepšieho vyskladnávanie Query
 - [ ] Automatické prihlásenie po registrácií
+- [ ] V dokumentácií predpisy tvaru súborov pre generovanie
