@@ -14,6 +14,8 @@ namespace PgSql
         private string _password;
         private string _db_name;
         private string _schema_name;
+        public NpgsqlConnection conn { get; private set; }
+        public NpgsqlCommand command { get; set; }
         /*
         #region Properties
         public string Server{
@@ -61,8 +63,43 @@ namespace PgSql
             _password = heslo;
             _db_name = db_name;
             _schema_name = sch_name;
-        }        
-        
+            conn = new NpgsqlConnection("Server=" + _server + "; Port=" + _port + "; User Id=" + _user_id + "; Password=" + _password + "; Database=" + _db_name + ";");
+        }
+
+        public List<string> Query()
+        {
+            List<string> dataItems = new List<string>();
+            try
+            {
+                conn.Open();
+                NpgsqlDataReader dataReader = command.ExecuteReader();
+
+                for (int i = 0; dataReader.Read(); i++)
+                {
+                    string itm = "";
+                    for (int j = 0; j < dataReader.FieldCount; j++)
+                    {
+                        string sub = dataReader[j].ToString();
+                        if (sub == "")
+                            itm += "NULL";
+                        else
+                            itm += dataReader[j].ToString();
+                        if (j < dataReader.FieldCount - 1)
+                            itm += ";";
+                    }
+
+                    dataItems.Add(itm + "\r\n");
+                }
+                conn.Close();
+                return dataItems;
+            }
+            catch (Exception msg)
+            {
+                MessageBox.Show(msg.ToString());
+                throw;
+            }
+        }
+
         public List<string> Query(string q_command)
         {
             List<string> dataItems = new List<string>();
@@ -70,9 +107,9 @@ namespace PgSql
             {
                 string connstring = "Server=" + _server + "; Port=" + _port + "; User Id=" + _user_id + "; Password=" + _password + "; Database=" + _db_name + ";";
                 //string connstring = "Server=127.0.0.1; Port=5432; User Id=martin; Password=271996; Database=test;";
-                NpgsqlConnection connection = new NpgsqlConnection(connstring);
-                connection.Open();
-                NpgsqlCommand command = new NpgsqlCommand(q_command, connection);
+                conn = new NpgsqlConnection(connstring);
+                conn.Open();
+                command = new NpgsqlCommand(q_command, conn);
                 NpgsqlDataReader dataReader = command.ExecuteReader();
                 
                 for (int i = 0; dataReader.Read(); i++)
@@ -91,7 +128,7 @@ namespace PgSql
                         
                     dataItems.Add(itm + "\r\n");
                 }
-                connection.Close();
+                conn.Close();
                 return dataItems;
             }
             catch (Exception msg)
@@ -109,9 +146,9 @@ namespace PgSql
             {
                 string connstring = "Server=" + _server + "; Port=" + _port + "; User Id=" + _user_id + "; Password=" + _password + "; Database=" + _db_name + ";";
                 //string connstring = "Server=127.0.0.1; Port=5432; User Id=martin; Password=271996; Database=test;";
-                NpgsqlConnection connection = new NpgsqlConnection(connstring);
-                connection.Open();
-                NpgsqlCommand command = new NpgsqlCommand(q_command, connection);
+                conn = new NpgsqlConnection(connstring);
+                conn.Open();
+                command = new NpgsqlCommand(q_command, conn);
                 NpgsqlDataReader dataReader = command.ExecuteReader();
 
                 for (int i = 0; dataReader.Read(); i++)
@@ -119,7 +156,7 @@ namespace PgSql
                     string[] itm = (string[])dataReader.GetValue(0);
                     dataItems.Add(itm);
                 }
-                connection.Close();
+                conn.Close();
                 return dataItems;
             }
             catch (Exception msg)

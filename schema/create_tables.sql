@@ -29,8 +29,8 @@ CREATE TABLE public.pouzivatel
 CREATE TABLE public.rezervacia
 (
 	id SERIAL NOT NULL PRIMARY KEY,
-	od_dat DATE,
-	do_dat DATE
+	od_dat DATE NOT NULL,
+	do_dat DATE NOT NULL
 );
 
 CREATE TABLE public.destinacia

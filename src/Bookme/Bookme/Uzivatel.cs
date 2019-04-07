@@ -10,9 +10,7 @@ namespace DesktopApp1
     {
         public string meno { get; private set; }
         public string priezvisko { get; private set; }
-        public string mail { get; private set; }
-
-       
+        public string mail { get; private set; }       
 
         public Uzivatel(string meno, string priezvisko, string mail)
         {
@@ -20,7 +18,5 @@ namespace DesktopApp1
             this.priezvisko = priezvisko;
             this.mail = mail;
         }
-
-
     }
 }

@@ -37,14 +37,14 @@ namespace DesktopApp1
             this.chbKlimatizacia = new System.Windows.Forms.CheckBox();
             this.chbBazen = new System.Windows.Forms.CheckBox();
             this.tbDestinacia = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpicOd = new System.Windows.Forms.DateTimePicker();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnFiltruj = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpicDo = new System.Windows.Forms.DateTimePicker();
             this.btnHladat = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -162,12 +162,12 @@ namespace DesktopApp1
             this.tbDestinacia.TabIndex = 8;
             this.tbDestinacia.Text = "Destinacia";
             // 
-            // dateTimePicker1
+            // dtpicOd
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 73);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(163, 22);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dtpicOd.Location = new System.Drawing.Point(9, 73);
+            this.dtpicOd.Name = "dtpicOd";
+            this.dtpicOd.Size = new System.Drawing.Size(163, 22);
+            this.dtpicOd.TabIndex = 10;
             // 
             // numericUpDown1
             // 
@@ -239,12 +239,12 @@ namespace DesktopApp1
             this.label2.TabIndex = 16;
             this.label2.Text = "Od";
             // 
-            // dateTimePicker2
+            // dtpicDo
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(9, 118);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(163, 22);
-            this.dateTimePicker2.TabIndex = 14;
+            this.dtpicDo.Location = new System.Drawing.Point(9, 118);
+            this.dtpicDo.Name = "dtpicDo";
+            this.dtpicDo.Size = new System.Drawing.Size(163, 22);
+            this.dtpicDo.TabIndex = 14;
             // 
             // btnHladat
             // 
@@ -349,10 +349,10 @@ namespace DesktopApp1
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.numericUpDown1);
             this.groupBox4.Controls.Add(this.tbDestinacia);
-            this.groupBox4.Controls.Add(this.dateTimePicker2);
+            this.groupBox4.Controls.Add(this.dtpicDo);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.dateTimePicker1);
+            this.groupBox4.Controls.Add(this.dtpicOd);
             this.groupBox4.Location = new System.Drawing.Point(23, 126);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(200, 267);
@@ -479,11 +479,11 @@ namespace DesktopApp1
         private System.Windows.Forms.CheckBox chbKlimatizacia;
         private System.Windows.Forms.CheckBox chbBazen;
         private System.Windows.Forms.TextBox tbDestinacia;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpicOd;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpicDo;
         private System.Windows.Forms.Button btnHladat;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label4;

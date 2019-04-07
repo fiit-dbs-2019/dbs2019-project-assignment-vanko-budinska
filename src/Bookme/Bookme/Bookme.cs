@@ -32,7 +32,7 @@ namespace DesktopApp1
         private int limit;
 
         public HotelPolozka[] polozky_control { get; private set; }
-        Uzivatel uzivatel;
+        public Uzivatel uzivatel { get; private set; }
 
         public Bookme()
         {
@@ -54,6 +54,16 @@ namespace DesktopApp1
         public Panel PagingPanel1
         {
             get { return panelPaging; }
+        }
+
+        public DateTime DatumOd
+        {
+            get { return dtpicOd.Value.Date; }
+        }
+
+        public DateTime DatumDo
+        {
+            get { return dtpicDo.Value.Date; }
         }
 
         private void btn_filter_Click_1(object sender, EventArgs e)

@@ -11,6 +11,8 @@ using System.Collections;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Net;
+using PgSql;
+using Npgsql;
 
 namespace DesktopApp1
 {
@@ -18,13 +20,16 @@ namespace DesktopApp1
     {
         private HotelPolozka p;
         private Bookme b;
+        private Uzivatel u;
         private PictureBox[] obrazky;
+        private PostGreSQL db_conn;
 
         public HotelDetail(HotelPolozka p)
         {
             InitializeComponent();
             this.p = p;
             this.b = p.b;
+            this.u = b.uzivatel;
             NaplnPolozky(p.u);
         }
         
@@ -74,7 +79,19 @@ namespace DesktopApp1
 
         private void btnRezervuj_Click(object sender, EventArgs e)
         {
+            db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
+            string q = "INSERT INTO public.rezervacia (od_dat, do_dat) VALUES (:datum_od, :datum_do) RETURNING id;";
+            NpgsqlConnection connection = db_conn.conn;
+            NpgsqlCommand cmd = new NpgsqlCommand(q, connection);
+            cmd.Parameters.AddWithValue("datum_od", NpgsqlTypes.NpgsqlDbType.Date).Value = b.DatumOd;
+            cmd.Parameters.AddWithValue("datum_do", NpgsqlTypes.NpgsqlDbType.Date).Value = b.DatumDo;
+            db_conn.command = cmd;
+
+            List<string> rep = db_conn.Query();
+
+            Rezervacia r = new Rezervacia(b.DatumOd, b.DatumDo, Int32.Parse(rep[0]));
             
+            MessageBox.Show("Rezervacia od: " + b.DatumOd.ToString() + " do: " + b.DatumOd.ToString() + " bola vytvorena");
         }
 
         private void button1_Click(object sender, EventArgs e)
