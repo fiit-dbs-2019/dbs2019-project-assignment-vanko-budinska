@@ -8,15 +8,14 @@ namespace PgSql
 {
     public class PostGreSQL
     {
-        
-        
-
         private string _server;
         private string _port;
         private string _user_id;
         private string _password;
         private string _db_name;
         private string _schema_name;
+        public NpgsqlConnection conn { get; private set; }
+        public NpgsqlCommand command { get; set; }
         /*
         #region Properties
         public string Server{
@@ -56,31 +55,62 @@ namespace PgSql
 
         #endregion Properties
         */
-        public PostGreSQL(string server, string port, string user_id, string passwd, string db_name, string sch_name)
+        public PostGreSQL(string server, string port, string user_id, string heslo, string db_name, string sch_name)
         {
             _server = server;
             _port = port;
             _user_id = user_id;
-            _password = passwd;
+            _password = heslo;
             _db_name = db_name;
             _schema_name = sch_name;
+            conn = new NpgsqlConnection("Server=" + _server + "; Port=" + _port + "; User Id=" + _user_id + "; Password=" + _password + "; Database=" + _db_name + ";");
         }
 
+        public List<string> Query()
+        {
+            List<string> dataItems = new List<string>();
+            try
+            {
+                conn.Open();
+                NpgsqlDataReader dataReader = command.ExecuteReader();
 
-        List<string> dataItems = new List<string>();
-        
+                for (int i = 0; dataReader.Read(); i++)
+                {
+                    string itm = "";
+                    for (int j = 0; j < dataReader.FieldCount; j++)
+                    {
+                        string sub = dataReader[j].ToString();
+                        if (sub == "")
+                            itm += "NULL";
+                        else
+                            itm += dataReader[j].ToString();
+                        if (j < dataReader.FieldCount - 1)
+                            itm += ";";
+                    }
+
+                    dataItems.Add(itm + "\r\n");
+                }
+                conn.Close();
+                return dataItems;
+            }
+            catch (Exception msg)
+            {
+                MessageBox.Show(msg.ToString());
+                throw;
+            }
+        }
+
         public List<string> Query(string q_command)
         {
+            List<string> dataItems = new List<string>();
             try
             {
                 string connstring = "Server=" + _server + "; Port=" + _port + "; User Id=" + _user_id + "; Password=" + _password + "; Database=" + _db_name + ";";
                 //string connstring = "Server=127.0.0.1; Port=5432; User Id=martin; Password=271996; Database=test;";
-                MessageBox.Show(connstring);
-                NpgsqlConnection connection = new NpgsqlConnection(connstring);
-                connection.Open();
-                NpgsqlCommand command = new NpgsqlCommand(q_command, connection);
+                conn = new NpgsqlConnection(connstring);
+                conn.Open();
+                command = new NpgsqlCommand(q_command, conn);
                 NpgsqlDataReader dataReader = command.ExecuteReader();
-                Debug.Write("Reader: ");
                 
                 for (int i = 0; dataReader.Read(); i++)
                 {
@@ -93,45 +123,50 @@ namespace PgSql
                         else
                             itm += dataReader[j].ToString();
                         if(j < dataReader.FieldCount - 1)
-                            itm += ",";
+                            itm += ";";
                     }
                         
                     dataItems.Add(itm + "\r\n");
-                    Debug.Write(dataItems[i]);
                 }
-                connection.Close();
+                conn.Close();
                 return dataItems;
             }
             catch (Exception msg)
             {
                 MessageBox.Show(msg.ToString());
-                
+                MessageBox.Show(q_command);
                 throw;
             }
         }
 
-        /*public List<string> PostgreSQLtest2()
+        public List<string[]> Query_Array(string q_command)
         {
+            List<string[]> dataItems = new List<string[]>();
             try
             {
-                string connstring = "Server=127.0.0.1; Port=5432; User Id=martin; Password=271996; Database=test;";
-                NpgsqlConnection connection = new NpgsqlConnection(connstring);
-                connection.Open();
-                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.test_table WHERE pocet_lozok > 1", connection);
+                string connstring = "Server=" + _server + "; Port=" + _port + "; User Id=" + _user_id + "; Password=" + _password + "; Database=" + _db_name + ";";
+                //string connstring = "Server=127.0.0.1; Port=5432; User Id=martin; Password=271996; Database=test;";
+                conn = new NpgsqlConnection(connstring);
+                conn.Open();
+                command = new NpgsqlCommand(q_command, conn);
                 NpgsqlDataReader dataReader = command.ExecuteReader();
+
                 for (int i = 0; dataReader.Read(); i++)
                 {
-                    dataItems.Add(dataReader[0].ToString() + "," + dataReader[1].ToString() + "\r\n");
+                    string[] itm = (string[])dataReader.GetValue(0);
+                    dataItems.Add(itm);
                 }
-                connection.Close();
+                conn.Close();
                 return dataItems;
             }
             catch (Exception msg)
             {
                 MessageBox.Show(msg.ToString());
+                MessageBox.Show(q_command);
                 throw;
             }
-         }*/
-
+        }
     }
 }
+
+    

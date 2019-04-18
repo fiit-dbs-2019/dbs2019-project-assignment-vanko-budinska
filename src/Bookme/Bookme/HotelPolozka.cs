@@ -8,32 +8,85 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Net;
+using System.IO;
 
 namespace DesktopApp1
 {
     public partial class HotelPolozka : UserControl
     {
-        private Bookme s;
-        public HotelPolozka(Bookme par)
+        public Bookme b { get; private set; }
+        public Ubytovanie ubytovanie { get; private set; }
+        public HotelPolozka(Bookme b, Ubytovanie ubytovanie)
         {
-            s = par;
             InitializeComponent();
+            this.b = b;
+            this.ubytovanie = ubytovanie;
+            NaplnPolozky(ubytovanie);
         }
 
+        private void NaplnPolozky(Ubytovanie ubytovanie)
+        {
+            string hv = "";
+            lblNazov.Text = ubytovanie.nazov;
+            for (int j = 0; j < ubytovanie.pocet_hviezdiciek; j++)
+                hv += "*";
+            lblHviez.Text = hv;
+            lblHodn.Text = ubytovanie.hodnotenie.ToString();
+            //lblCena.Text = ubytovanie.cena.ToString();
+            lblDestinacia.Text = ubytovanie.adresa;
+
+            rtbPopis.Text = ubytovanie.popis;
+
+            //pictureBox set img
+            WebRequest request;
+            WebResponse response;
+            Stream str;
+            request = WebRequest.Create(ubytovanie.main_url);
+            response = request.GetResponse();
+            str = response.GetResponseStream();
+            picBox.Image = Bitmap.FromStream(str);
+
+        }
+
+        public HotelPolozka()
+        {
+
+        }
+        /*
         #region Properties
 
         private string _hotelNazov;
+        private string _popis;
         private string _hviezdicky;
         private float _hodnotenie;
-        private float _cena; 
+        private string _destinacia;
+        private float _cena;
         private Image _img;
+        public string[] ObrUrls { get; set; }
+        public int Id { get; set; }
 
+        
 
         [Category("Custom props")]
         public string HotelNazov
         {
             get { return _hotelNazov; }
             set { _hotelNazov = value; lblNazov.Text = value; }
+        }
+
+        [Category("Custom props")]
+        public string Destinacia
+        {
+            get { return _destinacia; }
+            set { _destinacia = value; lbl_destinacia.Text = value; }
+        }
+
+        [Category("Custom props")]
+        public string Popis
+        {
+            get { return _popis; }
+            set { _popis = value; rtbPopis.Text = value.ToString(); }
         }
 
         [Category("Custom props")]
@@ -63,15 +116,13 @@ namespace DesktopApp1
             get { return _img; }
             set { _img = value; picBox.Image = value; }
         }
-
-
         #endregion
-
+        */
         private void btnVybrat_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Polozka" + this.HotelNazov);
-            s.clearPanel();
-            s.addControl(new HotelDetail());
+            b.clearPanel(b.flpanel1);
+            b.clearPanel(b.PagingPanel1);
+            b.addPanel(b.flpanel1, new HotelDetail(this));
         }
     }
 }
