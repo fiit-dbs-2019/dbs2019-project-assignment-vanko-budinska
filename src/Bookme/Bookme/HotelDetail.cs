@@ -45,6 +45,16 @@ namespace DesktopApp1
             //lblCena.Text = ubytovanie.cena.ToString();
             lblDestinacia.Text = ubytovanie.adresa;
             rtbPopis.Text = ubytovanie.popis;
+            if (ubytovanie.parkovanie)
+                lblPark.Show();
+            if (ubytovanie.ranajky)
+                lblRanajky.Show();       
+            if (ubytovanie.bazen)
+                lblBazen.Show();
+            if (ubytovanie.wifi)
+                lblWifi.Show();
+            if (ubytovanie.tv)
+                lblTv.Show();
             vykresli_obr(ubytovanie.obr_urls);
         }
 
