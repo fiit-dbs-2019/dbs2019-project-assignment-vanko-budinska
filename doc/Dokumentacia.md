@@ -177,6 +177,8 @@ Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa
 - [X] Min. 7 tabuliek okrem èíselínkov
 - [ ] Rádovo milóny v každej tab. okrem èíselníkov
 - [ ] V jednej 10 mil
+- [X] Join-y
+- [ ] Použitie agregaènej funkcie
 - [ ] Zobrazenie preh¾adu všetkých záznamov so stránkovaním + GRUOP BY
 - [ ] Filtrovanie pod¾a zadaných kriterií
 - [X] Detail záznamu
