@@ -66,7 +66,26 @@
     <Compile Include="HotelPolozka.Designer.cs">
       <DependentUpon>HotelPolozka.cs</DependentUpon>
     </Compile>
+    <Compile Include="Izba.cs" />
+    <Compile Include="IzbaDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IzbaDetail.Designer.cs">
+      <DependentUpon>IzbaDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MojeRezervacie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MojeRezervacie.Designer.cs">
+      <DependentUpon>MojeRezervacie.cs</DependentUpon>
+    </Compile>
     <Compile Include="PgSql.cs" />
+    <Compile Include="Prihlaseny_hlavicka.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Prihlaseny_hlavicka.Designer.cs">
+      <DependentUpon>Prihlaseny_hlavicka.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HotelDetail.cs">
@@ -75,6 +94,19 @@
     <Compile Include="HotelDetail.Designer.cs">
       <DependentUpon>HotelDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registracia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Registracia.Designer.cs">
+      <DependentUpon>Registracia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reg_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rezervacia.cs" />
+    <Compile Include="Ubytovanie.cs" />
+    <Compile Include="Uzivatel.cs" />
+    <Compile Include="ZostavaRezervacie.cs" />
     <EmbeddedResource Include="Bookme.resx">
       <DependentUpon>Bookme.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +116,15 @@
     <EmbeddedResource Include="HotelPolozka.resx">
       <DependentUpon>HotelPolozka.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IzbaDetail.resx">
+      <DependentUpon>IzbaDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MojeRezervacie.resx">
+      <DependentUpon>MojeRezervacie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prihlaseny_hlavicka.resx">
+      <DependentUpon>Prihlaseny_hlavicka.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -92,7 +133,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registracia.resx">
+      <DependentUpon>Registracia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reg_Form.resx">
+      <DependentUpon>Reg_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -105,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-bookme.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

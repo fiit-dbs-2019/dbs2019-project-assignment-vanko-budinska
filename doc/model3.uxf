@@ -1,0 +1,106 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>750</x><y>192</y><w>160</w><h>130</h></coordinates><panel_attributes>Izba
+--
+&lt;&lt;PK&gt;&gt; id: int
+rozloha: int
+typ_lozka: text
+kapacita: int
+&lt;&lt;FK&gt;&gt; id_typ_izby: int
+&lt;&lt;FK&gt;&gt; id_ubytovanie: int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>332</y><w>160</w><h>110</h></coordinates><panel_attributes>Rezervacia
+--
+&lt;&lt;PK&gt;&gt; id: int
+od: DATE
+do: DATE
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>522</y><w>160</w><h>110</h></coordinates><panel_attributes>Pouzivatel
+--
+&lt;&lt;PK&gt;&gt; id: int
+meno: text
+priezvisko: text
+email: text
+heslo: text
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>750</x><y>422</y><w>160</w><h>110</h></coordinates><panel_attributes>Cena
+--
+&lt;&lt;PK&gt;&gt; id: int
+od: DATE
+do: DATE
+cena: double
+&lt;&lt;FK&gt;&gt; ubytovanie_id: int
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>212</y><w>160</w><h>80</h></coordinates><panel_attributes>Destinacia
+--
+&lt;&lt;PK&gt;&gt; id: int
+nazov: text
+&lt;&lt;FK&gt;&gt; id_stat: int
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>42</y><w>160</w><h>70</h></coordinates><panel_attributes>Stat
+--
+&lt;&lt;PK&gt;&gt; id: int
+nazov: text
+code: text
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>102</y><w>50</w><h>130</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>242</y><w>110</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>372</y><w>110</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>462</y><w>110</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>192</y><w>160</w><h>340</h></coordinates><panel_attributes>Ubytovanie
+--
+&lt;&lt;PK&gt;&gt; id: int
+nazov: text
+pocet_hviezdiciek: int
+hodnotenie: float
+adresa: text
+popis: text
+obr_urls[]: text
+
+//pocet_izieb: int
+wifi: bool
+tv: bool
+parkovisko: bool
+ranajky: bool
+bazen:bool
+
+&lt;&lt;FK&gt;&gt; id_destinacia: int
+&lt;&lt;FK&gt;&gt; id_typ_ubytovania: int
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>750</x><y>42</y><w>160</w><h>80</h></coordinates><panel_attributes>Typ_izby
+--
+&lt;&lt;PK&gt;&gt; id: int
+nazov: text
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>580</x><y>112</y><w>50</w><h>100</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>42</y><w>160</w><h>80</h></coordinates><panel_attributes>Typ_ubytovania
+--
+&lt;&lt;PK&gt;&gt; id: int
+nazov: text
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>242</y><w>110</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>820</x><y>112</y><w>50</w><h>100</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1...*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>332</y><w>160</w><h>110</h></coordinates><panel_attributes>Zostava_rezervacie
+--
+&lt;&lt;PK&gt;&gt; id: int
+pocet: int
+&lt;&lt;FK&gt;&gt; id_rezervacia: int
+&lt;&lt;FK&gt;&gt; id_ubytovanie: int
+&lt;&lt;FK&gt;&gt; id_pouzivatel: int
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>432</y><w>40</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>372</y><w>110</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1...*
+m2=1
+</panel_attributes><additional_attributes>90;20;10;20</additional_attributes></element></diagram>

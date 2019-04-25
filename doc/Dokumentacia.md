@@ -28,7 +28,7 @@ Jedná sa o väzobnú entitu. Cez túto entitu priraïujeme k práve jednej rezervácií
 ### Scenár 1 - hlavná obrazovka
 ![Hlavna_Obrazovka](wireframe-1.png "Hlavna obrazovka")
 #### Opis scenára 1
-Po spustení aplikácie sa otvorí hlavné okno s ponukami ubytovaní ktoré sa nachádzajú v databáze.<br />
+Po spustení aplikácie sa otvorí hlavné okno s ponukami ubytovaní ktoré sa nachádzajú v databáze.\
 Informácie ktoré sa získavajú z databázy:
 * Názov ubytovania
 * Poèet hviezdièiek ktoré má danı hotel
@@ -56,9 +56,9 @@ Stlaèením tlaèidla spä sa dostane nazad medzi prezerané hotely v predchádzajúco
 ### Scenár 3 - rezervácia
 ![Rezervacia](wireframe-3.png "Rezervacia")
 #### Opis scenára è.3
-Po kliknutí na tlaèidlo rezervova sa zobrazí (zatia¾) dialógové okno s informáciou "Rezervácia Od DD.MM.YYYY do DD.MM.YYYY bola vytvorena".<br />
-Táto rezervácia sa pridá do príslušnıch tabuliek - Rezervacia, Zostava rezervácie.<br />
-Pre vytvorenie rezervácie musí by pouívate¾ prihlásenı, inak mu systém nedovolí vytvori rezerváciu.<br />
+Po kliknutí na tlaèidlo rezervova sa zobrazí (zatia¾) dialógové okno s informáciou "Rezervácia Od DD.MM.YYYY do DD.MM.YYYY bola vytvorena".\
+Táto rezervácia sa pridá do príslušnıch tabuliek - Rezervacia, Zostava rezervácie.\
+Pre vytvorenie rezervácie musí by pouívate¾ prihlásenı, inak mu systém nedovolí vytvori rezerváciu.\
 
 #### Podscenár 3.1 Registrácia
 Pre rezerváciu je potrebné by zaregistrovanı a prihlásenı. Po kliknutí na tlaèidlo Registruj sa, sa otvorí okno pre vyplnenie údajov potrebnıch pre registráciu.
@@ -70,7 +70,7 @@ Ak nie je správny email (nebol zaregistrovanı èi je zle vyplnenı) alebo heslo je
 Tieto údaje sa nachádzajú v tabu¾ke Pouívate¾.
 
 ### Scenár 4 - Preh¾ad rezervácií
-Po kliknutí na tlaèidlo Moje Rezervacie sa otvorí (zatia¾) tabu¾ka s informáciami o rezerváciach pre práve prihláseného pouívate¾a.<br />
+Po kliknutí na tlaèidlo Moje Rezervacie sa otvorí (zatia¾) tabu¾ka s informáciami o rezerváciach pre práve prihláseného pouívate¾a.\
 Inormácie zobrazované v preh¾ade rezervácií:
 * Èíslo rezervácie
 * Poèet izieb za danú rezerváciu
@@ -104,14 +104,14 @@ V Bookme.cs btnFiltruj_Click - vıber z tabu¾ky ubytovaní pod¾a checkboxov.
 
 
 #### Scenár 2 - detail ubytovania
-UserControl HotelDetail(HotelPolozka hotelPolozka). Dáta sú èerpané z poloky hotela, ubytovania.<br />
+UserControl HotelDetail(HotelPolozka hotelPolozka). Dáta sú èerpané z poloky hotela, ubytovania.\
 V Bookme.cs tlaèidlo rezervuj - pripojenie do DB, insert do tabu¾ky rezervácií a zostavy rezervácií.
 Metoda NaplnPolozky() - naplnenie obrazovky detailu hotela,
 Metoda VykresliObr() - vykreslenie náhladu fotiek hotela, max to¾ko, ko¾ko je v ubytovanie obr_urls[]
 Metoda Obrazky_Click() - zobrazenie vybraného obrázku z náh¾adu
 
 #### Scenár 3 - rezervácia
-V triede HotelDetail btnRezervuj_Click<br />
+V triede HotelDetail btnRezervuj_Click\
 Insert do tabuliek rezervacia a zostava rezervacie
 
 #### Podscenár 3.1 - Registrácia
@@ -143,15 +143,15 @@ Spustenie s: -d destinations.json
 Do tabu¾ky destnácií povkladá destinácie na základe kódu štátu v súbore destinations.json a pridá FK.
 
 #### Generovanie ubytovaní
-Spustenie s: -a adresses.json N, kde N je poèet generovanıch záznamov.<br />
-Vyuíva names.csv, urls.txt<br />
-Skladanie názvu: random z typu ubytovania + meno z meno.csv<br />
-Ukldanie adries obrázkov z urls.txt<br />
-Ukladanie adreis ubytovaní z adresses.json, popis ubytovanie: natvrdo danı jeden odstavec lorem ipsum<br />
+Spustenie s: -a adresses.json N, kde N je poèet generovanıch záznamov.\
+Vyuíva names.csv, urls.txt\
+Skladanie názvu: random z typu ubytovania + meno z meno.csv\
+Ukldanie adries obrázkov z urls.txt\
+Ukladanie adreis ubytovaní z adresses.json, popis ubytovanie: natvrdo danı jeden odstavec lorem ipsum\
 random: ostatné paramentre
 
 #### Generovanie izieb
-Spustenie s: -r conn_info.txt<br />
+Spustenie s: -r conn_info.txt\
 Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa vyberie typ lôka a pod¾a toho sa urèí kapacita, ve¾kos izby - random.
 
 
@@ -186,3 +186,4 @@ Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa
 - [ ] Aktualizácia existujúceho záznamu
 - [ ] Vymazanie záznamu
 - [ ] Scenáre ktoré menia dáta musia by realizované s pouitím transkacií + aspoò jeden s viacerımi tabu¾kami (FK) 
+- [ ] V dokumentácií predpisy tvaru súborov pre generovanie
