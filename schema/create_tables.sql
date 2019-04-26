@@ -26,11 +26,19 @@ CREATE TABLE public.pouzivatel
 	heslo text NOT NULL DEFAULT 'heslo'
 );
 
+CREATE TABLE public.stav_rezervacie
+(
+	id SERIAL NOT NULL PRIMARY KEY,
+	stav TEXT not NULL
+);
+
 CREATE TABLE public.rezervacia
 (
 	id SERIAL NOT NULL PRIMARY KEY,
 	od_dat DATE NOT NULL,
-	do_dat DATE NOT NULL
+	do_dat DATE NOT NULL,
+	id_stav integer,
+	FOREIGN KEY (id_stav) REFERENCES public.stav_rezervacie(id)
 );
 
 CREATE TABLE public.destinacia

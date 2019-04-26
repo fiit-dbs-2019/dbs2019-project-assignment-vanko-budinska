@@ -18,8 +18,9 @@ namespace DesktopApp1
         public DateTime Do { get; private set; }
         public string NazovUbytovania { get; private set; }
         public string Adresa { get; private set; }
+        public string Stav { get; private set; }
 
-        public RezervaciaPolozka(int CisloRezervacie, int PocetIzieb, DateTime od, DateTime Do, string NazovUbytovania, string Adresa)
+        public RezervaciaPolozka(int CisloRezervacie, int PocetIzieb, DateTime Od, DateTime Do, string NazovUbytovania, string Adresa, string Stav)
         {
 
             InitializeComponent();
@@ -29,12 +30,15 @@ namespace DesktopApp1
             this.Do = Do;
             this.NazovUbytovania = NazovUbytovania;
             this.Adresa = Adresa;
+            this.Stav = Stav;
             lbl_cisloRezervacie.Text = this.CisloRezervacie.ToString();
             lbl_pocetIzieb.Text = this.PocetIzieb.ToString();
-            lbl_od.Text = this.Od.ToString();
-            lbl_do.Text = this.Do.ToString();
+            lbl_od.Text = this.Od.Date.ToString();
+            lbl_do.Text = this.Do.Date.ToString();
             lbl_nazovUbytovania.Text = this.NazovUbytovania;
             lbl_adresa.Text = this.Adresa;
+            lbl_stav.Text = this.Stav;
+
         }
     }
 }

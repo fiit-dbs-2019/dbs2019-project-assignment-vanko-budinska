@@ -46,11 +46,12 @@ namespace DesktopApp1
             DisposePanelItems(flp_Rezeravacie);
             ClearPanel(flp_Rezeravacie);
 
-            string q = "SELECT z.id, z.pocet, r.od_dat, r.do_dat, u.nazov, u.adresa, d.nazov, s.nazov FROM public.zostava_rezervacie z "
+            string q = "SELECT z.id, z.pocet, r.od_dat, r.do_dat, u.nazov, u.adresa, d.nazov, s.nazov, st.stav FROM public.zostava_rezervacie z "
                 + " INNER JOIN public.rezervacia r ON z.id_rezervacia = r.id "
                 + " INNER JOIN public.ubytovanie u ON z.id_ubytovanie = u.id "
                 + " INNER JOIN public.destinacia d ON u.id_destinacia = d.id "
                 + " INNER JOIN public.stat s ON d.id_stat = s.id "
+                +  "INNER JOIN public.stav_rezervacie st ON r.id_stav = st.id "
                 + " WHERE z.id_pouzivatel = :id_pouz;";
             NpgsqlConnection connection = db_conn.conn;
             NpgsqlCommand cmd = new NpgsqlCommand(q, connection);
@@ -64,6 +65,7 @@ namespace DesktopApp1
             DateTime Do;
             string nazov;
             string adresa;
+            string stav;
             for(int i = 0; i < rep.Count; i++)
             {
                 var line = rep[i].Split(';');
@@ -73,7 +75,8 @@ namespace DesktopApp1
                 Do = DateTime.Parse(line[3]);
                 nazov = line[4];
                 adresa = line[5] + " " + line[6] + " " + line[7];
-                moje_rezervacie[i] = new RezervaciaPolozka(cisloRez, pocetIz, Od, Do, nazov, adresa);
+                stav = line[8];
+                moje_rezervacie[i] = new RezervaciaPolozka(cisloRez, pocetIz, Od, Do, nazov, adresa, stav);
                 AddPanel(flp_Rezeravacie, moje_rezervacie[i]);
             }
         

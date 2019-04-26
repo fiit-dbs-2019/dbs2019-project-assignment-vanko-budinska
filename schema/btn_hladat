@@ -1,5 +1,0 @@
---SELECT d.id FROM public.destinacia d INNER JOIN public.stat s ON d.id_stat = s.id WHERE s.nazov LIKE '%Italy%' OR d.nazov LIKE '%Italy%';
-SELECT u.* FROM public.ubytovanie u 
-	INNER JOIN public.destinacia d ON u.id_destinacia = d.id
-	INNER JOIN public.stat s ON d.id_stat = s.id
-	WHERE s.nazov LIKE '%Italy%' OR d.nazov LIKE '%Italy%' OR u.adresa LIKE '%Italy%';

@@ -43,13 +43,15 @@
             this.lbl_do = new System.Windows.Forms.Label();
             this.lbl_nazovUbytovania = new System.Windows.Forms.Label();
             this.lbl_adresa = new System.Windows.Forms.Label();
+            this.lbl_stav = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Upravit
             // 
-            this.btn_Upravit.Location = new System.Drawing.Point(774, 105);
+            this.btn_Upravit.Location = new System.Drawing.Point(694, 52);
             this.btn_Upravit.Name = "btn_Upravit";
             this.btn_Upravit.Size = new System.Drawing.Size(75, 23);
             this.btn_Upravit.TabIndex = 0;
@@ -135,7 +137,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(172, 15);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(596, 113);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(516, 113);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // lbl_cisloRezervacie
@@ -192,13 +194,34 @@
             this.lbl_adresa.TabIndex = 5;
             this.lbl_adresa.Text = "Add";
             // 
+            // lbl_stav
+            // 
+            this.lbl_stav.AutoSize = true;
+            this.lbl_stav.Location = new System.Drawing.Point(694, 32);
+            this.lbl_stav.Name = "lbl_stav";
+            this.lbl_stav.Size = new System.Drawing.Size(36, 17);
+            this.lbl_stav.TabIndex = 7;
+            this.lbl_stav.Text = "Stav";
+            this.lbl_stav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(694, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(36, 17);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Stav";
+            // 
             // RezervaciaPolozka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbl_stav);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btn_Upravit);
             this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.label7);
             this.Name = "RezervaciaPolozka";
             this.Size = new System.Drawing.Size(852, 138);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -206,6 +229,7 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -226,5 +250,7 @@
         private System.Windows.Forms.Label lbl_do;
         private System.Windows.Forms.Label lbl_nazovUbytovania;
         private System.Windows.Forms.Label lbl_adresa;
+        private System.Windows.Forms.Label lbl_stav;
+        private System.Windows.Forms.Label label7;
     }
 }
