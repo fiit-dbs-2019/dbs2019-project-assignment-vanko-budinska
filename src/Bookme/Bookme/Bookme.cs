@@ -268,22 +268,20 @@ namespace DesktopApp1
 
             db_conn.command = cmd;
             data = db_conn.Query();
-            //data = db_conn.Query(String.Format(hladat_Querry + "LIMIT {0} OFFSET {1};", limit, offset));
-            /* q =         "WITH tb AS ( " +
-                         "SELECT u.id, u.obr_urls, ROW_NUMBER() OVER(ORDER BY u.id ASC) as n " +
+            q =         "WITH tb AS ( " +
+                         "SELECT u.id, u.obr_urls, u.wifi, u.ranajky, u.parkovanie, u.bazen, u.klimatizacia, u.tv, ROW_NUMBER() OVER(ORDER BY u.id ASC) as n " +
                          "FROM public.ubytovanie AS u " +
                          "INNER JOIN public.destinacia d ON u.id_destinacia = d.id " +
                          "INNER JOIN public.stat s ON d.id_stat = s.id " +
-                         "WHERE (s.nazov LIKE '%' || :dst || '%' OR d.nazov LIKE '%' || :dst || '%' OR u.adresa LIKE '%' || :dst || '%')" +
+                         "WHERE ((s.nazov LIKE '%' || :dst || '%' OR d.nazov LIKE '%' || :dst || '%' OR u.adresa LIKE '%' || :dst || '%')" +
+                         filter + ")" +
                          ") SELECT * FROM tb WHERE n > :limit " +
                          "LIMIT :offset;";
              cmd = new NpgsqlCommand(q, connection);
              cmd.Parameters.AddWithValue("dst", NpgsqlTypes.NpgsqlDbType.Text).Value = tbDestinacia.Text;
              cmd.Parameters.AddWithValue("limit", NpgsqlTypes.NpgsqlDbType.Integer).Value = limit;
              cmd.Parameters.AddWithValue("offset", NpgsqlTypes.NpgsqlDbType.Integer).Value = offset;
-             db_conn.command = cmd;*/
-            //data_arr = data[6];
-            
+             db_conn.command = cmd;
         }
 
         private void btnHladat_Click(object sender, EventArgs e)
