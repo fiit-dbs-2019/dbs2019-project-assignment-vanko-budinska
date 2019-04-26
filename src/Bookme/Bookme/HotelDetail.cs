@@ -33,7 +33,7 @@ namespace DesktopApp1
             this.ubytovanie = hotelPolozka.ubytovanie;
             NaplnPolozky();
         }
-        
+
         private void NaplnPolozky()
         {
             string hv = "";
@@ -48,7 +48,7 @@ namespace DesktopApp1
             if (ubytovanie.parkovanie)
                 lblPark.Show();
             if (ubytovanie.ranajky)
-                lblRanajky.Show();       
+                lblRanajky.Show();
             if (ubytovanie.bazen)
                 lblBazen.Show();
             if (ubytovanie.wifi)
@@ -81,7 +81,7 @@ namespace DesktopApp1
             picBoxMainView.Image = obrazky[0].Image;
             picBoxMainView.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        
+
         private void obrazky_Click(object sender, EventArgs e)
         {
             picBoxMainView.Image = ((PictureBox)sender).Image;
@@ -127,8 +127,11 @@ namespace DesktopApp1
 
         private void btnSpatHotelDetail_Click(object sender, EventArgs e)
         {
+            b.disposePanelItems(b.flpanel1);
             b.clearPanel(b.flpanel1);
-            foreach(var polozka in b.polozky_control)
+
+            b.PagingPanel1.Show();
+            foreach (var polozka in b.polozky_control)
                 b.addflPanel(b.flpanel1, polozka);
         }
     }

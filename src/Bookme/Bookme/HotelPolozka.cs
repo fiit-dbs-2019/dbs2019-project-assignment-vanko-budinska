@@ -35,7 +35,6 @@ namespace DesktopApp1
             lblHodn.Text = ubytovanie.hodnotenie.ToString();
             //lblCena.Text = ubytovanie.cena.ToString();
             lblDestinacia.Text = ubytovanie.adresa;
-
             rtbPopis.Text = ubytovanie.popis;
 
             //pictureBox set img
@@ -121,7 +120,7 @@ namespace DesktopApp1
         private void btnVybrat_Click(object sender, EventArgs e)
         {
             b.clearPanel(b.flpanel1);
-            b.clearPanel(b.PagingPanel1);
+            b.PagingPanel1.Hide();
             b.addPanel(b.flpanel1, new HotelDetail(this));
         }
     }

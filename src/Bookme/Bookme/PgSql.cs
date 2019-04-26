@@ -100,6 +100,29 @@ namespace PgSql
             }
         }
 
+        public List<string[]> Query_Array()
+        {
+            List<string[]> dataItems = new List<string[]>();
+            try
+            {
+                conn.Open();
+                NpgsqlDataReader dataReader = command.ExecuteReader();
+
+                for (int i = 0; dataReader.Read(); i++)
+                {
+                    string[] itm = (string[])dataReader.GetValue(1);
+                    dataItems.Add(itm);
+                }
+                conn.Close();
+                return dataItems;
+            }
+            catch (Exception msg)
+            {
+                MessageBox.Show(msg.ToString());
+                throw;
+            }
+        }
+
         public List<string> Query(string q_command)
         {
             List<string> dataItems = new List<string>();

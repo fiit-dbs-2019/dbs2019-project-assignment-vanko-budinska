@@ -158,13 +158,14 @@ Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa
 ## TODO
 - [ ] Scenár 3 - Detail a potvrdenie rezervácie
 - [ ] Scenár 2 - Izby pre dané ubytovanie
-- [ ] Scenár 2 - Detail hotela - ïalšie informácie
+- [X] Scenár 2 - Detail hotela - ïalšie informácie
 - [ ] Model - Tabu¾ka so monımi stavmi rezervácií
 - [ ] Scenár 4 - Jednotlivé vytvorené rezervácie v samostatnom UserControl s monosou zmeny stavu
 - [ ] Scenár 5 - zmena, zmazanie rezervácie 
 - [ ] pouitie transakcií + FK
 - [ ] Naplni DB zmysluplnımi cenami
-- [ ] Stránkovanie
+- [X] Stránkovanie
+- [ ] Optimalizacia pouzitej pamati pri vytvarani a ruseni stranok
 - [ ] Usporiadanie pod¾a kritérií
 - [ ] Všetky Queries cez cmd.Parameters
 - [ ] Kompletnı podscenár 1.2 (datum, izby, osoby)

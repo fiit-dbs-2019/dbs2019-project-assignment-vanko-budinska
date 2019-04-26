@@ -104,6 +104,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Rezervacia.cs" />
+    <Compile Include="RezervaciaPolozka.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RezervaciaPolozka.Designer.cs">
+      <DependentUpon>RezervaciaPolozka.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ubytovanie.cs" />
     <Compile Include="Uzivatel.cs" />
     <Compile Include="ZostavaRezervacie.cs" />
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reg_Form.resx">
       <DependentUpon>Reg_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RezervaciaPolozka.resx">
+      <DependentUpon>RezervaciaPolozka.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

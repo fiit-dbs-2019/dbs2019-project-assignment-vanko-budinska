@@ -32,7 +32,6 @@ namespace DesktopApp1
             b.clearPanel(b.flpanel1);
             b.clearPanel(b.PagingPanel1);
             b.addflPanel(b.flpanel1, mojeRezervacie);
-            mojeRezervacie.fill_dataGrid();
         }
     }
 }
