@@ -28,7 +28,7 @@ namespace DesktopApp1
         private List<string[]> data_arr; //List s odpovedou z DB pre url SELECT obr_urls FROM public.ubytovanie
         private int offset;
         private int limit;
-        private string dst;
+        private string filter;
 
         public HotelPolozka[] polozky_control { get; private set; }
         public Uzivatel uzivatel { get; private set; }
@@ -229,70 +229,33 @@ namespace DesktopApp1
 
         private void btnFiltruj_Click(object sender, EventArgs e)
         {
-            /*string q = "";
-            if (chbWifi.Checked)
-            {
-                if (q.Length == 0 && hladat_Querry.Length == 0)
-                    q += " WHERE wifi = 'true' ";
-                else
-                    q += " AND wifi = 'true' ";
-            }
-            if (chbTv.Checked)
-            {
-                if (q.Length == 0 && hladat_Querry.Length == 0)
-                    q += " WHERE tv = 'true' ";
-                else
-                    q += " AND tv = 'true' ";
-            }
-            if (chbParkovanie.Checked && hladat_Querry.Length == 0)
-            {
-                if (q.Length == 0)
-                    q += " WHERE parkovisko = 'true' ";
-                else
-                    q += " AND parkovisko = 'true' ";
-            }
-            if (chbRanajky.Checked && hladat_Querry.Length == 0)
-            {
-                if (q.Length == 0)
-                    q += " WHERE ranajky = 'true' ";
-                else
-                    q += " AND ranajky = 'true' ";
-            }
-            if (chbBazen.Checked && hladat_Querry.Length == 0)
-            {
-                if (q.Length == 0)
-                    q += " WHERE bazen = 'true' ";
-                else
-                    q += " AND bazen = 'true' ";
-            }
-            if (chbKlimatizacia.Checked && hladat_Querry.Length == 0)
-            {
-                if (q.Length == 0)
-                    q += " WHERE klimatizacia = 'true' ";
-                else
-                    q += " AND klimatizacia = 'true' ";
-            }
-            if (hladat_Querry.Length == 0)
-            {
-                data = db_conn.Query(String.Format("SELECT * FROM public.ubytovanie " + q + " LIMIT {0} OFFSET {1};", limit, offset));
-                data_arr = db_conn.Query_Array(String.Format("SELECT obr_urls FROM public.ubytovanie " + q + "LIMIT {0} OFFSET {1};", limit, offset));
-            }
-            else
-            {
-                data = db_conn.Query(String.Format(hladat_Querry + q + " LIMIT {0} OFFSET {1};", limit, offset));
-                data_arr = db_conn.Query_Array(String.Format(hladat_Querry_urls + q + "LIMIT {0} OFFSET {1};", limit, offset));
-            }
-            naplPonuku();*/
+            limit = 0;
+            hladat();
+            naplPonuku();
         }
 
         private void hladat()
         {
+            filter = "";
+            if (chbWifi.Checked)
+                filter += " AND wifi = 'true' ";
+            if (chbTv.Checked)
+                filter += " AND tv = 'true' ";
+            if (chbParkovanie.Checked)
+                filter += " AND parkovisko = 'true' ";
+            if (chbRanajky.Checked)
+                filter += " AND ranajky = 'true' ";
+            if (chbBazen.Checked)
+                filter += " AND bazen = 'true' ";
+            if (chbKlimatizacia.Checked)
+                filter += " AND klimatizacia = 'true' ";
             string q = "WITH tb AS ( " +
                         "SELECT u.*, ROW_NUMBER() OVER(ORDER BY u.id ASC) as n " +
                         "FROM public.ubytovanie AS u " +
                         "INNER JOIN public.destinacia d ON u.id_destinacia = d.id " +
                         "INNER JOIN public.stat s ON d.id_stat = s.id " +
-                        "WHERE (s.nazov LIKE '%' || :dst || '%' OR d.nazov LIKE '%' || :dst || '%' OR u.adresa LIKE '%' || :dst || '%')" +
+                        "WHERE ((s.nazov LIKE '%' || :dst || '%' OR d.nazov LIKE '%' || :dst || '%' OR u.adresa LIKE '%' || :dst || '%') " +
+                        filter + ")" +
                         ") SELECT * FROM tb WHERE n > :limit " +
                         "LIMIT :offset;";
 
@@ -301,23 +264,25 @@ namespace DesktopApp1
             cmd.Parameters.AddWithValue("dst", NpgsqlTypes.NpgsqlDbType.Text).Value = tbDestinacia.Text;
             cmd.Parameters.AddWithValue("limit", NpgsqlTypes.NpgsqlDbType.Integer).Value = limit;
             cmd.Parameters.AddWithValue("offset", NpgsqlTypes.NpgsqlDbType.Integer).Value = offset;
+            
+
             db_conn.command = cmd;
             data = db_conn.Query();
             //data = db_conn.Query(String.Format(hladat_Querry + "LIMIT {0} OFFSET {1};", limit, offset));
-            q =         "WITH tb AS ( " +
-                        "SELECT u.id, u.obr_urls, ROW_NUMBER() OVER(ORDER BY u.id ASC) as n " +
-                        "FROM public.ubytovanie AS u " +
-                        "INNER JOIN public.destinacia d ON u.id_destinacia = d.id " +
-                        "INNER JOIN public.stat s ON d.id_stat = s.id " +
-                        "WHERE (s.nazov LIKE '%' || :dst || '%' OR d.nazov LIKE '%' || :dst || '%' OR u.adresa LIKE '%' || :dst || '%')" +
-                        ") SELECT * FROM tb WHERE n > :limit " +
-                        "LIMIT :offset;";
-            cmd = new NpgsqlCommand(q, connection);
-            cmd.Parameters.AddWithValue("dst", NpgsqlTypes.NpgsqlDbType.Text).Value = tbDestinacia.Text;
-            cmd.Parameters.AddWithValue("limit", NpgsqlTypes.NpgsqlDbType.Integer).Value = limit;
-            cmd.Parameters.AddWithValue("offset", NpgsqlTypes.NpgsqlDbType.Integer).Value = offset;
-            db_conn.command = cmd;
-            data_arr = db_conn.Query_Array();
+            /* q =         "WITH tb AS ( " +
+                         "SELECT u.id, u.obr_urls, ROW_NUMBER() OVER(ORDER BY u.id ASC) as n " +
+                         "FROM public.ubytovanie AS u " +
+                         "INNER JOIN public.destinacia d ON u.id_destinacia = d.id " +
+                         "INNER JOIN public.stat s ON d.id_stat = s.id " +
+                         "WHERE (s.nazov LIKE '%' || :dst || '%' OR d.nazov LIKE '%' || :dst || '%' OR u.adresa LIKE '%' || :dst || '%')" +
+                         ") SELECT * FROM tb WHERE n > :limit " +
+                         "LIMIT :offset;";
+             cmd = new NpgsqlCommand(q, connection);
+             cmd.Parameters.AddWithValue("dst", NpgsqlTypes.NpgsqlDbType.Text).Value = tbDestinacia.Text;
+             cmd.Parameters.AddWithValue("limit", NpgsqlTypes.NpgsqlDbType.Integer).Value = limit;
+             cmd.Parameters.AddWithValue("offset", NpgsqlTypes.NpgsqlDbType.Integer).Value = offset;
+             db_conn.command = cmd;*/
+            //data_arr = data[6];
             
         }
 
