@@ -185,5 +185,5 @@ Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa
 - [X] Detail záznamu
 - [X] Vytvorenie záznamu (Novı pouívate¾, rezervácia)
 - [ ] Aktualizácia existujúceho záznamu
-- [ ] Vymazanie záznamu
+- [X] Vymazanie záznamu
 - [ ] Scenáre ktoré menia dáta musia by realizované s pouitím transkacií + aspoò jeden s viacerımi tabu¾kami (FK) e

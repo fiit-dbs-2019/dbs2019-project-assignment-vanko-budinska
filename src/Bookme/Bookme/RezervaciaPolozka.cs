@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PgSql;
 using Npgsql;
+using System.Threading;
 
 namespace DesktopApp1
 {
@@ -24,6 +25,10 @@ namespace DesktopApp1
         public string Stav { get; private set; }
         private Bookme b;
 
+        public RezervaciaPolozka()
+        {
+            InitializeComponent();
+        }
         public RezervaciaPolozka(Bookme b, int CisloRezervacie, int PocetIzieb, DateTime Od, DateTime Do, string NazovUbytovania, string Adresa, string Stav)
         {
 
@@ -48,7 +53,15 @@ namespace DesktopApp1
 
         private void btn_Upravit_Click(object sender, EventArgs e)
         {
+            Thread th_reg = new Thread(new ThreadStart(Start_ZmenaRezervacie));
+            th_reg.Start();
+            th_reg.Join();
+        }
 
+        private void Start_ZmenaRezervacie()
+        {
+            form_ZmenaRezervacie formZmena = new form_ZmenaRezervacie(this);
+            Application.Run(formZmena);
         }
 
         private void btn_zrusit_Click(object sender, EventArgs e)

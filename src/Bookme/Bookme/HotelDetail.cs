@@ -92,12 +92,13 @@ namespace DesktopApp1
         {
             this.uzivatel = b.uzivatel;
             db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
-            string q = "INSERT INTO public.rezervacia (od_dat, do_dat) VALUES (:datum_od, :datum_do) RETURNING id;";
+            string q = "INSERT INTO public.rezervacia (od_dat, do_dat, id_stav) VALUES (:datum_od, :datum_do, :stav) RETURNING id;";
 
             NpgsqlConnection connection = db_conn.conn;
             NpgsqlCommand cmd = new NpgsqlCommand(q, connection);
             cmd.Parameters.AddWithValue("datum_od", NpgsqlTypes.NpgsqlDbType.Date).Value = b.DatumOd;
             cmd.Parameters.AddWithValue("datum_do", NpgsqlTypes.NpgsqlDbType.Date).Value = b.DatumDo;
+            cmd.Parameters.AddWithValue("stav", NpgsqlTypes.NpgsqlDbType.Integer).Value = 1;
             db_conn.command = cmd;
 
             List<string> rep = db_conn.Query();
