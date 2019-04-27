@@ -130,7 +130,6 @@ namespace DesktopApp1
         {
             b.disposePanelItems(b.flpanel1);
             b.clearPanel(b.flpanel1);
-
             b.PagingPanel1.Show();
             b.hladat();
             b.naplPonuku();

@@ -161,11 +161,11 @@ Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa
 - [X] Scenár 2 - Detail hotela - ïalšie informácie
 - [X] Model - Tabu¾ka so monımi stavmi rezervácií
 - [X] Scenár 4 - Jednotlivé vytvorené rezervácie v samostatnom UserControl
-- [ ] Scenár 5 - zmena, zmazanie rezervácie 
-- [ ] pouitie transakcií + FK
+- [X] Scenár 5 - zmena, zmazanie rezervácie 
+- [X] pouitie transakcií + FK
 - [ ] Naplni DB zmysluplnımi cenami
 - [X] Stránkovanie
-- [ ] Optimalizacia pouzitej pamati pri vytvarani a ruseni stranok
+- [X] Optimalizacia pouzitej pamati pri vytvarani a ruseni stranok
 - [ ] Usporiadanie pod¾a kritérií
 - [ ] Všetky Queries cez cmd.Parameters
 - [ ] Kompletnı podscenár 1.2 (datum, izby, osoby)
@@ -173,14 +173,14 @@ Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa
 - [ ] Automatické prihlásenie po registrácií
 - [ ] V dokumentácií predpisy tvaru súborov pre generovanie
 - [ ] dogenerovanie dát
-- [ ] GROUP BY
+- [X] GROUP BY
 ## Min. poziadavky
 - [X] Min. 7 tabuliek okrem èíselínkov
 - [ ] Rádovo milóny v kadej tab. okrem èíselníkov
 - [ ] V jednej 10 mil
 - [X] Join-y
 - [ ] Pouitie agregaènej funkcie
-- [ ] Zobrazenie preh¾adu všetkıch záznamov so stránkovaním + GRUOP BY
+- [X] Zobrazenie preh¾adu všetkıch záznamov so stránkovaním + GRUOP BY
 - [X] Filtrovanie pod¾a zadanıch kriterií
 - [X] Detail záznamu
 - [X] Vytvorenie záznamu (Novı pouívate¾, rezervácia)
