@@ -54,7 +54,7 @@
             // 
             this.btn_Upravit.Location = new System.Drawing.Point(694, 52);
             this.btn_Upravit.Name = "btn_Upravit";
-            this.btn_Upravit.Size = new System.Drawing.Size(128, 23);
+            this.btn_Upravit.Size = new System.Drawing.Size(106, 23);
             this.btn_Upravit.TabIndex = 0;
             this.btn_Upravit.Text = "Upravit";
             this.btn_Upravit.UseVisualStyleBackColor = true;
@@ -219,9 +219,9 @@
             // 
             this.btn_zrusit.Location = new System.Drawing.Point(694, 77);
             this.btn_zrusit.Name = "btn_zrusit";
-            this.btn_zrusit.Size = new System.Drawing.Size(128, 23);
+            this.btn_zrusit.Size = new System.Drawing.Size(106, 23);
             this.btn_zrusit.TabIndex = 8;
-            this.btn_zrusit.Text = "Zrusit rezervaciu";
+            this.btn_zrusit.Text = "Zrusit";
             this.btn_zrusit.UseVisualStyleBackColor = true;
             this.btn_zrusit.Click += new System.EventHandler(this.btn_zrusit_Click);
             // 
@@ -236,7 +236,7 @@
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.label7);
             this.Name = "RezervaciaPolozka";
-            this.Size = new System.Drawing.Size(852, 138);
+            this.Size = new System.Drawing.Size(800, 138);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);

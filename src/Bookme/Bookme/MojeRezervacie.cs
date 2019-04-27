@@ -88,6 +88,7 @@ namespace DesktopApp1
             b.clearPanel(b.flpanel1);
             foreach (var polozka in b.polozky_control)
                 b.addflPanel(b.flpanel1, polozka);
+            b.PagingPanel1.Show();
         }
     }
 }

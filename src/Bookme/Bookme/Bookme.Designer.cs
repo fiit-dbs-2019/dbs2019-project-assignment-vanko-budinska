@@ -55,6 +55,7 @@ namespace DesktopApp1
             this.dalej = new System.Windows.Forms.Button();
             this.spat = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -63,7 +64,6 @@ namespace DesktopApp1
             this.panelPaging = new System.Windows.Forms.Panel();
             this.flp_prihlaseny = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -353,6 +353,15 @@ namespace DesktopApp1
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hladat";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 17);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Destinacia";
+            // 
             // numericUpDown2
             // 
             this.numericUpDown2.Location = new System.Drawing.Point(100, 197);
@@ -398,7 +407,7 @@ namespace DesktopApp1
             "Najlepsie hodnotene",
             "Hviezdicky [1->5]",
             "Hviezdicky [5->1]"});
-            this.comboBox1.Location = new System.Drawing.Point(104, 21);
+            this.comboBox1.Location = new System.Drawing.Point(6, 21);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(165, 24);
             this.comboBox1.TabIndex = 22;
@@ -438,15 +447,6 @@ namespace DesktopApp1
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 17);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Destinacia";
             // 
             // Bookme
             // 

@@ -34,7 +34,7 @@
             // 
             // btnSpatMojeRezervacie
             // 
-            this.btnSpatMojeRezervacie.Location = new System.Drawing.Point(780, 721);
+            this.btnSpatMojeRezervacie.Location = new System.Drawing.Point(743, 721);
             this.btnSpatMojeRezervacie.Name = "btnSpatMojeRezervacie";
             this.btnSpatMojeRezervacie.Size = new System.Drawing.Size(75, 23);
             this.btnSpatMojeRezervacie.TabIndex = 1;
@@ -44,9 +44,10 @@
             // 
             // flp_Rezeravacie
             // 
+            this.flp_Rezeravacie.AutoScroll = true;
             this.flp_Rezeravacie.Location = new System.Drawing.Point(3, 3);
             this.flp_Rezeravacie.Name = "flp_Rezeravacie";
-            this.flp_Rezeravacie.Size = new System.Drawing.Size(852, 712);
+            this.flp_Rezeravacie.Size = new System.Drawing.Size(815, 712);
             this.flp_Rezeravacie.TabIndex = 2;
             // 
             // MojeRezervacie
@@ -57,7 +58,7 @@
             this.Controls.Add(this.flp_Rezeravacie);
             this.Controls.Add(this.btnSpatMojeRezervacie);
             this.Name = "MojeRezervacie";
-            this.Size = new System.Drawing.Size(900, 760);
+            this.Size = new System.Drawing.Size(832, 749);
             this.ResumeLayout(false);
 
         }

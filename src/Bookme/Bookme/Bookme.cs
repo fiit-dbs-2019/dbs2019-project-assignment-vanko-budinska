@@ -104,7 +104,7 @@ namespace DesktopApp1
             clearPanel(flpPanel1);
             polozky_control = new HotelPolozka[data.Count];
             Ubytovanie[] polozky_ubytovania = new Ubytovanie[data.Count];
-
+            int pocet_rezervacii;
             for (int i = 0; i < data.Count; i++)
             {
                 /* 
@@ -132,6 +132,25 @@ namespace DesktopApp1
                 polozky_ubytovania[i] = new Ubytovanie(Int32.Parse(riadok[0]), riadok[1], Int32.Parse(riadok[2]), float.Parse(riadok[3]), riadok[4], riadok[5], data_arr[i], Boolean.Parse(riadok[7]), Boolean.Parse(riadok[8]), Boolean.Parse(riadok[9]), Boolean.Parse(riadok[10]), Boolean.Parse(riadok[11]), Int32.Parse(riadok[12]), Int32.Parse(riadok[13]), Boolean.Parse(riadok[14]));
                 polozky_ubytovania[i].adresa = dst[0] + " " + dst[1] + " " + dst[2] + ", " + dst[4];
 
+                string q = "SELECT id_ubytovanie, COUNT(*) FROM public.zostava_rezervacie " +
+                            "GROUP BY id_ubytovanie " +
+                            "HAVING id_ubytovanie = :id; ";
+
+                NpgsqlConnection connection = db_conn.conn;
+                NpgsqlCommand cmd = new NpgsqlCommand(q, connection);
+                cmd.Parameters.AddWithValue("id", NpgsqlTypes.NpgsqlDbType.Integer).Value = polozky_ubytovania[i].id;
+                db_conn.command = cmd;
+                dst = db_conn.Query();
+                if(dst.Count == 0)
+                {
+                    polozky_ubytovania[i].pocetRezervacii = 0;
+                }
+                else
+                {
+
+                    dst = parse_response(dst[0]);
+                    polozky_ubytovania[i].pocetRezervacii = Int32.Parse(dst[1]);
+                }
                 polozky_control[i] = new HotelPolozka(this, polozky_ubytovania[i]);
 
                 addflPanel(flpPanel1, polozky_control[i]);
@@ -234,7 +253,7 @@ namespace DesktopApp1
             naplPonuku();
         }
 
-        private void hladat()
+        public void hladat()
         {
             filter = "";
             if (chbWifi.Checked)
@@ -264,12 +283,10 @@ namespace DesktopApp1
             cmd.Parameters.AddWithValue("dst", NpgsqlTypes.NpgsqlDbType.Text).Value = tbDestinacia.Text;
             cmd.Parameters.AddWithValue("limit", NpgsqlTypes.NpgsqlDbType.Integer).Value = limit;
             cmd.Parameters.AddWithValue("offset", NpgsqlTypes.NpgsqlDbType.Integer).Value = offset;
-            
-
             db_conn.command = cmd;
             data = db_conn.Query();
             q =         "WITH tb AS ( " +
-                         "SELECT u.id, u.obr_urls, u.wifi, u.ranajky, u.parkovanie, u.bazen, u.klimatizacia, u.tv, ROW_NUMBER() OVER(ORDER BY u.id ASC) as n " +
+                         "SELECT u.id, u.obr_urls, u.wifi, u.ranajky, u.parkovisko, u.bazen, u.klimatizacia, u.tv, ROW_NUMBER() OVER(ORDER BY u.id ASC) as n " +
                          "FROM public.ubytovanie AS u " +
                          "INNER JOIN public.destinacia d ON u.id_destinacia = d.id " +
                          "INNER JOIN public.stat s ON d.id_stat = s.id " +
@@ -282,6 +299,7 @@ namespace DesktopApp1
              cmd.Parameters.AddWithValue("limit", NpgsqlTypes.NpgsqlDbType.Integer).Value = limit;
              cmd.Parameters.AddWithValue("offset", NpgsqlTypes.NpgsqlDbType.Integer).Value = offset;
              db_conn.command = cmd;
+             data_arr = db_conn.Query_Array();
         }
 
         private void btnHladat_Click(object sender, EventArgs e)
@@ -304,8 +322,6 @@ namespace DesktopApp1
             {
                 limit -= 10;
             }
-            else
-                return;
             hladat();
 
             naplPonuku();

@@ -35,6 +35,7 @@ namespace DesktopApp1
             lblHodn.Text = ubytovanie.hodnotenie.ToString();
             //lblCena.Text = ubytovanie.cena.ToString();
             lblDestinacia.Text = ubytovanie.adresa;
+            lbl_PocetRezervacii.Text = ubytovanie.pocetRezervacii.ToString();
             rtbPopis.Text = ubytovanie.popis;
 
             //pictureBox set img
