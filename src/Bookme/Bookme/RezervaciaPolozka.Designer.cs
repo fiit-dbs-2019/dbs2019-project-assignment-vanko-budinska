@@ -45,6 +45,7 @@
             this.lbl_adresa = new System.Windows.Forms.Label();
             this.lbl_stav = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btn_zrusit = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,10 +54,11 @@
             // 
             this.btn_Upravit.Location = new System.Drawing.Point(694, 52);
             this.btn_Upravit.Name = "btn_Upravit";
-            this.btn_Upravit.Size = new System.Drawing.Size(75, 23);
+            this.btn_Upravit.Size = new System.Drawing.Size(128, 23);
             this.btn_Upravit.TabIndex = 0;
             this.btn_Upravit.Text = "Upravit";
             this.btn_Upravit.UseVisualStyleBackColor = true;
+            this.btn_Upravit.Click += new System.EventHandler(this.btn_Upravit_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -213,10 +215,21 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Stav";
             // 
+            // btn_zrusit
+            // 
+            this.btn_zrusit.Location = new System.Drawing.Point(694, 77);
+            this.btn_zrusit.Name = "btn_zrusit";
+            this.btn_zrusit.Size = new System.Drawing.Size(128, 23);
+            this.btn_zrusit.TabIndex = 8;
+            this.btn_zrusit.Text = "Zrusit rezervaciu";
+            this.btn_zrusit.UseVisualStyleBackColor = true;
+            this.btn_zrusit.Click += new System.EventHandler(this.btn_zrusit_Click);
+            // 
             // RezervaciaPolozka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_zrusit);
             this.Controls.Add(this.lbl_stav);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btn_Upravit);
@@ -252,5 +265,6 @@
         private System.Windows.Forms.Label lbl_adresa;
         private System.Windows.Forms.Label lbl_stav;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_zrusit;
     }
 }

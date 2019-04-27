@@ -159,8 +159,8 @@ Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa
 - [ ] Scenár 3 - Detail a potvrdenie rezervácie
 - [ ] Scenár 2 - Izby pre dané ubytovanie
 - [X] Scenár 2 - Detail hotela - ïalšie informácie
-- [ ] Model - Tabu¾ka so monımi stavmi rezervácií
-- [ ] Scenár 4 - Jednotlivé vytvorené rezervácie v samostatnom UserControl s monosou zmeny stavu
+- [X] Model - Tabu¾ka so monımi stavmi rezervácií
+- [X] Scenár 4 - Jednotlivé vytvorené rezervácie v samostatnom UserControl
 - [ ] Scenár 5 - zmena, zmazanie rezervácie 
 - [ ] pouitie transakcií + FK
 - [ ] Naplni DB zmysluplnımi cenami
@@ -181,10 +181,9 @@ Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa
 - [X] Join-y
 - [ ] Pouitie agregaènej funkcie
 - [ ] Zobrazenie preh¾adu všetkıch záznamov so stránkovaním + GRUOP BY
-- [ ] Filtrovanie pod¾a zadanıch kriterií
+- [X] Filtrovanie pod¾a zadanıch kriterií
 - [X] Detail záznamu
 - [X] Vytvorenie záznamu (Novı pouívate¾, rezervácia)
 - [ ] Aktualizácia existujúceho záznamu
 - [ ] Vymazanie záznamu
-- [ ] Scenáre ktoré menia dáta musia by realizované s pouitím transkacií + aspoò jeden s viacerımi tabu¾kami (FK) 
-- [ ] V dokumentácií predpisy tvaru súborov pre generovanie
+- [ ] Scenáre ktoré menia dáta musia by realizované s pouitím transkacií + aspoò jeden s viacerımi tabu¾kami (FK) e

@@ -76,7 +76,7 @@ namespace DesktopApp1
                 nazov = line[4];
                 adresa = line[5] + " " + line[6] + " " + line[7];
                 stav = line[8];
-                moje_rezervacie[i] = new RezervaciaPolozka(cisloRez, pocetIz, Od, Do, nazov, adresa, stav);
+                moje_rezervacie[i] = new RezervaciaPolozka(b, cisloRez, pocetIz, Od, Do, nazov, adresa, stav);
                 AddPanel(flp_Rezeravacie, moje_rezervacie[i]);
             }
         
