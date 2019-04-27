@@ -37,7 +37,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_cisloRezervacie = new System.Windows.Forms.Label();
-            this.lbl_pocetIzieb = new System.Windows.Forms.Label();
             this.lbl_od = new System.Windows.Forms.Label();
             this.lbl_do = new System.Windows.Forms.Label();
             this.lbl_nazovUbytovania = new System.Windows.Forms.Label();
@@ -45,9 +44,9 @@
             this.lbl_stav = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_Platba = new System.Windows.Forms.Button();
-            this.btn_zmenaDatumu = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.btn_Ulozit = new System.Windows.Forms.Button();
+            this.dtPick_od = new System.Windows.Forms.DateTimePicker();
+            this.dtPick_do = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -59,20 +58,24 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btn_Spat = new System.Windows.Forms.Button();
+            this.nUpDown_PocetIzieb = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbl_PocetIzieb = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_PocetIzieb)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.label3);
             this.flowLayoutPanel1.Controls.Add(this.label4);
             this.flowLayoutPanel1.Controls.Add(this.label5);
             this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.label13);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -91,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 17);
+            this.label2.Location = new System.Drawing.Point(217, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 17);
             this.label2.TabIndex = 1;
@@ -100,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 34);
+            this.label3.Location = new System.Drawing.Point(3, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 17);
             this.label3.TabIndex = 2;
@@ -109,7 +112,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 51);
+            this.label4.Location = new System.Drawing.Point(3, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 17);
             this.label4.TabIndex = 3;
@@ -118,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 68);
+            this.label5.Location = new System.Drawing.Point(3, 51);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 17);
             this.label5.TabIndex = 4;
@@ -127,7 +130,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 85);
+            this.label6.Location = new System.Drawing.Point(3, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 17);
             this.label6.TabIndex = 5;
@@ -136,11 +139,11 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.lbl_cisloRezervacie);
-            this.flowLayoutPanel2.Controls.Add(this.lbl_pocetIzieb);
             this.flowLayoutPanel2.Controls.Add(this.lbl_od);
             this.flowLayoutPanel2.Controls.Add(this.lbl_do);
             this.flowLayoutPanel2.Controls.Add(this.lbl_nazovUbytovania);
             this.flowLayoutPanel2.Controls.Add(this.lbl_adresa);
+            this.flowLayoutPanel2.Controls.Add(this.lbl_PocetIzieb);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(173, 12);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -156,19 +159,10 @@
             this.lbl_cisloRezervacie.TabIndex = 0;
             this.lbl_cisloRezervacie.Text = "C. rez";
             // 
-            // lbl_pocetIzieb
-            // 
-            this.lbl_pocetIzieb.AutoSize = true;
-            this.lbl_pocetIzieb.Location = new System.Drawing.Point(3, 17);
-            this.lbl_pocetIzieb.Name = "lbl_pocetIzieb";
-            this.lbl_pocetIzieb.Size = new System.Drawing.Size(50, 17);
-            this.lbl_pocetIzieb.TabIndex = 1;
-            this.lbl_pocetIzieb.Text = "Poc. iz";
-            // 
             // lbl_od
             // 
             this.lbl_od.AutoSize = true;
-            this.lbl_od.Location = new System.Drawing.Point(3, 34);
+            this.lbl_od.Location = new System.Drawing.Point(3, 17);
             this.lbl_od.Name = "lbl_od";
             this.lbl_od.Size = new System.Drawing.Size(27, 17);
             this.lbl_od.TabIndex = 2;
@@ -177,7 +171,7 @@
             // lbl_do
             // 
             this.lbl_do.AutoSize = true;
-            this.lbl_do.Location = new System.Drawing.Point(3, 51);
+            this.lbl_do.Location = new System.Drawing.Point(3, 34);
             this.lbl_do.Name = "lbl_do";
             this.lbl_do.Size = new System.Drawing.Size(26, 17);
             this.lbl_do.TabIndex = 3;
@@ -186,7 +180,7 @@
             // lbl_nazovUbytovania
             // 
             this.lbl_nazovUbytovania.AutoSize = true;
-            this.lbl_nazovUbytovania.Location = new System.Drawing.Point(3, 68);
+            this.lbl_nazovUbytovania.Location = new System.Drawing.Point(3, 51);
             this.lbl_nazovUbytovania.Name = "lbl_nazovUbytovania";
             this.lbl_nazovUbytovania.Size = new System.Drawing.Size(74, 17);
             this.lbl_nazovUbytovania.TabIndex = 4;
@@ -195,7 +189,7 @@
             // lbl_adresa
             // 
             this.lbl_adresa.AutoSize = true;
-            this.lbl_adresa.Location = new System.Drawing.Point(3, 85);
+            this.lbl_adresa.Location = new System.Drawing.Point(3, 68);
             this.lbl_adresa.Name = "lbl_adresa";
             this.lbl_adresa.Size = new System.Drawing.Size(33, 17);
             this.lbl_adresa.TabIndex = 5;
@@ -230,28 +224,29 @@
             this.btn_Platba.UseVisualStyleBackColor = true;
             this.btn_Platba.Click += new System.EventHandler(this.btn_Platba_Click);
             // 
-            // btn_zmenaDatumu
+            // btn_Ulozit
             // 
-            this.btn_zmenaDatumu.Location = new System.Drawing.Point(35, 59);
-            this.btn_zmenaDatumu.Name = "btn_zmenaDatumu";
-            this.btn_zmenaDatumu.Size = new System.Drawing.Size(108, 23);
-            this.btn_zmenaDatumu.TabIndex = 11;
-            this.btn_zmenaDatumu.Text = "Zmenit datum";
-            this.btn_zmenaDatumu.UseVisualStyleBackColor = true;
+            this.btn_Ulozit.Location = new System.Drawing.Point(173, 59);
+            this.btn_Ulozit.Name = "btn_Ulozit";
+            this.btn_Ulozit.Size = new System.Drawing.Size(108, 23);
+            this.btn_Ulozit.TabIndex = 11;
+            this.btn_Ulozit.Text = "Ulozit";
+            this.btn_Ulozit.UseVisualStyleBackColor = true;
+            this.btn_Ulozit.Click += new System.EventHandler(this.btn_Ulozit_Click);
             // 
-            // dateTimePicker1
+            // dtPick_od
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(35, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(176, 22);
-            this.dateTimePicker1.TabIndex = 12;
+            this.dtPick_od.Location = new System.Drawing.Point(35, 3);
+            this.dtPick_od.Name = "dtPick_od";
+            this.dtPick_od.Size = new System.Drawing.Size(176, 22);
+            this.dtPick_od.TabIndex = 12;
             // 
-            // dateTimePicker2
+            // dtPick_do
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(35, 31);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(176, 22);
-            this.dateTimePicker2.TabIndex = 13;
+            this.dtPick_do.Location = new System.Drawing.Point(35, 31);
+            this.dtPick_do.Name = "dtPick_do";
+            this.dtPick_do.Size = new System.Drawing.Size(176, 22);
+            this.dtPick_do.TabIndex = 13;
             // 
             // textBox1
             // 
@@ -317,14 +312,16 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.nUpDown_PocetIzieb);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.btn_zmenaDatumu);
-            this.panel2.Controls.Add(this.dateTimePicker2);
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btn_Ulozit);
+            this.panel2.Controls.Add(this.dtPick_do);
+            this.panel2.Controls.Add(this.dtPick_od);
             this.panel2.Location = new System.Drawing.Point(173, 128);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(227, 87);
+            this.panel2.Size = new System.Drawing.Size(515, 87);
             this.panel2.TabIndex = 21;
             // 
             // label12
@@ -355,6 +352,41 @@
             this.btn_Spat.UseVisualStyleBackColor = true;
             this.btn_Spat.Click += new System.EventHandler(this.btn_Spat_Click);
             // 
+            // nUpDown_PocetIzieb
+            // 
+            this.nUpDown_PocetIzieb.Location = new System.Drawing.Point(220, 23);
+            this.nUpDown_PocetIzieb.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nUpDown_PocetIzieb.Name = "nUpDown_PocetIzieb";
+            this.nUpDown_PocetIzieb.Size = new System.Drawing.Size(120, 22);
+            this.nUpDown_PocetIzieb.TabIndex = 23;
+            this.nUpDown_PocetIzieb.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 85);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 17);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Pocet izieb";
+            // 
+            // lbl_PocetIzieb
+            // 
+            this.lbl_PocetIzieb.AutoSize = true;
+            this.lbl_PocetIzieb.Location = new System.Drawing.Point(3, 85);
+            this.lbl_PocetIzieb.Name = "lbl_PocetIzieb";
+            this.lbl_PocetIzieb.Size = new System.Drawing.Size(42, 17);
+            this.lbl_PocetIzieb.TabIndex = 6;
+            this.lbl_PocetIzieb.Text = "PocIz";
+            // 
             // form_ZmenaRezervacie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -378,6 +410,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_PocetIzieb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,7 +427,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label lbl_cisloRezervacie;
-        private System.Windows.Forms.Label lbl_pocetIzieb;
         private System.Windows.Forms.Label lbl_od;
         private System.Windows.Forms.Label lbl_do;
         private System.Windows.Forms.Label lbl_nazovUbytovania;
@@ -402,9 +434,9 @@
         private System.Windows.Forms.Label lbl_stav;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_Platba;
-        private System.Windows.Forms.Button btn_zmenaDatumu;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button btn_Ulozit;
+        private System.Windows.Forms.DateTimePicker dtPick_od;
+        private System.Windows.Forms.DateTimePicker dtPick_do;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox2;
@@ -416,5 +448,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btn_Spat;
+        private System.Windows.Forms.NumericUpDown nUpDown_PocetIzieb;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbl_PocetIzieb;
     }
 }

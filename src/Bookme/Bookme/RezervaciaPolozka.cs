@@ -17,14 +17,18 @@ namespace DesktopApp1
     {
         private PostGreSQL db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
         public int CisloRezervacie { get; private set; }
-        public int PocetIzieb { get; private set; }
-        public DateTime Od { get; private set; }
-        public DateTime Do { get; private set; }
+        public int PocetIzieb;
+        public DateTime Od;
+        public DateTime Do;
         public string NazovUbytovania { get; private set; }
         public string Adresa { get; private set; }
         public string Stav;
         private Bookme b;
-        private delegate void SafeCallDelegate(string text);
+        private delegate void SafeCallDelegateZmenaIzieb(string pocet_izieb);
+        private delegate void SafeCallDelegateZmenaStavu(string stav);
+        private delegate void SafeCallDelegateZmenaDatOd(string dat_od);
+        private delegate void SafeCallDelegateZmenaDatDo(string dat_do);
+
 
         public RezervaciaPolozka()
         {
@@ -44,6 +48,7 @@ namespace DesktopApp1
             this.Adresa = Adresa;
             this.Stav = Stav;
             lbl_cisloRezervacie.Text = this.CisloRezervacie.ToString();
+
             lbl_pocetIzieb.Text = this.PocetIzieb.ToString();
             lbl_od.Text = this.Od.Date.ToString();
             lbl_do.Text = this.Do.Date.ToString();
@@ -85,25 +90,79 @@ namespace DesktopApp1
             db_conn.command = cmd;
             db_conn.Query();
             this.Dispose();
-            
+
         }
 
-        private void WriteTextSafe(string text)
+        private void WriteZmenaStavu(string stav)
         {
             if (this.lbl_stav.InvokeRequired)
             {
-                SafeCallDelegate d = new SafeCallDelegate(WriteTextSafe);
-                BeginInvoke(d, new object[] { text });
+                SafeCallDelegateZmenaStavu d = new SafeCallDelegateZmenaStavu(ZmenaStavuUloz);
+                BeginInvoke(d, new object[] { stav });
             }
             else
             {
-                lbl_stav.Text = text;
+                lbl_stav.Text = stav;
             }
         }
 
-        public void Aktualizuj(string text)
+        public void ZmenaStavuUloz(string stav)
         {
-            WriteTextSafe(text);
+            WriteZmenaStavu(stav);
+        }
+
+        private void WriteZmenaIzieb(string pocetIzieb)
+        {
+            if (this.lbl_pocetIzieb.InvokeRequired)
+            {
+                SafeCallDelegateZmenaIzieb d = new SafeCallDelegateZmenaIzieb(WriteZmenaIzieb);
+                BeginInvoke(d, new object[] { pocetIzieb });
+            }
+            else
+            {
+                lbl_pocetIzieb.Text = pocetIzieb;
+            }
+        }
+
+        public void ZmenaIziebUloz(string pocetIzieb)
+        {
+            WriteZmenaIzieb(pocetIzieb);
+        }
+
+        private void WriteZmenaDatOd(string dat_od)
+        {
+            if (this.lbl_od.InvokeRequired)
+            {
+                SafeCallDelegateZmenaDatOd d = new SafeCallDelegateZmenaDatOd(WriteZmenaDatOd);
+                BeginInvoke(d, new object[] { dat_od });
+            }
+            else
+            {
+                lbl_od.Text = dat_od;
+            }
+        }
+
+        public void ZmenaDatOdUloz(string dat_od)
+        {
+            WriteZmenaDatOd(dat_od);
+        }
+
+        private void WriteZmenaDatDo(string dat_do)
+        {
+            if (this.lbl_do.InvokeRequired)
+            {
+                SafeCallDelegateZmenaDatDo d = new SafeCallDelegateZmenaDatDo(WriteZmenaDatDo);
+                BeginInvoke(d, new object[] { dat_do });
+            }
+            else
+            {
+                lbl_do.Text = dat_do;
+            }
+        }
+
+        public void ZmenaDatDoUloz(string dat_do)
+        {
+            WriteZmenaDatDo(dat_do);
         }
     }
 }
