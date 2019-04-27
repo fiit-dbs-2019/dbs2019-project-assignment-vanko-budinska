@@ -44,8 +44,8 @@
             this.lbl_adresa = new System.Windows.Forms.Label();
             this.lbl_stav = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_zaplatit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Platba = new System.Windows.Forms.Button();
+            this.btn_zmenaDatumu = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -56,9 +56,9 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btn_Spat = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -220,23 +220,24 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Stav";
             // 
-            // btn_zaplatit
+            // btn_Platba
             // 
-            this.btn_zaplatit.Location = new System.Drawing.Point(6, 143);
-            this.btn_zaplatit.Name = "btn_zaplatit";
-            this.btn_zaplatit.Size = new System.Drawing.Size(75, 23);
-            this.btn_zaplatit.TabIndex = 10;
-            this.btn_zaplatit.Text = "Zaplatit";
-            this.btn_zaplatit.UseVisualStyleBackColor = true;
+            this.btn_Platba.Location = new System.Drawing.Point(6, 143);
+            this.btn_Platba.Name = "btn_Platba";
+            this.btn_Platba.Size = new System.Drawing.Size(75, 23);
+            this.btn_Platba.TabIndex = 10;
+            this.btn_Platba.Text = "Zaplatit";
+            this.btn_Platba.UseVisualStyleBackColor = true;
+            this.btn_Platba.Click += new System.EventHandler(this.btn_Platba_Click);
             // 
-            // button1
+            // btn_zmenaDatumu
             // 
-            this.button1.Location = new System.Drawing.Point(35, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Zmenit datum";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_zmenaDatumu.Location = new System.Drawing.Point(35, 59);
+            this.btn_zmenaDatumu.Name = "btn_zmenaDatumu";
+            this.btn_zmenaDatumu.Size = new System.Drawing.Size(108, 23);
+            this.btn_zmenaDatumu.TabIndex = 11;
+            this.btn_zmenaDatumu.Text = "Zmenit datum";
+            this.btn_zmenaDatumu.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
@@ -305,7 +306,7 @@
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.btn_zaplatit);
+            this.panel1.Controls.Add(this.btn_Platba);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label9);
@@ -318,22 +319,13 @@
             // 
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btn_zmenaDatumu);
             this.panel2.Controls.Add(this.dateTimePicker2);
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Location = new System.Drawing.Point(173, 128);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(227, 87);
             this.panel2.TabIndex = 21;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(2, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(27, 17);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Od";
             // 
             // label12
             // 
@@ -344,21 +336,31 @@
             this.label12.TabIndex = 15;
             this.label12.Text = "Do";
             // 
-            // button2
+            // label11
             // 
-            this.button2.Location = new System.Drawing.Point(819, 192);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Spat";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(2, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(27, 17);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Od";
+            // 
+            // btn_Spat
+            // 
+            this.btn_Spat.Location = new System.Drawing.Point(819, 192);
+            this.btn_Spat.Name = "btn_Spat";
+            this.btn_Spat.Size = new System.Drawing.Size(75, 23);
+            this.btn_Spat.TabIndex = 22;
+            this.btn_Spat.Text = "Spat";
+            this.btn_Spat.UseVisualStyleBackColor = true;
+            this.btn_Spat.Click += new System.EventHandler(this.btn_Spat_Click);
             // 
             // form_ZmenaRezervacie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 225);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_Spat);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_stav);
             this.Controls.Add(this.label7);
@@ -399,8 +401,8 @@
         private System.Windows.Forms.Label lbl_adresa;
         private System.Windows.Forms.Label lbl_stav;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btn_zaplatit;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Platba;
+        private System.Windows.Forms.Button btn_zmenaDatumu;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TextBox textBox1;
@@ -413,6 +415,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Spat;
     }
 }

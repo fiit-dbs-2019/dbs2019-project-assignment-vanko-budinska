@@ -22,13 +22,15 @@ namespace DesktopApp1
         public DateTime Do { get; private set; }
         public string NazovUbytovania { get; private set; }
         public string Adresa { get; private set; }
-        public string Stav { get; private set; }
+        public string Stav;
         private Bookme b;
+        private delegate void SafeCallDelegate(string text);
 
         public RezervaciaPolozka()
         {
             InitializeComponent();
         }
+
         public RezervaciaPolozka(Bookme b, int CisloRezervacie, int PocetIzieb, DateTime Od, DateTime Do, string NazovUbytovania, string Adresa, string Stav)
         {
 
@@ -84,6 +86,24 @@ namespace DesktopApp1
             db_conn.Query();
             this.Dispose();
             
+        }
+
+        private void WriteTextSafe(string text)
+        {
+            if (this.lbl_stav.InvokeRequired)
+            {
+                SafeCallDelegate d = new SafeCallDelegate(WriteTextSafe);
+                BeginInvoke(d, new object[] { text });
+            }
+            else
+            {
+                lbl_stav.Text = text;
+            }
+        }
+
+        public void Aktualizuj(string text)
+        {
+            WriteTextSafe(text);
         }
     }
 }
