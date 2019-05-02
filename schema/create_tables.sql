@@ -26,12 +26,6 @@ CREATE TABLE public.pouzivatel
 	heslo text NOT NULL DEFAULT 'heslo'
 );
 
-CREATE TABLE public.stav_rezervacie
-(
-	id SERIAL NOT NULL PRIMARY KEY,
-	stav TEXT not NULL
-);
-
 CREATE TABLE public.rezervacia
 (
 	id SERIAL NOT NULL PRIMARY KEY,
@@ -49,6 +43,12 @@ CREATE TABLE public.destinacia
 	FOREIGN KEY (id_stat) REFERENCES public.stat(id)
 );
 
+CREATE TABLE public.stav_rezervacie
+(
+	id SERIAL NOT NULL PRIMARY KEY,
+	nazov text
+);
+
 CREATE TABLE public.ubytovanie
 (
 	id SERIAL NOT NULL PRIMARY KEY,
@@ -63,11 +63,11 @@ CREATE TABLE public.ubytovanie
 	parkovisko boolean,
 	ranajky boolean,
 	bazen boolean,
-	id_destinacia integer,	
+	klimatizacia boolean,	
+	id_destinacia integer,
 	FOREIGN KEY (id_destinacia) REFERENCES public.destinacia(id),
 	id_typ_ubytovania integer,
 	FOREIGN KEY (id_typ_ubytovania) REFERENCES public.typ_ubytovania(id),
-	klimatizacia boolean
 );
 
 CREATE TABLE public.cena
