@@ -46,12 +46,20 @@
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSpatHotelDetail = new System.Windows.Forms.Button();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpDetails = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblPark = new System.Windows.Forms.Label();
+            this.lblRanajky = new System.Windows.Forms.Label();
+            this.lblWifi = new System.Windows.Forms.Label();
+            this.lblBazen = new System.Windows.Forms.Label();
+            this.lblTv = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMainView)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
+            this.flpDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblHodn
@@ -210,10 +218,74 @@
             // 
             // flowLayoutPanel5
             // 
+            this.flowLayoutPanel5.Controls.Add(this.flpDetails);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(30, 476);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(812, 243);
             this.flowLayoutPanel5.TabIndex = 16;
+            // 
+            // flpDetails
+            // 
+            this.flpDetails.Controls.Add(this.lblPark);
+            this.flpDetails.Controls.Add(this.lblRanajky);
+            this.flpDetails.Controls.Add(this.lblBazen);
+            this.flpDetails.Controls.Add(this.lblWifi);
+            this.flpDetails.Controls.Add(this.lblTv);
+            this.flpDetails.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpDetails.Location = new System.Drawing.Point(3, 3);
+            this.flpDetails.Name = "flpDetails";
+            this.flpDetails.Size = new System.Drawing.Size(189, 134);
+            this.flpDetails.TabIndex = 0;
+            // 
+            // lblPark
+            // 
+            this.lblPark.AutoSize = true;
+            this.lblPark.Location = new System.Drawing.Point(3, 0);
+            this.lblPark.Name = "lblPark";
+            this.lblPark.Size = new System.Drawing.Size(97, 17);
+            this.lblPark.TabIndex = 0;
+            this.lblPark.Text = "✔ Parkovanie";
+            this.lblPark.Visible = false;
+            // 
+            // lblRanajky
+            // 
+            this.lblRanajky.AutoSize = true;
+            this.lblRanajky.Location = new System.Drawing.Point(3, 17);
+            this.lblRanajky.Name = "lblRanajky";
+            this.lblRanajky.Size = new System.Drawing.Size(123, 17);
+            this.lblRanajky.TabIndex = 1;
+            this.lblRanajky.Text = "✔ Ranajky v cene";
+            this.lblRanajky.Visible = false;
+            // 
+            // lblWifi
+            // 
+            this.lblWifi.AutoSize = true;
+            this.lblWifi.Location = new System.Drawing.Point(3, 51);
+            this.lblWifi.Name = "lblWifi";
+            this.lblWifi.Size = new System.Drawing.Size(53, 17);
+            this.lblWifi.TabIndex = 2;
+            this.lblWifi.Text = "✔ WiFi";
+            this.lblWifi.Visible = false;
+            // 
+            // lblBazen
+            // 
+            this.lblBazen.AutoSize = true;
+            this.lblBazen.Location = new System.Drawing.Point(3, 34);
+            this.lblBazen.Name = "lblBazen";
+            this.lblBazen.Size = new System.Drawing.Size(66, 17);
+            this.lblBazen.TabIndex = 3;
+            this.lblBazen.Text = "✔ Bazen";
+            this.lblBazen.Visible = false;
+            // 
+            // lblTv
+            // 
+            this.lblTv.AutoSize = true;
+            this.lblTv.Location = new System.Drawing.Point(3, 68);
+            this.lblTv.Name = "lblTv";
+            this.lblTv.Size = new System.Drawing.Size(44, 17);
+            this.lblTv.TabIndex = 4;
+            this.lblTv.Text = "✔ TV";
+            this.lblTv.Visible = false;
             // 
             // HotelDetail
             // 
@@ -239,6 +311,9 @@
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flpDetails.ResumeLayout(false);
+            this.flpDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -263,5 +338,11 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Button btnSpatHotelDetail;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.FlowLayoutPanel flpDetails;
+        private System.Windows.Forms.Label lblPark;
+        private System.Windows.Forms.Label lblRanajky;
+        private System.Windows.Forms.Label lblBazen;
+        private System.Windows.Forms.Label lblWifi;
+        private System.Windows.Forms.Label lblTv;
     }
 }

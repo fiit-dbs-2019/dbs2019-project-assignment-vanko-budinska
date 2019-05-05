@@ -30,7 +30,9 @@ CREATE TABLE public.rezervacia
 (
 	id SERIAL NOT NULL PRIMARY KEY,
 	od_dat DATE NOT NULL,
-	do_dat DATE NOT NULL
+	do_dat DATE NOT NULL,
+	id_stav integer,
+	FOREIGN KEY (id_stav) REFERENCES public.stav_rezervacie(id)
 );
 
 CREATE TABLE public.destinacia
@@ -39,6 +41,12 @@ CREATE TABLE public.destinacia
 	nazov text,
 	id_stat integer,
 	FOREIGN KEY (id_stat) REFERENCES public.stat(id)
+);
+
+CREATE TABLE public.stav_rezervacie
+(
+	id SERIAL NOT NULL PRIMARY KEY,
+	nazov text
 );
 
 CREATE TABLE public.ubytovanie
@@ -55,11 +63,11 @@ CREATE TABLE public.ubytovanie
 	parkovisko boolean,
 	ranajky boolean,
 	bazen boolean,
-	id_destinacia integer,	
+	klimatizacia boolean,	
+	id_destinacia integer,
 	FOREIGN KEY (id_destinacia) REFERENCES public.destinacia(id),
 	id_typ_ubytovania integer,
 	FOREIGN KEY (id_typ_ubytovania) REFERENCES public.typ_ubytovania(id),
-	klimatizacia boolean
 );
 
 CREATE TABLE public.cena

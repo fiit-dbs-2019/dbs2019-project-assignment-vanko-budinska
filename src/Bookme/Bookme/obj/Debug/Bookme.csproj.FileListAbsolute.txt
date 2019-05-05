@@ -32,3 +32,5 @@ C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\Desktop
 C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.IzbaDetail.resources
 C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.Reg_Form.resources
 C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.MojeRezervacie.resources
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.RezervaciaPolozka.resources
+C:\Users\Martin\Desktop\Skola\6_Semester\DBS\src\Bookme\Bookme\obj\Debug\DesktopApp1.form_ZmenaRezervacie.resources

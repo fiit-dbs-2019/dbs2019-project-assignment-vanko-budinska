@@ -60,6 +60,12 @@
     <Compile Include="Bookme.Designer.cs">
       <DependentUpon>Bookme.cs</DependentUpon>
     </Compile>
+    <Compile Include="form_ZmenaRezervacie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_ZmenaRezervacie.Designer.cs">
+      <DependentUpon>form_ZmenaRezervacie.cs</DependentUpon>
+    </Compile>
     <Compile Include="HotelPolozka.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,11 +110,20 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Rezervacia.cs" />
+    <Compile Include="RezervaciaPolozka.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RezervaciaPolozka.Designer.cs">
+      <DependentUpon>RezervaciaPolozka.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ubytovanie.cs" />
     <Compile Include="Uzivatel.cs" />
     <Compile Include="ZostavaRezervacie.cs" />
     <EmbeddedResource Include="Bookme.resx">
       <DependentUpon>Bookme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_ZmenaRezervacie.resx">
+      <DependentUpon>form_ZmenaRezervacie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HotelDetail.resx">
       <DependentUpon>HotelDetail.cs</DependentUpon>
@@ -140,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reg_Form.resx">
       <DependentUpon>Reg_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RezervaciaPolozka.resx">
+      <DependentUpon>RezervaciaPolozka.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

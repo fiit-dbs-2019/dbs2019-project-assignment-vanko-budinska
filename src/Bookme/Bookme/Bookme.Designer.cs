@@ -55,6 +55,7 @@ namespace DesktopApp1
             this.dalej = new System.Windows.Forms.Button();
             this.spat = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -146,22 +147,21 @@ namespace DesktopApp1
             // 
             // tbDestinacia
             // 
-            this.tbDestinacia.Location = new System.Drawing.Point(6, 21);
+            this.tbDestinacia.Location = new System.Drawing.Point(6, 40);
             this.tbDestinacia.Name = "tbDestinacia";
             this.tbDestinacia.Size = new System.Drawing.Size(188, 22);
             this.tbDestinacia.TabIndex = 8;
-            this.tbDestinacia.Text = "Destinacia";
             // 
             // dtpicOd
             // 
-            this.dtpicOd.Location = new System.Drawing.Point(9, 73);
+            this.dtpicOd.Location = new System.Drawing.Point(9, 88);
             this.dtpicOd.Name = "dtpicOd";
             this.dtpicOd.Size = new System.Drawing.Size(163, 22);
             this.dtpicOd.TabIndex = 10;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(100, 150);
+            this.numericUpDown1.Location = new System.Drawing.Point(100, 165);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -185,7 +185,7 @@ namespace DesktopApp1
             this.groupBox1.Controls.Add(this.chbKlimatizacia);
             this.groupBox1.Controls.Add(this.chbBazen);
             this.groupBox1.Controls.Add(this.chbParkovanie);
-            this.groupBox1.Location = new System.Drawing.Point(23, 399);
+            this.groupBox1.Location = new System.Drawing.Point(23, 426);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 233);
             this.groupBox1.TabIndex = 13;
@@ -205,7 +205,7 @@ namespace DesktopApp1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 152);
+            this.label4.Location = new System.Drawing.Point(7, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 17);
             this.label4.TabIndex = 18;
@@ -214,7 +214,7 @@ namespace DesktopApp1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 98);
+            this.label3.Location = new System.Drawing.Point(7, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 17);
             this.label3.TabIndex = 17;
@@ -223,7 +223,7 @@ namespace DesktopApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 53);
+            this.label2.Location = new System.Drawing.Point(6, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 17);
             this.label2.TabIndex = 16;
@@ -231,14 +231,14 @@ namespace DesktopApp1
             // 
             // dtpicDo
             // 
-            this.dtpicDo.Location = new System.Drawing.Point(9, 118);
+            this.dtpicDo.Location = new System.Drawing.Point(9, 133);
             this.dtpicDo.Name = "dtpicDo";
             this.dtpicDo.Size = new System.Drawing.Size(163, 22);
             this.dtpicDo.TabIndex = 14;
             // 
             // btnHladat
             // 
-            this.btnHladat.Location = new System.Drawing.Point(52, 227);
+            this.btnHladat.Location = new System.Drawing.Point(52, 242);
             this.btnHladat.Name = "btnHladat";
             this.btnHladat.Size = new System.Drawing.Size(75, 23);
             this.btnHladat.TabIndex = 13;
@@ -320,6 +320,7 @@ namespace DesktopApp1
             this.dalej.TabIndex = 17;
             this.dalej.Text = ">";
             this.dalej.UseVisualStyleBackColor = true;
+            this.dalej.Click += new System.EventHandler(this.dalej_Click);
             // 
             // spat
             // 
@@ -330,9 +331,11 @@ namespace DesktopApp1
             this.spat.TabIndex = 18;
             this.spat.Text = "<";
             this.spat.UseVisualStyleBackColor = true;
+            this.spat.Click += new System.EventHandler(this.spat_Click);
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.btnHladat);
             this.groupBox4.Controls.Add(this.numericUpDown2);
             this.groupBox4.Controls.Add(this.label1);
@@ -345,14 +348,23 @@ namespace DesktopApp1
             this.groupBox4.Controls.Add(this.dtpicOd);
             this.groupBox4.Location = new System.Drawing.Point(23, 126);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 267);
+            this.groupBox4.Size = new System.Drawing.Size(200, 294);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hladat";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 17);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Destinacia";
+            // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(100, 182);
+            this.numericUpDown2.Location = new System.Drawing.Point(100, 197);
             this.numericUpDown2.Minimum = new decimal(new int[] {
             1,
             0,
@@ -370,7 +382,7 @@ namespace DesktopApp1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 184);
+            this.label1.Location = new System.Drawing.Point(7, 199);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 19;
@@ -395,7 +407,7 @@ namespace DesktopApp1
             "Najlepsie hodnotene",
             "Hviezdicky [1->5]",
             "Hviezdicky [5->1]"});
-            this.comboBox1.Location = new System.Drawing.Point(104, 21);
+            this.comboBox1.Location = new System.Drawing.Point(6, 21);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(165, 24);
             this.comboBox1.TabIndex = 22;
@@ -505,6 +517,7 @@ namespace DesktopApp1
         private System.Windows.Forms.TextBox tb_heslo;
         private System.Windows.Forms.Panel panelPaging;
         private System.Windows.Forms.Panel flp_prihlaseny;
+        private System.Windows.Forms.Label label7;
     }
 }
 

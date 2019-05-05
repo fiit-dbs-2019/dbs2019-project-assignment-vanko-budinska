@@ -27,6 +27,8 @@ namespace DesktopApp1
 
         public int id_destinacia { get; private set; }
         public int id_typ_ubytovania { get; private set; }
+
+        public int pocetRezervacii;
                
         public Ubytovanie(int id, string nazov, int pocet_hviezdiciek, float hodnotenie, string adresa, string popis, string[] obr_urls, bool wifi, bool tv, bool parkovanie, bool ranajky, bool bazen, int id_destinacia, int id_typ_ubytovania, bool klimatizacia)
         {

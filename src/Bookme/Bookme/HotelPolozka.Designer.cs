@@ -41,6 +41,8 @@
             this.lblNazov = new System.Windows.Forms.Label();
             this.lblHviez = new System.Windows.Forms.Label();
             this.lblDestinacia = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_PocetRezervacii = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -48,7 +50,7 @@
             // 
             // btnVybrat
             // 
-            this.btnVybrat.Location = new System.Drawing.Point(713, 152);
+            this.btnVybrat.Location = new System.Drawing.Point(697, 168);
             this.btnVybrat.Name = "btnVybrat";
             this.btnVybrat.Size = new System.Drawing.Size(75, 23);
             this.btnVybrat.TabIndex = 2;
@@ -71,7 +73,7 @@
             // 
             this.lblHodn.AutoSize = true;
             this.lblHodn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblHodn.Location = new System.Drawing.Point(740, 84);
+            this.lblHodn.Location = new System.Drawing.Point(741, 120);
             this.lblHodn.Name = "lblHodn";
             this.lblHodn.Size = new System.Drawing.Size(94, 20);
             this.lblHodn.TabIndex = 6;
@@ -82,7 +84,7 @@
             // 
             this.lblCena.AutoSize = true;
             this.lblCena.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblCena.Location = new System.Drawing.Point(743, 109);
+            this.lblCena.Location = new System.Drawing.Point(744, 145);
             this.lblCena.Name = "lblCena";
             this.lblCena.Size = new System.Drawing.Size(48, 20);
             this.lblCena.TabIndex = 7;
@@ -111,7 +113,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(643, 84);
+            this.label1.Location = new System.Drawing.Point(644, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 10;
@@ -122,7 +124,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(644, 109);
+            this.label2.Location = new System.Drawing.Point(645, 145);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 20);
             this.label2.TabIndex = 11;
@@ -176,11 +178,35 @@
             this.lblDestinacia.TabIndex = 4;
             this.lblDestinacia.Text = "Destinacia";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(644, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Pocet rezervacii";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_PocetRezervacii
+            // 
+            this.lbl_PocetRezervacii.AutoSize = true;
+            this.lbl_PocetRezervacii.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_PocetRezervacii.Location = new System.Drawing.Point(780, 86);
+            this.lbl_PocetRezervacii.Name = "lbl_PocetRezervacii";
+            this.lbl_PocetRezervacii.Size = new System.Drawing.Size(68, 20);
+            this.lbl_PocetRezervacii.TabIndex = 14;
+            this.lbl_PocetRezervacii.Text = "PocRez";
+            this.lbl_PocetRezervacii.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // HotelPolozka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.lbl_PocetRezervacii);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -216,5 +242,7 @@
         private System.Windows.Forms.Label lblDestinacia;
         private System.Windows.Forms.Label lblNazov;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_PocetRezervacii;
     }
 }

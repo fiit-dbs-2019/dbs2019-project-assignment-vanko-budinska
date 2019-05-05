@@ -33,7 +33,7 @@ namespace DesktopApp1
             this.ubytovanie = hotelPolozka.ubytovanie;
             NaplnPolozky();
         }
-        
+
         private void NaplnPolozky()
         {
             string hv = "";
@@ -45,6 +45,16 @@ namespace DesktopApp1
             //lblCena.Text = ubytovanie.cena.ToString();
             lblDestinacia.Text = ubytovanie.adresa;
             rtbPopis.Text = ubytovanie.popis;
+            if (ubytovanie.parkovanie)
+                lblPark.Show();
+            if (ubytovanie.ranajky)
+                lblRanajky.Show();
+            if (ubytovanie.bazen)
+                lblBazen.Show();
+            if (ubytovanie.wifi)
+                lblWifi.Show();
+            if (ubytovanie.tv)
+                lblTv.Show();
             vykresli_obr(ubytovanie.obr_urls);
         }
 
@@ -71,7 +81,7 @@ namespace DesktopApp1
             picBoxMainView.Image = obrazky[0].Image;
             picBoxMainView.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        
+
         private void obrazky_Click(object sender, EventArgs e)
         {
             picBoxMainView.Image = ((PictureBox)sender).Image;
@@ -82,12 +92,13 @@ namespace DesktopApp1
         {
             this.uzivatel = b.uzivatel;
             db_conn = new PostGreSQL("127.0.0.1", "5432", "martin", "271996", "bookme", "public");
-            string q = "INSERT INTO public.rezervacia (od_dat, do_dat) VALUES (:datum_od, :datum_do) RETURNING id;";
+            string q = "INSERT INTO public.rezervacia (od_dat, do_dat, id_stav) VALUES (:datum_od, :datum_do, :stav) RETURNING id;";
 
             NpgsqlConnection connection = db_conn.conn;
             NpgsqlCommand cmd = new NpgsqlCommand(q, connection);
             cmd.Parameters.AddWithValue("datum_od", NpgsqlTypes.NpgsqlDbType.Date).Value = b.DatumOd;
             cmd.Parameters.AddWithValue("datum_do", NpgsqlTypes.NpgsqlDbType.Date).Value = b.DatumDo;
+            cmd.Parameters.AddWithValue("stav", NpgsqlTypes.NpgsqlDbType.Integer).Value = 1;
             db_conn.command = cmd;
 
             List<string> rep = db_conn.Query();
@@ -117,9 +128,11 @@ namespace DesktopApp1
 
         private void btnSpatHotelDetail_Click(object sender, EventArgs e)
         {
+            b.disposePanelItems(b.flpanel1);
             b.clearPanel(b.flpanel1);
-            foreach(var polozka in b.polozky_control)
-                b.addflPanel(b.flpanel1, polozka);
+            b.PagingPanel1.Show();
+            b.hladat();
+            b.naplPonuku();
         }
     }
 

@@ -11,8 +11,9 @@ V oboch prípadoch bude informovanı poskytovate¾ ubytovania a pouívate¾ovi sa v 
 stav svojich rezervácii alebo platieb. V tomto zozname ubytovaní nájde pouívate¾, keï si otvorí poadovanú poloku, všetko èo potrebuje. Môe v òom zruši  
 rezerváciu (pokia¾ nezmeškal monı termín na zrušenie rezervácie), komunikova s poskytovate¾om ubytovania alebo sa preukáza rezervaènım èíslom pre
 jednoduché a rıchle ubytovanie.
+
 ## Dátovı model 
-![model](model3.png "Aktualny datovy model")
+![model](diagram_final.png "Aktualny datovy model")
 ### Opis modelu:
 #### Ubytovanie
 Za ubytovanie povaujeme miesto, na ktorom je moné prespa a v reálnom svete ho mono povaova èi u za samostatnú izbu v súkromí, alebo "izbu" (s kúpe¾òou alebo viacerími miestnosami) v hoteli, èi apartmán.
@@ -44,8 +45,6 @@ Pri základnom vyh¾adávaní sa oèakáva zadanie destinácie, dátumov zaèiatku a konc
 Po stlaèení tlaèidla h¾ada systém naplní ponuku s vyhovujúcimi ubytovaniami.
 #### Podscenár 1.3 - Filter
 Po stlaèení tlaèidla filtruj sa filter aplikuje na práve vypísané ponuky, teda pri základnom scenári na predvolenú ponuku, po podscenári 1.2 na vyh¾adané ponuky.
-#### Podscenár 1.4 - Usporiadanie
-Po vybratí z ponuky pre usporiadanie (Zoradit pod¾a) sa usporiadajú práve zobrazované ponuky.
 
 ### Scenár 2 - detail ubytovania
 ![Detail_ubytovania](wireframe-2.png "Detail ubytovania")
@@ -70,7 +69,8 @@ Ak nie je správny email (nebol zaregistrovanı èi je zle vyplnenı) alebo heslo je
 Tieto údaje sa nachádzajú v tabu¾ke Pouívate¾.
 
 ### Scenár 4 - Preh¾ad rezervácií
-Po kliknutí na tlaèidlo Moje Rezervacie sa otvorí (zatia¾) tabu¾ka s informáciami o rezerváciach pre práve prihláseného pouívate¾a.\
+![Prehlad_rezervacii](wireframe-4.jpeg "Prehlad_rezervacii")
+Po kliknutí na tlaèidlo Moje Rezervacie sa otvorí preh¾ad s informáciami o rezerváciach pre práve prihláseného pouívate¾a.\
 Inormácie zobrazované v preh¾ade rezervácií:
 * Èíslo rezervácie
 * Poèet izieb za danú rezerváciu
@@ -78,10 +78,19 @@ Inormácie zobrazované v preh¾ade rezervácií:
 * Dátum do kedy je rezervácia platná
 * Názov ubytovania
 * Adresa ubytovania
-* Destinácia
-* Štát
+* Stav rezervácie
+Tlaèidlo s monosou úpravy alebo zmazania rezervácie.
 
 Tlaèidlom spä sa pouívate¾ vráti na preh¾ad ubytovaní
+
+#### Podscenár 4.1 Zmena rezervácie
+![zmena_rezervacie](wireframe-5.jpeg "zmena_rezervacie")
+Otvorí sa okno s detailami rezervácie, monosou zmeny dátumu a "úhrady" rezervácie.
+Zmena záznamu sa vykonáva cez transakcie.
+
+#### Podscenár 4.2 Zrušenie rezervácie
+V preh¾ade rezervácií po kliknutí na tlaèidlo Zrusit sa rezervácia zruší - zmae sa z tabu¾ky a
+aj v preh¾ade.
 
 ## Opis návrhu a implementácie
 ### Programové prostredie
@@ -89,6 +98,8 @@ Aplikácia je desktopová urèená pre OS Windows, implementovaná v programovacom ja
 ### Návrhové rozhodnutia
 K DB sa pristupuje pomocou Npgsql, pripojenie k DB prebieha cez NpgsqlConnection vdy keï je poiadavka na vıber z DB. Do NpgsqlConnection vstupuje adresa servera, port, userID, heslo a názov DB.
 Na poiadavky na vıber z DB je implementovaná vlastná trieda PostGreSQL, kde do jej konštruktora vstupujú údaje na pripojenie do DB. Táto trieda ma vlastnú metódu Query do ktorej vstupuje string pre poiadavku, vracia List<string> kde string má formát "stlpec1,stlpec2,stlpec3...stlpecN". 
+
+
 ### Opis implementácie 
 Z grafického h¾adiska pouité prvky poskytovná cez Toolbox.
 
@@ -97,11 +108,9 @@ Hlavné okno - vyuíva User Control HotelPolozka. Jednotlivé poloky sú dynamicky
 
 #### Podscenár 1.2 - Základné vyh¾adávanie
 V Bookme.cs btnHladat_Click - Vıber z tabuliek destinacia, stat - kde sa adresa, nazov statu alebo nazov destinacie zhoduje so zadanım textom a naplnenie ponuky pod¾a odpovede z DB.
-Nie je doimplementoavné vyh¾adávanie pod¾a dátumu, poètu osôb a izieb
 
 #### Podscenár 1.3 - Filter
 V Bookme.cs btnFiltruj_Click - vıber z tabu¾ky ubytovaní pod¾a checkboxov.
-
 
 #### Scenár 2 - detail ubytovania
 UserControl HotelDetail(HotelPolozka hotelPolozka). Dáta sú èerpané z poloky hotela, ubytovania.\
@@ -124,15 +133,16 @@ V Bookme.cs btnPrihlas_Click - overenie hesla k prislúchajúcemu emailu v tabu¾ke
 Po prihlásení zmena pre prihlásenie na UserControl PrihlasenyHlavicka.
 
 #### Scenár 4 - Preh¾ad rezervácií
-UserControl MojeRezervacie - naplnenie dataGridView pod¾a selektu z DB.
+UserControl MojeRezervacie - naplnenie pod¾a selektu z DB.
 
 ### Generovanie dát
-Dáta do tabuliek sa generujú cez skript v adresári data/ 
+Dáta do tabuliek sa generujú cez skript v adresári data./ 
 Dáta je treba generova postupne, pod¾a prepojenia tabuliek.
+SQL skripty na vytvorenie èíselníkov typ_ubytovania, typ_izby, stav_rezervacie, sú v adresári data./
 Skript pre vytvorenie tabuliek v schema/ create_tables.sql
 #### Sahovanie URL pre obrázky
 Spustenie s: -u conn_info.txt V conn_info su informácie pre pripojenie k DB.
-Sahovanie prebieha tak, e sa odošle web request, ak nieje error, url sa uloí do súboru. Následne èakám 10ms (aby ma náhodou nevypli). 
+Sahovanie prebieha tak, e sa odošle web request, ak nieje error, url sa uloí do súboru. Následne èakám 3ms (aby ma náhodou nevypli). 
 Defaultne sa ahá z url s prefixom https://r-ak.bstatic.com/images/hotel/max500/150/150 za ktorım nasleduje 6-èíslie od 0 po 999999.
 URL sa ukladajú do urls.txt, ktorı sa spracováva pri generovaní ubytovaní.
 #### Vkladanie Štátov
@@ -153,37 +163,35 @@ random: ostatné paramentre
 #### Generovanie izieb
 Spustenie s: -r conn_info.txt\
 Pod¾a druhu ubytovania sa vygeneruje poèet izieb pre dané ubytovanie, náhodne sa vyberie typ lôka a pod¾a toho sa urèí kapacita, ve¾kos izby - random.
-
-
 ## TODO
-- [ ] Scenár 3 - Detail a potvrdenie rezervácie
-- [ ] Scenár 2 - Izby pre dané ubytovanie
-- [ ] Scenár 2 - Detail hotela - ïalšie informácie
-- [ ] Model - Tabu¾ka so monımi stavmi rezervácií
-- [ ] Scenár 4 - Jednotlivé vytvorené rezervácie v samostatnom UserControl s monosou zmeny stavu
-- [ ] Scenár 5 - zmena, zmazanie rezervácie 
-- [ ] pouitie transakcií + FK
+- [X] Scenár 3 - Detail a potvrdenie rezervácie
+- [X] Scenár 2 - Izby pre dané ubytovanie
+- [X] Scenár 2 - Detail hotela - ïalšie informácie
+- [X] Model - Tabu¾ka so monımi stavmi rezervácií
+- [X] Scenár 4 - Jednotlivé vytvorené rezervácie v samostatnom UserControl
+- [X] Scenár 5 - zmena, zmazanie rezervácie 
+- [X] pouitie transakcií + FK
 - [ ] Naplni DB zmysluplnımi cenami
-- [ ] Stránkovanie
+- [X] Stránkovanie
+- [X] Optimalizacia pouzitej pamati pri vytvarani a ruseni stranok
 - [ ] Usporiadanie pod¾a kritérií
-- [ ] Všetky Queries cez cmd.Parameters
-- [ ] Kompletnı podscenár 1.2 (datum, izby, osoby)
-- [ ] Dorobenie lepšieho vyskladnávanie Query
+- [X] Všetky Queries cez cmd.Parameters
+- [X] Kompletnı podscenár 1.2 (datum, izby, osoby)
+- [X] Dorobenie lepšieho vyskladnávanie Query
 - [ ] Automatické prihlásenie po registrácií
 - [ ] V dokumentácií predpisy tvaru súborov pre generovanie
-- [ ] dogenerovanie dát
-- [ ] GROUP BY
+- [X] dogenerovanie dát
+- [X] GROUP BY
 ## Min. poziadavky
 - [X] Min. 7 tabuliek okrem èíselínkov
-- [ ] Rádovo milóny v kadej tab. okrem èíselníkov
-- [ ] V jednej 10 mil
+- [X] Rádovo milóny v kadej tab. okrem èíselníkov
+- [X] V jednej 10 mil
 - [X] Join-y
-- [ ] Pouitie agregaènej funkcie
-- [ ] Zobrazenie preh¾adu všetkıch záznamov so stránkovaním + GRUOP BY
-- [ ] Filtrovanie pod¾a zadanıch kriterií
+- [X] Pouitie agregaènej funkcie
+- [X] Zobrazenie preh¾adu všetkıch záznamov so stránkovaním + GRUOP BY
+- [X] Filtrovanie pod¾a zadanıch kriterií
 - [X] Detail záznamu
 - [X] Vytvorenie záznamu (Novı pouívate¾, rezervácia)
-- [ ] Aktualizácia existujúceho záznamu
-- [ ] Vymazanie záznamu
-- [ ] Scenáre ktoré menia dáta musia by realizované s pouitím transkacií + aspoò jeden s viacerımi tabu¾kami (FK) 
-- [ ] V dokumentácií predpisy tvaru súborov pre generovanie
+- [X] Aktualizácia existujúceho záznamu
+- [X] Vymazanie záznamu
+- [X] Scenáre ktoré menia dáta musia by realizované s pouitím transkacií + aspoò jeden s viacerımi tabu¾kami (FK) e

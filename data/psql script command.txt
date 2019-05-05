@@ -1,0 +1,1 @@
+psql -U martin -d bookme -a -f "C:\Users\Martin\Desktop\Skola\6_Semester\DBS\data\"
