@@ -11,6 +11,7 @@ V oboch prípadoch bude informovanı poskytovate¾ ubytovania a pouívate¾ovi sa v 
 stav svojich rezervácii alebo platieb. V tomto zozname ubytovaní nájde pouívate¾, keï si otvorí poadovanú poloku, všetko èo potrebuje. Môe v òom zruši  
 rezerváciu (pokia¾ nezmeškal monı termín na zrušenie rezervácie), komunikova s poskytovate¾om ubytovania alebo sa preukáza rezervaènım èíslom pre
 jednoduché a rıchle ubytovanie.
+
 ## Dátovı model 
 ![model](diagram_final.png "Aktualny datovy model")
 ### Opis modelu:
